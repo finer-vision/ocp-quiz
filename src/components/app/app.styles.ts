@@ -31,10 +31,12 @@ export const AppReset = createGlobalStyle`
 
   html {
     font-size: clamp(var(--root-min), var(--root-size), var(--root-max));
-    font-family: Arial, sans-serif;
+    font-family: system-ui, sans-serif;
     font-weight: normal;
     line-height: 1em;
     background-color: #1e1e1e;
     color: #fefefe;
+    touch-action: none;
+    overscroll-behavior: none;
   }
 `;

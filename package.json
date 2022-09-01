@@ -39,7 +39,6 @@
     "webpack-dev-server": "^4.10.1"
   },
   "dependencies": {
-    "@app/shared": "file:../shared",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
