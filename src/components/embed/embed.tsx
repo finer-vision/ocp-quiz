@@ -7,5 +7,9 @@ type Props = {
 };
 
 export default function Embed({ src, type = "text/html" }: Props) {
-  return <EmbedWrapper type={type} src={src} />;
+  return (
+    <EmbedWrapper>
+      <embed type={type} src={src} />
+    </EmbedWrapper>
+  );
 }

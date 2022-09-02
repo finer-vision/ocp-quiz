@@ -25,3 +25,11 @@ pm2 save
 ```
 
 The kiosk is now set to autostart on boot.
+
+### Notes
+
+Convert transparent `.mov` videos into transparent `.webm` videos:
+
+```shell
+ffmpeg -y -i in.mov -f webm -c:v libvpx -b:v 2M -acodec libvorbis -auto-alt-ref 0 out.webm
+```

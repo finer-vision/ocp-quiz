@@ -1,23 +1,19 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
+import { HomeState } from "@/types";
+import { EmbedWrapper } from "@/components/embed/embed.styles";
+import { TitleSignWrapper } from "@/components/title-sign/title-sign.styles";
 
-export const HomeButton = styled(Link)`
+export const HomeButton = styled.img`
   width: 23.896875%;
+  height: auto;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, calc(-50% + 19vh));
   z-index: 1;
-
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
 `;
 
 export const HomeContent = styled.div`
-  border-left: 0.4393229166666667vw solid #ffffff;
   background: linear-gradient(180deg, #0080f9 0%, rgba(0, 129, 250, 0.38) 100%);
   position: relative;
   display: flex;
@@ -26,10 +22,54 @@ export const HomeContent = styled.div`
   justify-content: center;
 `;
 
-export const HomeWrapper = styled.div`
+type Props = {
+  state: HomeState;
+};
+
+export const HomeWrapper = styled.div<Props>`
+  --speed: 500ms;
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 50vw);
   background-color: #e5e5e5;
+
+  ${EmbedWrapper} {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border-right: 0.4393229166666667vw solid #ffffff;
+  }
+
+  ${EmbedWrapper}, ${HomeContent} {
+    transition: all var(--speed) linear;
+    width: 50vw;
+  }
+
+  ${HomeContent} {
+    margin-left: 50vw;
+    height: 100%;
+  }
+
+  ${TitleSignWrapper} {
+    transition: transform var(--speed) linear;
+  }
+
+  ${({ state }) => {
+    if (state === HomeState.intro) {
+      return css`
+        ${EmbedWrapper} {
+          transform: translateX(-100%);
+        }
+
+        ${HomeContent} {
+          width: 100vw;
+          margin-left: 0;
+        }
+
+        ${TitleSignWrapper} {
+          transform: scale(1.75) translateY(19%);
+        }
+      `;
+    }
+  }};
 `;

@@ -12,6 +12,9 @@ export const BuildingsParallaxBack = styled.div`
 `;
 
 export const BuildingsParallaxWrapper = styled.div`
+  --duration: 20000ms;
+  --repititions: 4;
+  --scale: 8;
   width: 100%;
   height: 33.61157407407408vh;
   position: absolute;
@@ -22,15 +25,15 @@ export const BuildingsParallaxWrapper = styled.div`
   ${BuildingsParallaxFront}, ${BuildingsParallaxBack} {
     --speed: 1;
     --dir: 1;
-    width: calc(100% * 2);
+    width: calc(100vw * var(--repititions));
     height: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
     background-position: 0 100%;
-    background-size: 50% auto;
+    background-size: calc(100% / var(--scale)) auto;
     background-repeat: repeat-x;
-    animation: scroll calc(5000ms * var(--speed)) linear infinite;
+    animation: scroll calc(var(--duration) * var(--speed)) linear infinite;
 
     @keyframes scroll {
       0% {
