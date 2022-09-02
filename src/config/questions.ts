@@ -18,7 +18,7 @@ const questions: Questions = {
     {
       id: 1,
       question: `Question goes here?`,
-      type: "boolean",
+      type: "multi",
       answers: [
         "Lorem ipsum dolor sit amet, consectetur",
         "Excepteur sint occaecat cupidatat non proident",
@@ -40,7 +40,7 @@ const questions: Questions = {
     {
       id: 1,
       question: `Question goes here?`,
-      type: "boolean",
+      type: "multi",
       answers: [
         "Lorem ipsum dolor sit amet, consectetur",
         "Excepteur sint occaecat cupidatat non proident",

@@ -1,14 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import {
-  QuestionTitle,
-  QuestionProgress,
+  QuestionAnswers,
   QuestionContainer,
   QuestionDecor,
+  QuestionProgress,
+  QuestionTitle,
   QuestionWrapper,
 } from "@/pages/question/question.styles";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
 import questions from "@/config/questions";
+import { QuestionData } from "@/types";
 
 type Params = {
   categoryId: string;
@@ -36,6 +38,10 @@ export default function Question() {
     });
   }, [categoryId, questionNumber]);
 
+  const handleSelect = React.useCallback((answer: string) => {
+    console.log(answer);
+  }, []);
+
   return (
     <QuestionWrapper>
       <QuizFrame>
@@ -45,8 +51,41 @@ export default function Question() {
             {questionNumber}/{totalQuestions}
           </QuestionProgress>
           <QuestionTitle>{question.question}</QuestionTitle>
+          <QuestionAnswers>
+            <Answers question={question} onSelect={handleSelect} />
+          </QuestionAnswers>
         </QuestionContainer>
       </QuizFrame>
     </QuestionWrapper>
   );
+}
+
+const letters = ["a", "b", "c"];
+
+type AnswersProps = {
+  question: QuestionData;
+  onSelect: (answer: string) => void;
+};
+
+function Answers({ question, onSelect }: AnswersProps) {
+  switch (question.type) {
+    case "boolean":
+      return <>boolean</>;
+    case "multi":
+      return (
+        <ul>
+          {question.answers.map((answer, index) => {
+            const letter = letters[index];
+            return (
+              <li key={index} onClick={() => onSelect(answer)}>
+                <img src={`./assets/${letter}.png`} alt={letter} />
+                <p>{answer}</p>
+              </li>
+            );
+          })}
+        </ul>
+      );
+    default:
+      return <></>;
+  }
 }

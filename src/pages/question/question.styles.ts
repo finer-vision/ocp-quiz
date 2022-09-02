@@ -1,5 +1,28 @@
 import styled from "styled-components";
 
+export const QuestionAnswers = styled.div`
+  ul {
+    list-style: none;
+    margin-top: calc(var(--vh) * (5 / 100));
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--vw) * (1 / 100));
+    font-size: calc(var(--vh) * (3.2407407407407405 / 100));
+    margin-bottom: calc(var(--vh) * (3.2407407407407405 / 100));
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      width: calc(var(--vw) * (3 / 100));
+    }
+  }
+`;
+
 export const QuestionProgress = styled.div`
   font-size: calc(var(--vh) * (2.75 / 100));
   color: #00e7ed;
