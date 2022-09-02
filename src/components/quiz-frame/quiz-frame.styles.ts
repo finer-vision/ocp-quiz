@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const QuizFrameContent = styled.div`
-  --padding: 14vw;
+  --padding: calc(var(--vw) * (14 / 100));
   width: calc(100% - var(--padding));
   height: calc(100% - var(--padding));
   position: absolute;
@@ -11,7 +11,7 @@ export const QuizFrameContent = styled.div`
 `;
 
 export const QuizFrameBorder = styled.div`
-  --padding: 3.4895833333333335vw;
+  --padding: calc(var(--vw) * (3.4895833333333335 / 100));
   width: calc(100% - var(--padding));
   height: calc(100% - var(--padding));
   position: absolute;

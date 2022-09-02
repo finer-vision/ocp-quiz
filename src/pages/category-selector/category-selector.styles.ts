@@ -8,10 +8,10 @@ export const CategorySelectorContent = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  padding-right: 10vw;
+  padding-right: calc(var(--vw) * (10 / 100));
 
   h3 {
-    font-size: 6.944444444444445vh;
+    font-size: calc(var(--vh) * (6.944444444444445 / 100));
     margin-bottom: 0.5em;
   }
 `;
@@ -19,7 +19,7 @@ export const CategorySelectorContent = styled.div`
 export const CategorySelectorCategories = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2.5vw;
+  gap: calc(var(--vw) * (2.5 / 100));
 `;
 
 export const CategorySelectorWrapper = styled.div`

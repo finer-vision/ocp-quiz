@@ -10,18 +10,18 @@ export const CategoryImage = styled.img`
 `;
 
 export const CategoryContent = styled.div`
-  --padding: 2vw;
+  --padding: calc(var(--vw) * (2 / 100));
   width: 100%;
   height: max-content;
   display: flex;
   align-items: center;
   justify-content: start;
-  margin-left: 2vw;
+  margin-left: calc(var(--vw) * (2 / 100));
 
   h4 {
     width: 58%;
     text-align: center;
-    font-size: 3.75vh;
+    font-size: calc(var(--vh) * (3.75 / 100));
   }
 `;
 
@@ -30,7 +30,7 @@ type Props = {
 };
 
 export const CategoryWrapper = styled.div<Props>`
-  width: 20vw;
+  width: calc(var(--vw) * (20 / 100));
   aspect-ratio: 697 / 448;
   background-repeat: no-repeat;
   background-image: url("./assets/category-frame.png");

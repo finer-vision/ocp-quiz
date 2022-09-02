@@ -23,8 +23,8 @@ export const TitleSignScaffolding = styled.div`
 
 export const TitleSignWrapper = styled.div`
   --scale: 1;
-  width: calc(29.226822916666666vw / var(--scale));
-  height: 92.96875vh;
+  width: calc(var(--vw) * (29.226822916666666 / 100));
+  height: calc(var(--vh) * (92.96875 / 100));
   position: relative;
   z-index: 1;
 `;

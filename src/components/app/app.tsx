@@ -6,6 +6,23 @@ import CategorySelector from "@/pages/category-selector/category-selector";
 import Question from "@/pages/question/question";
 
 export default function App() {
+  React.useEffect(() => {
+    const root = document.querySelector<HTMLDivElement>("#root");
+
+    function onResize() {
+      const vw = `${root.clientWidth}px`;
+      const vh = `${root.clientHeight}px`;
+      document.documentElement.style.setProperty("--vw", vw);
+      document.documentElement.style.setProperty("--vh", vh);
+    }
+
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
   return (
     <React.Suspense fallback="Loading...">
       <AppReset />

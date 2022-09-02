@@ -16,7 +16,7 @@ export const BuildingsParallaxWrapper = styled.div`
   --repititions: 4;
   --scale: 8;
   width: 100%;
-  height: 33.61157407407408vh;
+  height: calc(var(--vh) * (33.61157407407408 / 100));
   position: absolute;
   bottom: 0;
   left: 0;
@@ -25,7 +25,7 @@ export const BuildingsParallaxWrapper = styled.div`
   ${BuildingsParallaxFront}, ${BuildingsParallaxBack} {
     --speed: 1;
     --dir: 1;
-    width: calc(100vw * var(--repititions));
+    width: calc(calc(var(--vw) * (100 / 100)) * var(--repititions));
     height: 100%;
     position: absolute;
     bottom: 0;

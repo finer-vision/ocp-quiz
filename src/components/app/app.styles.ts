@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 export const AppReset = createGlobalStyle`
+  :root {
+    --vw: 100vw;
+    --vh: 100vh;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -32,5 +37,28 @@ export const AppReset = createGlobalStyle`
     line-height: 1.2;
     background-color: #1e1e1e;
     color: #fefefe;
+  }
+
+  body {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+  }
+
+  #root {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    width: auto;
+    height: calc(var(--vh) * (100 / 100));
+
+    @media (max-aspect-ratio: 16 / 9) {
+      width: 100vw;
+      height: auto;
+    }
+
+    @media (min-aspect-ratio: 16 / 9) {
+      width: auto;
+      height: 100vh;
+    }
   }
 `;

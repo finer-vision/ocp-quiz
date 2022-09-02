@@ -6,7 +6,7 @@ export const HeaderLogo = styled.video`
 `;
 
 export const HeaderWrapper = styled.header`
-  --height: 11.11vh;
+  --height: calc(var(--vh) * (11.11 / 100));
   background-color: #1c2b33;
   width: 100%;
   height: var(--height);

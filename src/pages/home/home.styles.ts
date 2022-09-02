@@ -19,7 +19,7 @@ export const HomeButton = styled.img`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, calc(-50% + 19vh));
+  transform: translate(-50%, calc(-50% + calc(var(--vh) * (19 / 100))));
   z-index: 1;
 `;
 
@@ -47,16 +47,16 @@ export const HomeWrapper = styled.div<Props>`
     z-index: 1;
     top: 0;
     left: 0;
-    border-right: 0.4393229166666667vw solid #ffffff;
+    border-right: calc(var(--vw) * (0.4393229166666667 / 100)) solid #ffffff;
   }
 
   ${EmbedWrapper}, ${HomeContent} {
     transition: all var(--speed) linear;
-    width: 50vw;
+    width: calc(var(--vw) * (50 / 100));
   }
 
   ${HomeContent} {
-    margin-left: 50vw;
+    margin-left: calc(var(--vw) * (50 / 100));
     height: 100%;
   }
 
@@ -72,7 +72,7 @@ export const HomeWrapper = styled.div<Props>`
         }
 
         ${HomeContent} {
-          width: 100vw;
+          width: calc(var(--vw) * (100 / 100));
           margin-left: 0;
         }
 
