@@ -48,16 +48,16 @@ export const AppReset = createGlobalStyle`
   #root {
     position: relative;
     aspect-ratio: 16 / 9;
-    width: auto;
-    height: calc(var(--vh) * (100 / 100));
+    width: calc(100vh * (16 / 9));
+    height: 100vh;
 
     @media (max-aspect-ratio: 16 / 9) {
       width: 100vw;
-      height: auto;
+      height: calc(100vw * (9 / 16));
     }
 
     @media (min-aspect-ratio: 16 / 9) {
-      width: auto;
+      width: calc(100vh * (16 / 9));
       height: 100vh;
     }
   }
