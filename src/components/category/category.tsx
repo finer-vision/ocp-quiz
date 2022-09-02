@@ -4,6 +4,7 @@ import {
   CategoryImage,
   CategoryWrapper,
 } from "@/components/category/category.styles";
+import { useAppState } from "@/state/use-app-state";
 
 type Props = {
   title: string;
@@ -12,8 +13,13 @@ type Props = {
 };
 
 export default function Category({ title, id, onSelect }: Props) {
+  const isCategoryComplete = useAppState((state) => state.isCategoryComplete);
+  const complete = React.useMemo(() => {
+    return isCategoryComplete(id);
+  }, [isCategoryComplete, id]);
+
   return (
-    <CategoryWrapper onClick={() => onSelect(id)}>
+    <CategoryWrapper onClick={() => onSelect(id)} complete={complete}>
       <CategoryContent>
         <h4 dangerouslySetInnerHTML={{ __html: title }} />
       </CategoryContent>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const CategoryImage = styled.img`
   position: absolute;
@@ -25,7 +25,11 @@ export const CategoryContent = styled.div`
   }
 `;
 
-export const CategoryWrapper = styled.div`
+type Props = {
+  complete: boolean;
+};
+
+export const CategoryWrapper = styled.div<Props>`
   width: 20vw;
   aspect-ratio: 697 / 448;
   background-repeat: no-repeat;
@@ -36,4 +40,12 @@ export const CategoryWrapper = styled.div`
   align-items: center;
   justify-content: start;
   position: relative;
+
+  ${({ complete }) => {
+    if (complete) {
+      return css`
+        pointer-events: none;
+      `;
+    }
+  }};
 `;
