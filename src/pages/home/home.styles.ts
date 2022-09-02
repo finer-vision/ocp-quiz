@@ -3,6 +3,15 @@ import { HomeState } from "@/types";
 import { EmbedWrapper } from "@/components/embed/embed.styles";
 import { TitleSignWrapper } from "@/components/title-sign/title-sign.styles";
 
+export const HomeIntroVideo = styled.video`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  height: calc(100% - 11.11vh);
+  width: auto;
+`;
+
 export const HomeButton = styled.img`
   width: 23.896875%;
   height: auto;

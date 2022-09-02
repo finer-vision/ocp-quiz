@@ -1,6 +1,11 @@
 import React from "react";
 import config from "@/config/config";
-import { HomeButton, HomeContent, HomeWrapper } from "@/pages/home/home.styles";
+import {
+  HomeButton,
+  HomeContent,
+  HomeIntroVideo,
+  HomeWrapper,
+} from "@/pages/home/home.styles";
 import { HomeState } from "@/types";
 import Header from "@/components/header/header";
 import Embed from "@/components/embed/embed";
@@ -22,6 +27,9 @@ export default function Home() {
             alt="START"
             onClick={() => setState(HomeState.intro)}
           />
+        )}
+        {state === HomeState.intro && (
+          <HomeIntroVideo src="./assets/intro.webm" autoPlay />
         )}
       </HomeContent>
       <BuildingsParallax />
