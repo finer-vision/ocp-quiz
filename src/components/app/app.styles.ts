@@ -27,6 +27,11 @@ export const AppReset = createGlobalStyle`
   #root {
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   html {
@@ -36,7 +41,5 @@ export const AppReset = createGlobalStyle`
     line-height: 1em;
     background-color: #1e1e1e;
     color: #fefefe;
-    touch-action: none;
-    overscroll-behavior: none;
   }
 `;
