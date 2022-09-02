@@ -19,9 +19,12 @@ export default function Home() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (state === HomeState.end) {
-      navigate("/category-selection");
-    }
+    const timeout = setTimeout(() => {
+      if (state === HomeState.intro) {
+        navigate("/category-selector");
+      }
+    }, 2000);
+    return () => clearTimeout(timeout);
   }, [state, navigate]);
 
   return (
@@ -37,15 +40,9 @@ export default function Home() {
             onClick={() => setState(HomeState.intro)}
           />
         )}
-        {state === HomeState.intro && (
-          <HomeIntroVideo
-            src="./assets/intro.webm"
-            autoPlay
-            onEnded={() => setState(HomeState.end)}
-          />
-        )}
       </HomeContent>
       <BuildingsParallax />
+      <HomeIntroVideo src="./assets/intro.webm" muted autoPlay loop />
     </HomeWrapper>
   );
 }

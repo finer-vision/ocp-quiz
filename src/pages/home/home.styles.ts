@@ -8,8 +8,9 @@ export const HomeIntroVideo = styled.video`
   bottom: 0;
   right: 0;
   z-index: 1;
-  height: calc(100% - 11.11vh);
-  width: auto;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
 `;
 
 export const HomeButton = styled.img`
@@ -36,7 +37,7 @@ type Props = {
 };
 
 export const HomeWrapper = styled.div<Props>`
-  --speed: 500ms;
+  --speed: 1000ms;
   width: 100%;
   height: 100%;
   background-color: #e5e5e5;
