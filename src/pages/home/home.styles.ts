@@ -51,7 +51,6 @@ export const HomeWrapper = styled.div<Props>`
   }
 
   ${EmbedWrapper}, ${HomeContent} {
-    transition: all var(--speed) linear;
     width: calc(var(--vw) * (50 / 100));
   }
 
@@ -67,6 +66,10 @@ export const HomeWrapper = styled.div<Props>`
   ${({ state }) => {
     if (state === HomeState.intro) {
       return css`
+        ${EmbedWrapper}, ${HomeContent} {
+          transition: all var(--speed) linear;
+        }
+
         ${EmbedWrapper} {
           transform: translateX(-100%);
         }
