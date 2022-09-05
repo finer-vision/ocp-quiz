@@ -1,5 +1,12 @@
 import styled, { css } from "styled-components";
 
+export const CategoryComplete = styled.img`
+  position: absolute;
+  right: calc(var(--vw) * (0.7 / 100));
+  bottom: calc(var(--vh) * (1.25 / 100));
+  width: calc(var(--vw) * (3 / 100));
+`;
+
 export const CategoryImage = styled.img`
   position: absolute;
   top: 50%;
@@ -44,8 +51,9 @@ export const CategoryWrapper = styled.div<Props>`
   ${({ complete }) => {
     if (complete) {
       return css`
+        border-radius: calc(var(--vw) * (1.5 / 100));
         pointer-events: none;
-        background-image: url("./assets/category-frame-complete.png");
+        background-color: rgba(55, 157, 38, 0.5);
       `;
     }
   }};

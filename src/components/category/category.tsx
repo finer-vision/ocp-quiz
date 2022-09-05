@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  CategoryComplete,
   CategoryContent,
   CategoryImage,
   CategoryWrapper,
@@ -23,6 +24,9 @@ export default function Category({ title, id, onSelect }: Props) {
         <h4 dangerouslySetInnerHTML={{ __html: title }} />
       </CategoryContent>
       <CategoryImage src={`./assets/${id}.png`} />
+      {complete && (
+        <CategoryComplete src="./assets/category-complete.svg" alt="complete" />
+      )}
     </CategoryWrapper>
   );
 }
