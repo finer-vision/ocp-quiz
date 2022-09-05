@@ -1,26 +1,71 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const QuestionAnswerBoolean = styled.div`
+export const QuestionCategoryProgress = styled.div`
+  position: absolute;
+  right: calc(var(--vw) * (-1 / 100));
+  bottom: calc(var(--vh) * (-3 / 100));
+  font-family: "Orbitron", sans-serif;
+  font-size: calc(var(--vh) * (3 / 100));
+  display: flex;
+  align-items: center;
+  gap: calc(var(--vw) * (1 / 100));
+
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--vw) * (0.25 / 100));
+
+    img {
+      width: calc(var(--vw) * (2 / 100));
+    }
+  }
+`;
+
+export const QuestionAnswerBooleanAnswer = styled.img<{ selected: boolean }>`
+  display: block;
+  width: calc(var(--vw) * (20 / 100));
+  ${({ selected }) => {
+    if (selected) {
+      return css`
+        filter: brightness(175%);
+      `;
+    }
+  }};
+`;
+
+export const QuestionAnswerBoolean = styled.div<{ disabled: boolean }>`
   margin-top: calc(var(--vh) * (5 / 100));
   display: flex;
   align-items: center;
   gap: calc(var(--vw) * (5 / 100));
 
-  img {
-    display: block;
-    width: calc(var(--vw) * (20 / 100));
+  ${({ disabled }) => {
+    if (disabled) {
+      return css`
+        pointer-events: none;
+      `;
+    }
+  }};
 
+  img {
     :last-child {
       margin-top: calc(var(--vh) * (15 / 100));
     }
   }
 `;
 
-export const QuestionAnswers = styled.div`
-  ul {
-    list-style: none;
-    margin-top: calc(var(--vh) * (5 / 100));
-  }
+export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
+  list-style: none;
+  margin-top: calc(var(--vh) * (5 / 100));
+
+  ${({ disabled }) => {
+    if (disabled) {
+      return css`
+        pointer-events: none;
+      `;
+    }
+  }};
 
   li {
     display: flex;
@@ -33,10 +78,29 @@ export const QuestionAnswers = styled.div`
       margin-bottom: 0;
     }
 
-    img {
+    > img {
       width: calc(var(--vw) * (3 / 100));
     }
+
+    p {
+      position: relative;
+      z-index: 1;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: -1.5ch;
+        transform: translate(0%, calc(-50% + 0.25ch));
+        width: calc(100% + 3ch);
+        height: auto;
+        z-index: -1;
+      }
+    }
   }
+`;
+
+export const QuestionAnswers = styled.div`
+  //
 `;
 
 export const QuestionProgress = styled.div`

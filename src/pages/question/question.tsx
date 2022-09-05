@@ -2,7 +2,10 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   QuestionAnswerBoolean,
+  QuestionAnswerBooleanAnswer,
+  QuestionAnswerMulti,
   QuestionAnswers,
+  QuestionCategoryProgress,
   QuestionContainer,
   QuestionDecor,
   QuestionProgress,
@@ -60,6 +63,14 @@ export default function Question() {
     [categoryId, question, navigate, nextQuestion]
   );
 
+  const answeredQuestions = useAppState((state) => state.answeredQuestions);
+
+  const [progress, total] = React.useMemo(() => {
+    const answered = (answeredQuestions[categoryId] ?? []).length;
+    const total = Object.keys(questions[categoryId]).length;
+    return [Math.floor((answered / total) * 100), total];
+  }, [categoryId, answeredQuestions]);
+
   return (
     <QuestionWrapper>
       <QuizFrame>
@@ -72,6 +83,36 @@ export default function Question() {
           <QuestionAnswers>
             <Answers question={question} onSelect={handleSelect} />
           </QuestionAnswers>
+          <QuestionCategoryProgress>
+            <span>{progress}%</span>
+            <ul>
+              {Array.from(Array(total)).map((_, index) => {
+                let status: "incomplete" | "correct" | "incorrect" =
+                  "incomplete";
+                const question = questions[categoryId][index];
+                const answeredQuestion =
+                  (answeredQuestions[categoryId] ?? [])[index] ?? null;
+                if (answeredQuestion !== null) {
+                  if (
+                    answeredQuestion.correctAnswerIndex ===
+                    question.correctAnswerIndex
+                  ) {
+                    status = "correct";
+                  } else {
+                    status = "incorrect";
+                  }
+                }
+                return (
+                  <li key={index}>
+                    <img
+                      src={`./assets/progress-${status}.png`}
+                      alt={`${index + 1}`}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          </QuestionCategoryProgress>
         </QuestionContainer>
       </QuizFrame>
     </QuestionWrapper>
@@ -86,17 +127,33 @@ type AnswersProps = {
 };
 
 function Answers({ question, onSelect }: AnswersProps) {
+  const onSelectRef = React.useRef(onSelect);
+  React.useMemo(() => {
+    onSelectRef.current = onSelect;
+  }, [onSelect]);
+
+  const [selectedAnswer, setSelectedAnswer] = React.useState<string>("");
+
+  React.useEffect(() => {
+    if (selectedAnswer === "") return;
+    const timeout = setTimeout(() => {
+      onSelectRef.current(selectedAnswer);
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [selectedAnswer]);
+
   switch (question.type) {
     case "boolean":
       return (
-        <QuestionAnswerBoolean>
+        <QuestionAnswerBoolean disabled={selectedAnswer !== ""}>
           {question.answers.map((answer, index) => {
             return (
-              <img
+              <QuestionAnswerBooleanAnswer
+                selected={selectedAnswer === answer}
                 key={index}
                 src={`./assets/${answer}.png`}
                 alt={answer}
-                onClick={() => onSelect(answer)}
+                onClick={() => setSelectedAnswer(answer)}
               />
             );
           })}
@@ -104,17 +161,22 @@ function Answers({ question, onSelect }: AnswersProps) {
       );
     case "multi":
       return (
-        <ul>
+        <QuestionAnswerMulti disabled={selectedAnswer !== ""}>
           {question.answers.map((answer, index) => {
             const letter = letters[index];
             return (
-              <li key={index} onClick={() => onSelect(answer)}>
+              <li key={index} onClick={() => setSelectedAnswer(answer)}>
                 <img src={`./assets/${letter}.png`} alt={letter} />
-                <p>{answer}</p>
+                <p>
+                  {selectedAnswer === answer && (
+                    <img src="./assets/multi-answered.png" alt="" />
+                  )}
+                  {answer}
+                </p>
               </li>
             );
           })}
-        </ul>
+        </QuestionAnswerMulti>
       );
     default:
       return <></>;
