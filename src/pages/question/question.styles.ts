@@ -1,5 +1,21 @@
 import styled from "styled-components";
 
+export const QuestionAnswerBoolean = styled.div`
+  margin-top: calc(var(--vh) * (5 / 100));
+  display: flex;
+  align-items: center;
+  gap: calc(var(--vw) * (5 / 100));
+
+  img {
+    display: block;
+    width: calc(var(--vw) * (20 / 100));
+
+    :last-child {
+      margin-top: calc(var(--vh) * (15 / 100));
+    }
+  }
+`;
+
 export const QuestionAnswers = styled.div`
   ul {
     list-style: none;

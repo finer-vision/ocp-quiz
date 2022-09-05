@@ -1,6 +1,7 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
+  QuestionAnswerBoolean,
   QuestionAnswers,
   QuestionContainer,
   QuestionDecor,
@@ -11,6 +12,7 @@ import {
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
 import questions from "@/config/questions";
 import { QuestionData } from "@/types";
+import { useAppState } from "@/state/use-app-state";
 
 type Params = {
   categoryId: string;
@@ -18,6 +20,7 @@ type Params = {
 };
 
 export default function Question() {
+  const navigate = useNavigate();
   const params = useParams<Params>();
   const { categoryId, questionNumber } = React.useMemo(() => {
     let questionNumber = parseInt(params.questionNumber);
@@ -37,10 +40,25 @@ export default function Question() {
       return question.id === questionNumber;
     });
   }, [categoryId, questionNumber]);
+  const nextQuestion = React.useMemo(() => {
+    return (
+      questions[categoryId].find((question) => {
+        return question.id === questionNumber + 1;
+      }) ?? null
+    );
+  }, [categoryId, questionNumber]);
 
-  const handleSelect = React.useCallback((answer: string) => {
-    console.log(answer);
-  }, []);
+  const handleSelect = React.useCallback(
+    (answer: string) => {
+      useAppState.getState().answerQuestion(categoryId, question, answer);
+      if (nextQuestion === null) {
+        navigate(`/question/${categoryId}/results`);
+      } else {
+        navigate(`/question/${categoryId}/${question.id + 1}`);
+      }
+    },
+    [categoryId, question, navigate, nextQuestion]
+  );
 
   return (
     <QuestionWrapper>
@@ -70,7 +88,20 @@ type AnswersProps = {
 function Answers({ question, onSelect }: AnswersProps) {
   switch (question.type) {
     case "boolean":
-      return <>boolean</>;
+      return (
+        <QuestionAnswerBoolean>
+          {question.answers.map((answer, index) => {
+            return (
+              <img
+                key={index}
+                src={`./assets/${answer}.png`}
+                alt={answer}
+                onClick={() => onSelect(answer)}
+              />
+            );
+          })}
+        </QuestionAnswerBoolean>
+      );
     case "multi":
       return (
         <ul>

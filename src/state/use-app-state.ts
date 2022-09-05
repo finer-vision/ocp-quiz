@@ -26,8 +26,15 @@ export const useAppState = create<AppState>((set, get) => {
       if (!answeredQuestions.hasOwnProperty(categoryId)) {
         answeredQuestions[categoryId] = [];
       }
-      answeredQuestions[categoryId].push({ ...question, answer });
-      set({ answeredQuestions });
+      const answered = answeredQuestions[categoryId].some(
+        (answeredQuestion) => {
+          return answeredQuestion.id === question.id;
+        }
+      );
+      if (!answered) {
+        answeredQuestions[categoryId].push({ ...question, answer });
+        set({ answeredQuestions });
+      }
     },
     isCategoryComplete(categoryId) {
       const answeredQuestions = { ...get().answeredQuestions };
