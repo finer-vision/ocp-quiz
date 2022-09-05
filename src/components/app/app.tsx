@@ -5,6 +5,7 @@ import Home from "@/pages/home/home";
 import CategorySelector from "@/pages/category-selector/category-selector";
 import Results from "@/pages/results/results";
 import Question from "@/pages/question/question";
+import Finish from "@/pages/finish/finish";
 
 export default function App() {
   React.useEffect(() => {
@@ -35,6 +36,7 @@ export default function App() {
           path="/question/:categoryId/:questionNumber"
           element={<Question />}
         />
+        <Route path="/finish" element={<Finish />} />
       </Routes>
     </React.Suspense>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   ResultsButton,
   ResultsInfo,
@@ -19,6 +19,8 @@ type Params = {
 const PASSING_SCORE = 8;
 
 export default function Results() {
+  const navigate = useNavigate();
+
   const { categoryId } = useParams<Params>();
   const [score, total] = React.useMemo(() => {
     const { answeredQuestions } = useAppState.getState();
@@ -42,6 +44,22 @@ export default function Results() {
     return "On no – you only scored";
   }, []);
 
+  const finish = React.useCallback(() => {
+    let total = 0;
+    let complete = 0;
+    for (const categoryId in questions) {
+      total++;
+      if (useAppState.getState().isCategoryComplete(categoryId)) {
+        complete++;
+      }
+    }
+    if (complete === total) {
+      navigate("/finish");
+    } else {
+      navigate("/category-selector");
+    }
+  }, [navigate]);
+
   return (
     <ResultsWrapper>
       <QuizFrame>
@@ -50,7 +68,11 @@ export default function Results() {
           <ResultsScore>
             {score}/{total}
           </ResultsScore>
-          <ResultsButton src="./assets/start.png" alt="Start" />
+          <ResultsButton
+            src="./assets/start.png"
+            alt="Start"
+            onClick={finish}
+          />
         </ResultsInfo>
         <ResultsWellDone src="./assets/well-done.png" alt="Well Done" />
       </QuizFrame>

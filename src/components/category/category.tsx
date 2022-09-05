@@ -13,10 +13,9 @@ type Props = {
 };
 
 export default function Category({ title, id, onSelect }: Props) {
-  const isCategoryComplete = useAppState((state) => state.isCategoryComplete);
   const complete = React.useMemo(() => {
-    return isCategoryComplete(id);
-  }, [isCategoryComplete, id]);
+    return useAppState.getState().isCategoryComplete(id);
+  }, [id]);
 
   return (
     <CategoryWrapper onClick={() => onSelect(id)} complete={complete}>

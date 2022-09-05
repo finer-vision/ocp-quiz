@@ -45,6 +45,7 @@ export const CategoryWrapper = styled.div<Props>`
     if (complete) {
       return css`
         pointer-events: none;
+        background-image: url("./assets/category-frame-complete.png");
       `;
     }
   }};

@@ -1,6 +1,7 @@
 import create from "zustand";
 import { QuestionData } from "@/types";
 import questions from "@/config/questions";
+import winningCodes from "@/config/winning-codes";
 
 type AnsweredQuestion = QuestionData & {
   answer: string;
@@ -16,6 +17,8 @@ type AppState = {
     answer: string
   ) => void;
   isCategoryComplete: (categoryId: string) => boolean;
+  reset: () => void;
+  getCode: () => number[];
 };
 
 export const useAppState = create<AppState>((set, get) => {
@@ -40,6 +43,25 @@ export const useAppState = create<AppState>((set, get) => {
       const answeredQuestions = { ...get().answeredQuestions };
       const categoryAnswers = answeredQuestions[categoryId] ?? [];
       return categoryAnswers.length === questions[categoryId].length;
+    },
+    reset() {
+      set({ answeredQuestions: {} });
+    },
+    getCode() {
+      const now = new Date().getTime();
+      const index = winningCodes.findIndex((winningCode) => {
+        if (winningCode.used) return false;
+        return now > winningCode.validAfter.getTime();
+      });
+      const winningCode = winningCodes[index] ?? null;
+      const randomDigits = (total = 4): number[] => {
+        const digits: number[] = [];
+        for (let i = 0; i < total; i++) {
+          digits.push(Math.floor(Math.random() * 9));
+        }
+        return digits;
+      };
+      return winningCode?.digits ?? randomDigits();
     },
   };
 });
