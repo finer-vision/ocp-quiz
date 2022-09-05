@@ -12,6 +12,7 @@ import {
   QuestionTitle,
   QuestionWrapper,
 } from "@/pages/question/question.styles";
+import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
 import questions from "@/config/questions";
 import { QuestionData } from "@/types";
@@ -77,9 +78,13 @@ export default function Question() {
         <QuestionDecor src="./assets/question-decor.png" alt="" />
         <QuestionContainer>
           <QuestionProgress>
-            {questionNumber}/{totalQuestions}
+            <FadeIn>
+              {questionNumber}/{totalQuestions}
+            </FadeIn>
           </QuestionProgress>
-          <QuestionTitle>{question.question}</QuestionTitle>
+          <QuestionTitle>
+            <FadeIn delay={0.75}>{question.question}</FadeIn>
+          </QuestionTitle>
           <QuestionAnswers>
             <Answers question={question} onSelect={handleSelect} />
           </QuestionAnswers>
@@ -148,13 +153,14 @@ function Answers({ question, onSelect }: AnswersProps) {
         <QuestionAnswerBoolean disabled={selectedAnswer !== ""}>
           {question.answers.map((answer, index) => {
             return (
-              <QuestionAnswerBooleanAnswer
-                selected={selectedAnswer === answer}
-                key={index}
-                src={`./assets/${answer}.png`}
-                alt={answer}
-                onClick={() => setSelectedAnswer(answer)}
-              />
+              <FadeIn key={index} delay={1.25 + 0.75 * index}>
+                <QuestionAnswerBooleanAnswer
+                  selected={selectedAnswer === answer}
+                  src={`./assets/${answer}.png`}
+                  alt={answer}
+                  onClick={() => setSelectedAnswer(answer)}
+                />
+              </FadeIn>
             );
           })}
         </QuestionAnswerBoolean>
@@ -165,15 +171,17 @@ function Answers({ question, onSelect }: AnswersProps) {
           {question.answers.map((answer, index) => {
             const letter = letters[index];
             return (
-              <li key={index} onClick={() => setSelectedAnswer(answer)}>
-                <img src={`./assets/${letter}.png`} alt={letter} />
-                <p>
-                  {selectedAnswer === answer && (
-                    <img src="./assets/multi-answered.png" alt="" />
-                  )}
-                  {answer}
-                </p>
-              </li>
+              <FadeIn key={index} delay={1.25 + 0.75 * index}>
+                <li onClick={() => setSelectedAnswer(answer)}>
+                  <img src={`./assets/${letter}.png`} alt={letter} />
+                  <p>
+                    {selectedAnswer === answer && (
+                      <img src="./assets/multi-answered.png" alt="" />
+                    )}
+                    {answer}
+                  </p>
+                </li>
+              </FadeIn>
             );
           })}
         </QuestionAnswerMulti>

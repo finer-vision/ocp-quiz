@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { FadeIn } from "@/styles/elements";
 
 export const QuestionCategoryProgress = styled.div`
   position: absolute;
@@ -48,10 +49,8 @@ export const QuestionAnswerBoolean = styled.div<{ disabled: boolean }>`
     }
   }};
 
-  img {
-    :last-child {
-      margin-top: calc(var(--vh) * (15 / 100));
-    }
+  ${FadeIn}:last-child {
+    transform: translateY(calc(var(--vh) * (10 / 100)));
   }
 `;
 

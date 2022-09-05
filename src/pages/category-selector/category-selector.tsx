@@ -5,6 +5,7 @@ import {
   CategorySelectorContent,
   CategorySelectorWrapper,
 } from "@/pages/category-selector/category-selector.styles";
+import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
 import Category from "@/components/category/category";
 
@@ -22,7 +23,9 @@ export default function CategorySelector() {
     <CategorySelectorWrapper>
       <QuizFrame>
         <CategorySelectorContent>
-          <h3>Select Category</h3>
+          <h3>
+            <FadeIn>Select Category</FadeIn>
+          </h3>
           <CategorySelectorCategories>
             <Category
               title="Myths <br/>or <br/>Facts"

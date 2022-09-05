@@ -8,6 +8,7 @@ import {
   ResultsWellDone,
   ResultsWrapper,
 } from "@/pages/results/results.styles";
+import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
 import questions from "@/config/questions";
 import { useAppState } from "@/state/use-app-state";
@@ -64,15 +65,21 @@ export default function Results() {
     <ResultsWrapper>
       <QuizFrame>
         <ResultsInfo>
-          <ResultsTitle>{getTitle(score)}</ResultsTitle>
+          <ResultsTitle>
+            <FadeIn>{getTitle(score)}</FadeIn>
+          </ResultsTitle>
           <ResultsScore>
-            {score}/{total}
+            <FadeIn delay={0.75}>
+              {score}/{total}
+            </FadeIn>
           </ResultsScore>
-          <ResultsButton
-            src="./assets/start.png"
-            alt="Start"
-            onClick={finish}
-          />
+          <FadeIn delay={1.25}>
+            <ResultsButton
+              src="./assets/start.png"
+              alt="Start"
+              onClick={finish}
+            />
+          </FadeIn>
         </ResultsInfo>
         <ResultsWellDone src="./assets/well-done.png" alt="Well Done" />
       </QuizFrame>
