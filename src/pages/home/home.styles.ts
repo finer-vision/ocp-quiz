@@ -6,10 +6,10 @@ import { TitleSignWrapper } from "@/components/title-sign/title-sign.styles";
 export const HomeIntroVideo = styled.video`
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 0;
   z-index: 1;
-  width: 100%;
-  height: auto;
+  height: 70%;
+  width: auto;
   pointer-events: none;
 `;
 
