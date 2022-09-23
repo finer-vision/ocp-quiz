@@ -20,7 +20,7 @@ export default function Finish() {
   }, [navigate]);
 
   const digits = React.useMemo(() => {
-    return useAppState.getState().getCode();
+    return useAppState.getState().generateCode();
   }, []);
 
   return (

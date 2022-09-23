@@ -24,6 +24,13 @@ pm2 start --name kiosk /usr/bin/touchscreen-kiosk -- --url=http://localhost:3000
 pm2 save
 ```
 
+Install and run hardware API:
+
+```shell
+python3 -m pip install -U pyserial tornado
+python3 bin/api.py
+```
+
 The kiosk is now set to autostart on boot.
 
 ### Notes

@@ -122,8 +122,19 @@ class WebApp(object):
             self.thread.join(1)
         self.thread = None
 
+class BaseHandler(RequestHandler):
 
-class MainHandler(RequestHandler):
+    def set_default_headers(self):
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Headers", "*")
+        self.set_header('Access-Control-Allow-Methods', ' PUT, DELETE, OPTIONS')
+
+    def options(self):
+        # no body
+        self.set_status(204)
+        self.finish()
+
+class MainHandler(BaseHandler):
     box: BoxInterface
 
     def initialize(self, **kwargs) -> None:
@@ -137,7 +148,7 @@ class MainHandler(RequestHandler):
         self.write(json_encode(data))
 
 
-class CodeHandler(RequestHandler):
+class CodeHandler(BaseHandler):
     box: BoxInterface
 
     def initialize(self, **kwargs) -> None:
@@ -165,7 +176,7 @@ class CodeHandler(RequestHandler):
         #    self.box.update_code(data["new_code"])
 
 
-class UnlockHandler(RequestHandler):
+class UnlockHandler(BaseHandler):
     box: BoxInterface
 
     def initialize(self, **kwargs) -> None:
@@ -177,7 +188,7 @@ class UnlockHandler(RequestHandler):
         self.write("Unlocking Box...")
 
 
-class ShutdownHandler(RequestHandler):
+class ShutdownHandler(BaseHandler):
     api: WebApp
 
     def initialize(self, **kwargs):

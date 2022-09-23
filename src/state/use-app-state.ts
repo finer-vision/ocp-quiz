@@ -1,5 +1,6 @@
 import create from "zustand";
 import { QuestionData } from "@/types";
+import config from "@/config/config";
 import questions from "@/config/questions";
 import winningCodes from "@/config/winning-codes";
 
@@ -18,7 +19,7 @@ type AppState = {
   ) => void;
   isCategoryComplete: (categoryId: string) => boolean;
   reset: () => void;
-  getCode: () => number[];
+  generateCode: () => number[];
 };
 
 export const useAppState = create<AppState>((set, get) => {
@@ -47,7 +48,7 @@ export const useAppState = create<AppState>((set, get) => {
     reset() {
       set({ answeredQuestions: {} });
     },
-    getCode() {
+    generateCode() {
       const now = new Date().getTime();
       const index = winningCodes.findIndex((winningCode) => {
         if (winningCode.used) return false;
@@ -61,7 +62,36 @@ export const useAppState = create<AppState>((set, get) => {
         }
         return digits;
       };
-      return winningCode?.digits ?? randomDigits();
+
+      function setCode(code: string) {
+        const formData = new FormData();
+        formData.set("new_code", code);
+        const init: RequestInit = {
+          method: "POST",
+          body: formData,
+        };
+        fetch(`${config.apiUrl}/code`, init)
+          .then((res) => res.json())
+          .then((json) => console.log(json))
+          .catch((err) => console.error(err));
+      }
+
+      /**
+       * No winning code, so make sure the box cannot have this code win.
+       */
+      if (winningCode === null) {
+        // Send a fixed code to the box so the user won't win
+        setCode("000000");
+        return randomDigits();
+      }
+
+      /**
+       * We have a winning code here, so send that winning code to the box.
+       */
+      const code = winningCode.digits.join("");
+      // Send the winning code to the box so the user will win
+      setCode(code);
+      return winningCode.digits;
     },
   };
 });
