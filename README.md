@@ -20,7 +20,7 @@ npm add -g serve
 npm install
 npm run build
 mkdir /home/$USER/apps
-pm2 start --name kiosk /usr/bin/touchscreen-kiosk -- --url=http://localhost:3000 --start="serve -p 3000 -s /home/$USER/apps/ocp-quiz/build" --delay=3000
+pm2 start --name kiosk /usr/bin/touchscreen-kiosk -- --url=http://localhost:3000 --start="serve -p 8080 -s /home/$USER/apps/ocp-quiz/build" --delay=3000
 pm2 save
 ```
 
