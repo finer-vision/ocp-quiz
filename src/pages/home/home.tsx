@@ -9,7 +9,7 @@ import {
 } from "@/pages/home/home.styles";
 import { HomeState } from "@/types";
 import Header from "@/components/header/header";
-import Embed from "@/components/embed/embed";
+import Events from "@/components/events/events";
 import BuildingsParallax from "@/components/buildings-parallax/buildings-parallax";
 import TitleSign from "@/components/title-sign/title-sign";
 
@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <HomeWrapper state={state}>
-      <Embed src={config.scheduleEmbed} />
+      <Events />
       <HomeContent>
         <Header />
         <TitleSign />
@@ -42,7 +42,6 @@ export default function Home() {
         )}
       </HomeContent>
       <BuildingsParallax />
-      <HomeIntroVideo src="./assets/intro.webm" muted autoPlay loop />
     </HomeWrapper>
   );
 }

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { HomeState } from "@/types";
-import { EmbedWrapper } from "@/components/embed/embed.styles";
+import { EventsWrapper } from "@/components/events/events.styles";
 import { TitleSignWrapper } from "@/components/title-sign/title-sign.styles";
 
 export const HomeIntroVideo = styled.video`
@@ -42,7 +42,7 @@ export const HomeWrapper = styled.div<Props>`
   height: 100%;
   background-color: #e5e5e5;
 
-  ${EmbedWrapper} {
+  ${EventsWrapper} {
     position: absolute;
     z-index: 1;
     top: 0;
@@ -50,7 +50,7 @@ export const HomeWrapper = styled.div<Props>`
     border-right: calc(var(--vw) * (0.4393229166666667 / 100)) solid #ffffff;
   }
 
-  ${EmbedWrapper}, ${HomeContent} {
+  ${EventsWrapper}, ${HomeContent} {
     width: calc(var(--vw) * (50 / 100));
   }
 
@@ -66,11 +66,11 @@ export const HomeWrapper = styled.div<Props>`
   ${({ state }) => {
     if (state === HomeState.intro) {
       return css`
-        ${EmbedWrapper}, ${HomeContent} {
+        ${EventsWrapper}, ${HomeContent} {
           transition: all var(--speed) linear;
         }
 
-        ${EmbedWrapper} {
+        ${EventsWrapper} {
           transform: translateX(-100%);
         }
 
