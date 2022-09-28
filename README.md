@@ -5,7 +5,8 @@ Touchscreen quiz and info kiosk touchscreen for OCP event in 2022.
 ### Getting Started
 
 ```shell
-sudo apt install -y python-pip
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
 python3 -m pip install -U pyserial tornado
 nvm use # optional (uses the exact Node this project was tested against)
 npm install
