@@ -28,6 +28,7 @@ npm run build
 npm --prefix server install
 npm --prefix server run build
 mkdir /home/$USER/apps
+pm2 start --name startup /home/$USER/apps/ocp-quiz/bin/startup.sh
 pm2 start --name ocp-quiz-client /usr/bin/touchscreen-kiosk -- --url=http://localhost:3000 --start="serve -p 8080 -s /home/$USER/apps/ocp-quiz/build" --delay=3000
 pm2 start --name ocp-quiz-server node -- /home/$USER/apps/ocp-quiz/server/build/index.js
 pm2 save
