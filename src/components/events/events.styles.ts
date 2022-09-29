@@ -6,7 +6,7 @@ export const EventsWrapper = styled.div`
   position: relative;
   z-index: 0;
   overflow: hidden;
-  background-image: url(/assets/background-ocp.png);
+  background-image: url(./assets/background-ocp.png);
   background-size: contain;
   background-repeat: repeat;
 `;

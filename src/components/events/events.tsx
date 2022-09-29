@@ -19,7 +19,7 @@ export default () => {
   return (
     <EventsWrapper>
       <Header>
-        <img id="logo" src="/assets/logo-opencompute.svg"/>
+        <img id="logo" src="./assets/logo-opencompute.svg"/>
       </Header>
       <Events>
         <Overview>
