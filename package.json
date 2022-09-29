@@ -2,6 +2,7 @@
   "name": "@app/client",
   "private": true,
   "scripts": {
+    "postinstall": "concurrently -n server,client \"npm --prefix server install\"",
     "start": "NODE_ENV=development webpack serve --mode development",
     "build": "NODE_ENV=production webpack --mode production"
   },
@@ -40,6 +41,7 @@
   },
   "dependencies": {
     "@trpc/react": "^9.27.2",
+    "concurrently": "^7.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.2",
