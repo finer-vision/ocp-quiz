@@ -1,11 +1,17 @@
 import styled from "styled-components";
 
+const getSize = (elementSize: number, dimesnion: "x" | "y") => {
+  const originalSize = {x: 3840, y: 2168};
+  const size = originalSize[dimesnion];
+  const unit = dimesnion === "x" ? "--vw" : "--vh";
+  return `calc(var(${unit}) * ${elementSize/size})`
+}
+
 export const EventsWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+  --header-height: ${getSize(230, "y")};
   position: relative;
   z-index: 0;
-  overflow: hidden;
+  overflow: auto;
   background-image: url(./assets/background-ocp.png);
   background-size: contain;
   background-repeat: repeat;
@@ -15,10 +21,11 @@ export const EventsWrapper = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  padding: 10px;
-  padding-left: 40px;
+  padding: 5%;
+  padding-bottom: 0.8%;
+  padding-top: 0.8%;
   background: white;
-  height: 80px;
+  height: var(--header-height);
   width: 100%;
   #logo {
     height: 90%;
@@ -27,8 +34,8 @@ export const Header = styled.header`
 
 export const Events = styled.div`
   width: 100%;
-  height: 90.3%;
-  gap: 20px;
+  height: 100vh;
+  gap: calc(var(--vw) * (1.4 / 100));
   display: flex;
   flex-direction: column;
 `
@@ -38,40 +45,40 @@ export const Overview = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding-left: 40px;
-  padding-top: 40px;
-  padding-right: 30px;
+  padding-left: calc(var(--vw) * (2.5 / 100));
+  padding-top: calc(var(--vw) * (3.4 / 100));
+  padding-right: calc(var(--vw) * (2.2 / 100));
 `
 
 export const EventInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
+  gap: calc(var(--vw) * (0.5 / 100));;
   hr {
-    height: 3px;
+    height:  calc(var(--vw) * (0.2 / 100));
     background-color: #8DC141;
     border: 0;
-    width: 90px;
+    width: calc(var(--vw) * (5.9 / 100));
   }
   #event-name {
-    font-size: 20px;
+    font-size: calc(var(--vw) * (1.2 / 100));
   }
   #event-info {
     display: flex;
     flex-direction: column;
     & > *:first-child {
-      font-size: 18px;
+      font-size: calc(var(--vw) * (1.1 / 100));
     }
     & > *:last-child {
-      font-size: 12px;
+      font-size: calc(var(--vw) * (0.7 / 100));
     }
   }
 `
 
 export const EventDates = styled.div`
   display: flex;
-  gap: 15px;
+  gap: calc(var(--vw) * (1.4 / 100));
 `
 
 interface EventDateProps {
@@ -79,7 +86,6 @@ interface EventDateProps {
 }
 
 export const EventDate = styled.div<EventDateProps>`
-  width: 90%;
   aspect-ratio: 1;
   background: white;
   border-radius: 5px;
@@ -87,9 +93,10 @@ export const EventDate = styled.div<EventDateProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
   text-align: center;
   padding: 5%;
+  width: ${getSize(200, "y")};
+  font-size: ${getSize(50, "y")};
   ${props => props.current && `
     background-color: #8DC141;
     color: white
@@ -99,24 +106,14 @@ export const EventDate = styled.div<EventDateProps>`
 export const EventsList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  overflow-y: auto;
+  gap: calc(var(--vw) * (1 / 100));
+  overflow-y: hidden;
   padding: 0;
-  margin-right: 30px;
-  margin-bottom: 20px;
+  margin-right: calc(var(--vw) * (0.9 / 100));
+  margin-left: calc(var(--vw) * (1.1 / 100));
   & > * {
-    margin-left: 40px;
-    margin-right: 20px;
-  }
-  &::-webkit-scrollbar {
-    width: 15px;
-    border: 10px solid white;
-    border-radius: 20px;
-  }
-  &::-webkit-scrollbar-thumb {
-    border: 4px solid white;
-    background: #0281F9;
-    border-radius: 20px;
+    margin-left: calc(var(--vw) * (1.4 / 100));
+    margin-right: calc(var(--vw) * (1.4 / 100));
   }
 `
 
@@ -128,22 +125,22 @@ export const Event = styled.div<EventProps>`
   position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  justify-content: space-between;
+  border-radius: calc(var(--vw) * (0.7 / 100));
   & > * {
-    padding: 20px;
-    padding-bottom: 0;
+    padding: calc(var(--vw) * (0.8 / 100));
   }
   #event-header {
-    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
   }
   #event-time {
     color: #0281F9;
-    font-size: 24px;
+    font-size: calc(var(--vw) * (1 / 100));
   }
   #event-title {
     color: black;
+    font-size: calc(var(--vw) * (0.6 / 100));
   }
   ${props => props.current
   ? `
