@@ -5,6 +5,9 @@ import eventsData  from "./eventsData";
 export default () => {
   const [currentDate, setCurrentDate] = useState(new Date().getTime());
 
+  const todayDate = new Date().getDate();
+  const [selectedDate, setSelectedDate] = useState<number>((todayDate < 18 || todayDate > 20) ? 18 : todayDate);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentDate(new Date().getTime());
@@ -29,19 +32,21 @@ export default () => {
             </div>
           </EventInfo>
           <EventDates>
-            <EventDate current={new Date().getDate() == 18}>18 OCT</EventDate>
-            <EventDate current={new Date().getDate() === 19}>19 OCT</EventDate>
-            <EventDate current={new Date().getDate() === 20}>20 OCT</EventDate>
+            <EventDate onClick={() => setSelectedDate(18)} current={selectedDate === 18}>18 OCT</EventDate>
+            <EventDate onClick={() => setSelectedDate(19)} current={selectedDate === 19}>19 OCT</EventDate>
+            <EventDate onClick={() => setSelectedDate(20)} current={selectedDate === 20}>20 OCT</EventDate>
           </EventDates>
         </Overview>
         <EventsList>
           {eventsData.map(({eventTimes: {start, end}, eventTitle, eventKey}: any, key) => {
             const [startDateInSeconds, endDateInSeconds] = eventKey.split('-');
-            if(Number(endDateInSeconds) < currentDate) {
+            if(selectedDate !== new Date(Number(startDateInSeconds)).getDate()) {
               return null
             }
             return (
-              <Event key={key} id="event">
+              <Event
+              current={currentDate >= Number(startDateInSeconds) && currentDate <= Number(endDateInSeconds)}
+              key={key} id="event">
                 <div id="event-header">
                   <span id="event-time">{start} - {end}</span>
                   <span id="event-title">{eventTitle}</span>

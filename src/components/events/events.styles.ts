@@ -120,11 +120,14 @@ export const EventsList = styled.div`
   }
 `
 
-export const Event = styled.div`
+interface EventProps {
+  current: boolean
+}
+
+export const Event = styled.div<EventProps>`
   position: relative;
   display: flex;
   flex-direction: column;
-  background: white;
   border-radius: 10px;
   & > * {
     padding: 20px;
@@ -142,6 +145,16 @@ export const Event = styled.div`
   #event-title {
     color: black;
   }
+  ${props => props.current
+  ? `
+    background: #8DC141;
+    #event-time {
+      color: black
+    }
+  `
+  : `
+    background: white;
+  `}
 `
 
 export const EventDropdown = styled.div`
