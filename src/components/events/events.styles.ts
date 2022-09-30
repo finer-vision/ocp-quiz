@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const getSize = (elementSize: number, dimesnion: "x" | "y") => {
-  const originalSize = {x: 3840, y: 2168};
+  const originalSize = { x: 3840, y: 2168 };
   const size = originalSize[dimesnion];
   const unit = dimesnion === "x" ? "--vw" : "--vh";
-  return `calc(var(${unit}) * ${elementSize/size})`
-}
+  return `calc(var(${unit}) * ${elementSize / size})`;
+};
 
 export const EventsWrapper = styled.div`
   --header-height: ${getSize(230, "y")};
@@ -16,7 +16,6 @@ export const EventsWrapper = styled.div`
   background-size: contain;
   background-repeat: repeat;
 `;
-
 
 export const Header = styled.header`
   display: flex;
@@ -30,7 +29,7 @@ export const Header = styled.header`
   #logo {
     height: 90%;
   }
-`
+`;
 
 export const Events = styled.div`
   width: 100%;
@@ -38,51 +37,51 @@ export const Events = styled.div`
   gap: calc(var(--vw) * (1.4 / 100));
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const Overview = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding-left: calc(var(--vw) * (2.5 / 100));
-  padding-top: calc(var(--vw) * (3.4 / 100));
-  padding-right: calc(var(--vw) * (2.2 / 100));
-`
+  padding: 3.921875rem 4.8125rem 0 6rem;
+`;
 
 export const EventInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: calc(var(--vw) * (0.5 / 100));;
+  gap: calc(var(--vw) * (0.5 / 100));
   hr {
-    height:  calc(var(--vw) * (0.2 / 100));
-    background-color: #8DC141;
+    height: calc(var(--vw) * (0.2 / 100));
+    background-color: #8dc141;
     border: 0;
     width: calc(var(--vw) * (5.9 / 100));
   }
   #event-name {
-    font-size: calc(var(--vw) * (1.2 / 100));
+    font-size: 3.125rem;
   }
   #event-info {
     display: flex;
     flex-direction: column;
     & > *:first-child {
-      font-size: calc(var(--vw) * (1.1 / 100));
+      font-size: 2.5rem;
+      line-height: 3.22125rem;
     }
     & > *:last-child {
-      font-size: calc(var(--vw) * (0.7 / 100));
+      font-size: 1.5625rem;
+      line-height: 2.013125rem;
     }
   }
-`
+`;
 
 export const EventDates = styled.div`
   display: flex;
   gap: calc(var(--vw) * (1.4 / 100));
-`
+`;
 
 interface EventDateProps {
-  current?: boolean
+  current?: boolean;
 }
 
 export const EventDate = styled.div<EventDateProps>`
@@ -97,28 +96,50 @@ export const EventDate = styled.div<EventDateProps>`
   padding: 5%;
   width: ${getSize(200, "y")};
   font-size: ${getSize(50, "y")};
-  ${props => props.current && `
+  ${(props) =>
+    props.current &&
+    `
     background-color: #8DC141;
     color: white
   `}
-`
+`;
 
 export const EventsList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: calc(var(--vw) * (1 / 100));
-  overflow-y: hidden;
+  gap: 1.9375rem;
+  overflow-y: auto;
   padding: 0;
-  margin-right: calc(var(--vw) * (0.9 / 100));
-  margin-left: calc(var(--vw) * (1.1 / 100));
-  & > * {
-    margin-left: calc(var(--vw) * (1.4 / 100));
-    margin-right: calc(var(--vw) * (1.4 / 100));
+  margin-right: 4.8125rem;
+  margin-left: 6rem;
+
+  /* & > * {
+    margin-right: 3.875rem;
+  } */
+
+  &::-webkit-scrollbar {
+    width: 2.8125rem;
   }
-`
+
+  &::-webkit-scrollbar-track-piece {
+    border-radius: 110px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 110px;
+    background: var(--color-scrollbar);
+    border: 13.5px solid var(--color-scrollbarBG);
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 110px;
+    background: var(--color-scrollbarBG);
+  }
+`;
 
 interface EventProps {
-  current: boolean
+  current: boolean;
+  margin: boolean;
 }
 
 export const Event = styled.div<EventProps>`
@@ -126,36 +147,45 @@ export const Event = styled.div<EventProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: calc(var(--vw) * (0.7 / 100));
+  border-radius: 1.25rem;
   & > * {
-    padding: calc(var(--vw) * (0.8 / 100));
+    padding: 2.125rem 0 1.625rem 4.125rem;
   }
   #event-header {
     display: flex;
     flex-direction: column;
   }
   #event-time {
-    color: #0281F9;
-    font-size: calc(var(--vw) * (1 / 100));
+    color: #0281f9;
+    font-size: 3.75rem;
   }
   #event-title {
     color: black;
-    font-size: calc(var(--vw) * (0.6 / 100));
+    font-size: 2.625rem;
   }
-  ${props => props.current
-  ? `
+  ${(props) =>
+    props.current
+      ? `
     background: #8DC141;
     #event-time {
       color: black
     }
   `
-  : `
+      : `
     background: white;
   `}
-`
+
+  ${(props) =>
+    props.margin
+      ? `
+      margin-right: 3.875rem;
+  `
+      : `
+  `}
+`;
 
 export const EventDropdown = styled.div`
-  background: rgb(238	242	244);
+  background: rgb(238 242 244);
   color: black;
   padding: 20px;
   border-bottom-right-radius: 10px;
@@ -168,7 +198,7 @@ export const EventDropdown = styled.div`
     font-weight: bold;
     font-size: 24px;
   }
-`
+`;
 
 export const EventClose = styled.button`
   position: absolute;
@@ -185,4 +215,4 @@ export const EventClose = styled.button`
     width: 60%;
     height: 60%;
   }
-`
+`;

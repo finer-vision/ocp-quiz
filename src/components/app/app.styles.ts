@@ -4,6 +4,11 @@ export const AppReset = createGlobalStyle`
   :root {
     --vw: 100vw;
     --vh: 100vh;
+    --root-size: calc(var(--root-ratio) * min(1vw, 1vh));
+    --root-min: 12px;
+    --root-max: 20px;
+    --color-scrollbar: #0281F9;
+    --color-scrollbarBG: #ffffff;
   }
 
   * {
@@ -31,6 +36,7 @@ export const AppReset = createGlobalStyle`
   }
 
   html {
+    font-size: clamp(var(--root-min), var(--root-size), var(--root-max));
     font-family: "Optimistic Display", system-ui, sans-serif;
     text-rendering: geometricPrecision;
     font-weight: normal;
