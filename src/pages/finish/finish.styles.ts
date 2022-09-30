@@ -65,7 +65,15 @@ export const FinishButton = styled.img`
   margin-top: calc(var(--vh) * (3 / 100));
 `;
 
-export const FinishDecor = styled.img`
+export const FinishDecorContainer = styled.div`
+  position: relative;
+`;
+
+interface FinishDecorProps {
+  index?: string;
+}
+
+export const FinishDecor = styled.img<FinishDecorProps>`
   --offset: 20%;
   position: absolute;
   top: 0;
@@ -73,6 +81,48 @@ export const FinishDecor = styled.img`
   width: calc(var(--vw) * (13 / 100));
   height: auto;
   transform: translate(var(--offset), calc(var(--offset) * -1));
+  animation: neon-flicker 3s ease-in-out infinite alternate;
+
+  ${(props) =>
+    props.index === "1"
+      ? `width: 25.3125rem;
+        top: 10px;
+        right: 16px;
+        animation-delay: 500ms;
+        `
+      : props.index === "2"
+      ? `width: 20.118125rem;
+        top: 107px;
+        right: 127px;
+        animation-delay: 750ms;
+        `
+      : props.index === "3"
+      ? `width: 20.44375rem;
+        top: 148px;
+        right: -26px;
+        animation-delay: 1000ms;
+        `
+      : ``}
+  @keyframes neon-flicker {
+    0%,
+    19.999%,
+    22%,
+    62.999%,
+    64%,
+    64.999%,
+    70%,
+    100% {
+      opacity: 0.99;
+    }
+    20%,
+    21.999%,
+    63%,
+    63.999%,
+    65%,
+    69.999% {
+      opacity: 0.4;
+    }
+  }
 `;
 
 export const FinishWrapper = styled.div`

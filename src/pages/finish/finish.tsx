@@ -4,6 +4,7 @@ import {
   FinishButton,
   FinishCode,
   FinishCodeDigit,
+  FinishDecorContainer,
   FinishDecor,
   FinishWrapper,
 } from "@/pages/finish/finish.styles";
@@ -30,7 +31,11 @@ export default function Finish() {
   return (
     <FinishWrapper>
       <QuizFrame>
-        <FinishDecor src="./assets/question-decor.png" alt="" />
+        <FinishDecorContainer>
+          <FinishDecor src="./assets/question-decor1.png" alt="" index="1"/>
+          <FinishDecor src="./assets/question-decor2.png" alt="" index="2"/>
+          <FinishDecor src="./assets/question-decor3.png" alt="" index="3"/>
+        </FinishDecorContainer>
         {getRandomCode.isSuccess && (
           <>
             <h3>

@@ -7,6 +7,7 @@ import {
   QuestionAnswers,
   QuestionCategoryProgress,
   QuestionContainer,
+  QuestionDecorContainer,
   QuestionDecor,
   QuestionProgress,
   QuestionTitle,
@@ -75,7 +76,11 @@ export default function Question() {
   return (
     <QuestionWrapper>
       <QuizFrame>
-        <QuestionDecor src="./assets/question-decor.png" alt="" />
+        <QuestionDecorContainer>
+          <QuestionDecor src="./assets/question-decor1.png" alt="" index="1"/>
+          <QuestionDecor src="./assets/question-decor2.png" alt="" index="2"/>
+          <QuestionDecor src="./assets/question-decor3.png" alt="" index="3"/>
+        </QuestionDecorContainer>
         <QuestionContainer>
           <QuestionProgress>
             <FadeIn>
