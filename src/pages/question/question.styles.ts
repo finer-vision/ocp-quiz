@@ -143,21 +143,21 @@ export const QuestionDecor = styled.img<QuestionDecorProps>`
 
   ${(props) =>
     props.index === "1"
-      ? `width: 25.3125rem;
+      ? `width: 41.3125rem;
         top: 10px;
-        right: 16px;
+        right: 0px;
         animation-delay: 500ms;
         `
       : props.index === "2"
-      ? `width: 20.118125rem;
-        top: 107px;
-        right: 127px;
+      ? `width: 36.118125rem;
+        top: 129px;
+        right: 157px;
         animation-delay: 750ms;
         `
       : props.index === "3"
-      ? `width: 20.44375rem;
-        top: 148px;
-        right: -26px;
+      ? `width: 35.44375rem;
+        top: 202px;
+        right: -66px;
         animation-delay: 1000ms;
         `
       : ``}
