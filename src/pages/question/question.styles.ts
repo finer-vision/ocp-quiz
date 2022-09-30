@@ -25,7 +25,7 @@ export const QuestionCategoryProgress = styled.div`
 
 export const QuestionAnswerBooleanAnswer = styled.img<{ selected: boolean }>`
   display: block;
-  width: calc(var(--vw) * (20 / 100));
+  width: 62.40625rem;
   ${({ selected }) => {
     if (selected) {
       return css`
@@ -36,10 +36,11 @@ export const QuestionAnswerBooleanAnswer = styled.img<{ selected: boolean }>`
 `;
 
 export const QuestionAnswerBoolean = styled.div<{ disabled: boolean }>`
-  margin-top: calc(var(--vh) * (5 / 100));
   display: flex;
   align-items: center;
-  gap: calc(var(--vw) * (5 / 100));
+  margin-left: -7.125rem;
+  margin-top: -1.125rem;
+  gap: 2.5625rem;
 
   ${({ disabled }) => {
     if (disabled) {
@@ -103,13 +104,16 @@ export const QuestionAnswers = styled.div`
 `;
 
 export const QuestionProgress = styled.div`
-  font-size: calc(var(--vh) * (2.75 / 100));
+  font-size: 4.6875rem;
+  line-height: 6.0625rem;
+  letter-spacing: 0.75rem;
   color: #00e7ed;
 `;
 
 export const QuestionTitle = styled.h3`
-  font-size: calc(var(--vh) * (6 / 100));
-  line-height: 1.5em;
+  font-size: 9.375rem;
+  line-height: 12.079375rem;
+  letter-spacing: 0.75rem;
 `;
 
 export const QuestionContainer = styled.div`
