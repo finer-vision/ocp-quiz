@@ -73,6 +73,7 @@ export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
     gap: calc(var(--vw) * (1 / 100));
     font-size: calc(var(--vh) * (3.2407407407407405 / 100));
     margin-bottom: calc(var(--vh) * (3.2407407407407405 / 100));
+    height: 13.25rem;
 
     :last-child {
       margin-bottom: 0;
@@ -85,6 +86,7 @@ export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
     p {
       position: relative;
       z-index: 1;
+      font-size: 4.375rem;
 
       img {
         position: absolute;
@@ -94,6 +96,8 @@ export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
         width: calc(100% + 3ch);
         height: auto;
         z-index: -1;
+        width: 129.5625rem;
+        height: 16.25rem;
       }
     }
   }

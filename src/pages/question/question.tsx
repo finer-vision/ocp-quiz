@@ -130,7 +130,7 @@ export default function Question() {
   );
 }
 
-const letters = ["a", "b", "c"];
+const letters = ["a", "b", "c", "d"];
 
 type AnswersProps = {
   question: QuestionData;
@@ -177,12 +177,21 @@ function Answers({ question, onSelect }: AnswersProps) {
         <QuestionAnswerMulti disabled={selectedAnswer !== ""}>
           {question.answers.map((answer, index) => {
             const letter = letters[index];
+            const correct = selectedAnswer === question.answers[question.correctAnswerIndex]
             return (
               <FadeIn key={index} delay={1.25 + 0.75 * index}>
                 <li onClick={() => setSelectedAnswer(answer)}>
                   <img src={`./assets/${letter}.png`} alt={letter} />
                   <p>
-                    {selectedAnswer === answer && (
+                    {selectedAnswer === answer && correct && (
+                      <img src="./assets/multi-answered.png" alt="" />
+                    )}
+
+                    {selectedAnswer === answer && !correct && (
+                      <img src="./assets/multi-answered-incorrect.png" alt="" />
+                    )}
+
+                    {!correct && selectedAnswer && question.answers[question.correctAnswerIndex] === answer && (
                       <img src="./assets/multi-answered.png" alt="" />
                     )}
                     {answer}
