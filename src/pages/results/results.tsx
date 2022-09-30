@@ -75,7 +75,7 @@ export default function Results() {
           </ResultsScore>
           <FadeIn delay={1.25}>
             <ResultsButton
-              src="./assets/start.png"
+              src="./assets/next-category.png"
               alt="Start"
               onClick={finish}
             />
