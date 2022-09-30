@@ -100,12 +100,13 @@ export default function Question() {
                 let status: "incomplete" | "correct" | "incorrect" =
                   "incomplete";
                 const question = questions[categoryId][index];
+                
                 const answeredQuestion =
                   (answeredQuestions[categoryId] ?? [])[index] ?? null;
                 if (answeredQuestion !== null) {
                   if (
-                    answeredQuestion.correctAnswerIndex ===
-                    question.correctAnswerIndex
+                    answeredQuestion.answer ===
+                    question.answers[question.correctAnswerIndex]
                   ) {
                     status = "correct";
                   } else {
@@ -148,6 +149,7 @@ function Answers({ question, onSelect }: AnswersProps) {
     if (selectedAnswer === "") return;
     const timeout = setTimeout(() => {
       onSelectRef.current(selectedAnswer);
+      setSelectedAnswer("")
     }, 1000);
     return () => clearTimeout(timeout);
   }, [selectedAnswer]);

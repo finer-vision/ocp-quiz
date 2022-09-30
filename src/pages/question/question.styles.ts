@@ -111,16 +111,16 @@ export const QuestionProgress = styled.div`
 `;
 
 export const QuestionTitle = styled.h3`
-  font-size: 9.375rem;
-  line-height: 12.079375rem;
+  font-size: 6.375rem;
+  line-height: 8.079375rem;
   letter-spacing: 0.75rem;
 `;
 
 export const QuestionContainer = styled.div`
-  width: calc(var(--vw) * (55 / 100));
+  width: calc(var(--vw) * (59 / 100));
   height: 100%;
   margin-left: auto;
-  margin-right: calc(var(--vw) * (8 / 100));
+  margin-right: calc(var(--vw) * (4 / 100));
 `;
 
 export const QuestionDecorContainer = styled.div`
