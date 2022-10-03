@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const getSize = (elementSize: number, dimesnion: "x" | "y") => {
   const originalSize = { x: 3840, y: 2168 };

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
 import {
   Event,
   EventClose,
@@ -13,6 +14,10 @@ import {
   Overview,
 } from "@/components/events/events.styles";
 import eventsData from "./eventsData";
+=======
+import { Event, EventClose, EventDate, EventDates, EventDropdown, EventInfo, Events, EventsList, EventsWrapper, Header, Overview } from "@/components/events/events.styles";
+import eventsData  from "./eventsData"
+>>>>>>> yaya
 
 export default () => {
   const [currentDate, setCurrentDate] = useState(new Date().getTime());
