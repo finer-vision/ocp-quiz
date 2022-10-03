@@ -85,23 +85,23 @@ export const FinishDecor = styled.img<FinishDecorProps>`
 
   ${(props) =>
     props.index === "1"
-      ? `width: 41.3125rem;
-         top: 10px;
-         right: 16px;
-         animation-delay: 500ms;
-    `
+      ? `width: calc(var(--vw) * (17.2139 / 100));
+        top: calc(var(--vh) * (0.46295 / 100));
+        right: 0px;
+        animation-delay: 500ms;
+        `
       : props.index === "2"
-      ? `width: 36.118125rem;
-         top: 129px;
-         right: 172px;
-         animation-delay: 750ms;
-    `
+      ? `width: calc(var(--vw) * (14.528 / 100));
+        top: calc(var(--vh) * (5.972201 / 100));
+        right: calc(var(--vw) * (4.08855 / 100));
+        animation-delay: 750ms;
+        `
       : props.index === "3"
-      ? `width: 35.44375rem;
-         top: 202px;
-         right: -51px;
-         animation-delay: 1000ms;
-    `
+      ? `width: calc(var(--vw) * (14.508 / 100));
+        top: calc(var(--vh) * (9.351818620155039 / 100));
+        right: calc(var(--vw) * (-1.718753503184713 / 100));
+        animation-delay: 1000ms;
+        `
       : ``}
   @keyframes neon-flicker {
     0%,

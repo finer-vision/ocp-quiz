@@ -25,7 +25,7 @@ export const QuestionCategoryProgress = styled.div`
 
 export const QuestionAnswerBooleanAnswer = styled.img<{ selected: boolean }>`
   display: block;
-  width: 62.40625rem;
+  width: calc(var(--vw) * (26 / 100));
   ${({ selected }) => {
     if (selected) {
       return css`
@@ -38,9 +38,9 @@ export const QuestionAnswerBooleanAnswer = styled.img<{ selected: boolean }>`
 export const QuestionAnswerBoolean = styled.div<{ disabled: boolean }>`
   display: flex;
   align-items: center;
-  margin-left: -7.125rem;
-  margin-top: -1.125rem;
-  gap: 2.5625rem;
+  margin-left: calc(var(--vw) * (3 / 100) * -1);
+  margin-top: calc(var(--vw) * (0.469 / 100) * -1);
+  gap: calc(var(--vw) * (1.1 / 100));
 
   ${({ disabled }) => {
     if (disabled) {
@@ -73,20 +73,20 @@ export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
     gap: calc(var(--vw) * (1 / 100));
     font-size: calc(var(--vh) * (3.2407407407407405 / 100));
     margin-bottom: calc(var(--vh) * (3.2407407407407405 / 100));
-    height: 13.25rem;
+    height: calc(var(--vw) * (5.521 / 100));
 
     :last-child {
       margin-bottom: 0;
     }
 
     > img {
-      width: calc(var(--vw) * (3 / 100));
+      width: calc(var(--vh) * (3 / 100));
     }
 
     p {
       position: relative;
       z-index: 1;
-      font-size: 4.375rem;
+      font-size: calc(var(--vh) * (3.240740740740741 / 100));
 
       img {
         position: absolute;
@@ -96,8 +96,8 @@ export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
         width: calc(100% + 3ch);
         height: auto;
         z-index: -1;
-        width: 129.5625rem;
-        height: 16.25rem;
+        width: calc(var(--vw) * (60.96875 / 100));
+        height: calc(var(--vh) * (11.695721077654517 / 100)); 
       }
     }
   }
@@ -108,16 +108,16 @@ export const QuestionAnswers = styled.div`
 `;
 
 export const QuestionProgress = styled.div`
-  font-size: 4.6875rem;
-  line-height: 6.0625rem;
-  letter-spacing: 0.75rem;
+  font-size: calc(var(--vh) * (4 / 100));
+  line-height: calc(var(--vh) * (4.5 / 100));
+  letter-spacing: calc(var(--vh) * (0.6 / 100));
   color: #00e7ed;
 `;
 
 export const QuestionTitle = styled.h3`
-  font-size: 6.375rem;
-  line-height: 8.079375rem;
-  letter-spacing: 0.75rem;
+  font-size: calc(var(--vh) * (5 / 100));
+  line-height: 1.5em;
+  letter-spacing: calc(var(--vh) * (0.6 / 100));
 `;
 
 export const QuestionContainer = styled.div`
@@ -147,21 +147,21 @@ export const QuestionDecor = styled.img<QuestionDecorProps>`
 
   ${(props) =>
     props.index === "1"
-      ? `width: 41.3125rem;
-        top: 10px;
+      ? `width: calc(var(--vw) * (17.2139 / 100));
+        top: calc(var(--vh) * (0.46295 / 100));
         right: 0px;
         animation-delay: 500ms;
         `
       : props.index === "2"
-      ? `width: 36.118125rem;
-        top: 129px;
-        right: 157px;
+      ? `width: calc(var(--vw) * (14.528 / 100));
+        top: calc(var(--vh) * (5.972201 / 100));
+        right: calc(var(--vw) * (4.08855 / 100));
         animation-delay: 750ms;
         `
       : props.index === "3"
-      ? `width: 35.44375rem;
-        top: 202px;
-        right: -66px;
+      ? `width: calc(var(--vw) * (14.508 / 100));
+        top: calc(var(--vh) * (9.351818620155039 / 100));
+        right: calc(var(--vw) * (-1.718753503184713 / 100));
         animation-delay: 1000ms;
         `
       : ``}

@@ -37,7 +37,7 @@ export const ResultsInfo = styled.div`
 `;
 
 export const ResultsButton = styled.img`
-  width: 72.6875rem;
+  width: calc(var(--vw) * (30.2865 / 100));
   height: auto;
   z-index: 1;
 `;
