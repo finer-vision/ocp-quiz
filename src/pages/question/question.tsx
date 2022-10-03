@@ -12,6 +12,7 @@ import {
   QuestionProgress,
   QuestionTitle,
   QuestionWrapper,
+  TimerContainer,
 } from "@/pages/question/question.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
@@ -46,6 +47,7 @@ export default function Question() {
     React.useState<Questions>(selectedQuestions);
 
   const [mounted, setMounted] = React.useState(false);
+  const [secs, setSecs] = React.useState(["3", "0"]);
 
   React.useEffect(() => {
     let question: QuestionData[] = [];
@@ -114,17 +116,43 @@ export default function Question() {
   const [progress, total] = React.useMemo(() => {
     if (!mounted) return [];
     const answered = (answeredQuestions[categoryId] ?? []).length;
-    // const total = Object.keys(questions[categoryId]).length;
     const total = 12;
     return [Math.floor((answered / total) * 100), total];
   }, [categoryId, answeredQuestions, mounted]);
 
   let categoryIndex = 0;
 
+  React.useEffect(() => {
+    var timeLeft = 30;
+
+    const interval = setInterval(() => {
+      if (timeLeft == -1) {
+        console.log('end')
+        clearInterval(interval)
+      } else {
+        if (timeLeft < 10) {
+          setSecs(["0", timeLeft.toString()]);
+        } else {
+          setSecs(Array.from(timeLeft.toString()));
+        }
+        timeLeft--;
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     mounted && (
       <QuestionWrapper>
         <QuizFrame>
+          <TimerContainer>
+            <img src="./assets/0.png" />
+            <img src="./assets/0.png" />
+            <img src="./assets/colon.png" className="colon" />
+            <img src={`./assets/${secs[0]}.png`} />
+            <img src={`./assets/${secs[1]}.png`} />
+          </TimerContainer>
           <QuestionDecorContainer>
             <QuestionDecor
               src="./assets/question-decor1.png"

@@ -97,7 +97,7 @@ export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
         height: auto;
         z-index: -1;
         width: calc(var(--vw) * (60.96875 / 100));
-        height: calc(var(--vh) * (11.695721077654517 / 100)); 
+        height: calc(var(--vh) * (11.695721077654517 / 100));
       }
     }
   }
@@ -129,6 +129,30 @@ export const QuestionContainer = styled.div`
 
 export const QuestionDecorContainer = styled.div`
   position: relative;
+`;
+
+export const TimerContainer = styled.div`
+  position: absolute;
+  background-image: url("./assets/timer.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: calc(var(--vw) * (12.8125 / 100));
+  height: calc(var(--vh) * (9.861111111111111 / 100));
+  left: calc(var(--vw) * (-2.6 / 100));
+  top: calc(var(--vh) * (-4.8 / 100));
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-right: calc(var(--vw) * (1 / 100));
+
+  & > img {
+    height: calc(var(--vh) * (6 / 100));
+    padding-bottom: calc(var(--vh) * (0.8 / 100));
+  }
+  & > img.colon {
+    height: calc(var(--vh) * (4 / 100));
+  }
 `;
 
 interface QuestionDecorProps {
