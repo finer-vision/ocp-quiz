@@ -1,4 +1,4 @@
-import eventsDataJson from "./eventsData.json";
+import eventsDataJson from "./eventsData.json"
 
 const createEvent = ({date, start, end, eventTitle}: any) => {
     const startDateInSeconds: any = new Date(`${date}T${start}:00`).getTime();
