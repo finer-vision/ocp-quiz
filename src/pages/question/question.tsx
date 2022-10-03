@@ -101,9 +101,9 @@ export default function Question() {
     (answer: string) => {
       useAppState.getState().answerQuestion(categoryId, question, answer);
       if (nextQuestion === null) {
-        // navigate(`/question/${categoryId}/results`);
+        navigate(`/question/${categoryId}/results`);
       } else {
-        // navigate(`/question/${categoryId}/${question.id + 1}`);
+        navigate(`/question/${categoryId}/${question.id + 1}`);
       }
     },
     [categoryId, question, navigate, nextQuestion]
