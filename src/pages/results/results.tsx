@@ -24,6 +24,7 @@ export default function Results() {
   const questions = useAppState((state) => state.questions);
 
   const { categoryId } = useParams<Params>();
+  
   const [score, total] = React.useMemo(() => {
     const { answeredQuestions } = useAppState.getState();
     const score = (answeredQuestions[categoryId] ?? []).reduce(
@@ -38,7 +39,7 @@ export default function Results() {
       },
       0
     );
-    return [score, questions[categoryId].length];
+    return [score, (questions[categoryId] ?? []).length];
   }, [categoryId]);
 
   const getTitle = React.useCallback((score: number): string => {
