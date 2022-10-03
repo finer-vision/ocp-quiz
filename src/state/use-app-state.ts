@@ -1,9 +1,13 @@
 import create from "zustand";
 import { QuestionData } from "@/types";
-import questions from "@/config/questions";
+// import questions from "@/config/questions";
 
 type AnsweredQuestion = QuestionData & {
   answer: string;
+};
+
+type Questions = {
+  [prop: string]: QuestionData[];
 };
 
 type AppState = {
@@ -15,6 +19,10 @@ type AppState = {
     question: QuestionData,
     answer: string
   ) => void;
+  questions: {
+    [categoryId: string]: QuestionData[];
+  };
+  question: (categoryId: string, question: QuestionData[]) => void;
   isCategoryComplete: (categoryId: string) => boolean;
   reset: () => void;
 };
@@ -37,10 +45,27 @@ export const useAppState = create<AppState>((set, get) => {
         set({ answeredQuestions });
       }
     },
+    questions: {},
+    question(categoryId, question) {
+      const questions = { ...get().questions };
+
+      const newQuestions = {
+        ...questions,
+        [categoryId]: [...question],
+      };
+
+      if (newQuestions) {
+        set({ questions: newQuestions });
+      }
+    },
     isCategoryComplete(categoryId) {
       const answeredQuestions = { ...get().answeredQuestions };
+      const questions = { ...get().questions };
       const categoryAnswers = answeredQuestions[categoryId] ?? [];
-      return categoryAnswers.length === questions[categoryId].length;
+      const numOfQuestions = (questions[categoryId] ?? []).length;
+      return numOfQuestions === 0
+        ? false
+        : categoryAnswers.length === (questions[categoryId] ?? []).length;
     },
     reset() {
       set({ answeredQuestions: {} });

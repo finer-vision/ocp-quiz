@@ -15,13 +15,17 @@ import {
 } from "@/pages/question/question.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
-import questions from "@/config/questions";
+import AllQuestions from "@/config/questions";
 import { QuestionData } from "@/types";
 import { useAppState } from "@/state/use-app-state";
 
 type Params = {
   categoryId: string;
   questionNumber: string;
+};
+
+type Questions = {
+  [prop: string]: QuestionData[];
 };
 
 export default function Question() {
@@ -37,21 +41,61 @@ export default function Question() {
       questionNumber,
     };
   }, [params]);
-  const totalQuestions = React.useMemo(() => {
-    return questions[categoryId].length;
+  const selectedQuestions = useAppState((state) => state.questions);
+  const [questions, setQuestions] =
+    React.useState<Questions>(selectedQuestions);
+
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    let question: QuestionData[] = [];
+
+    // pick randome question on the list
+    for (var i = 1; i < 4; i++) {
+      var idx = Math.floor(Math.random() * AllQuestions[categoryId].length);
+      question.push({
+        ...AllQuestions[categoryId][idx],
+        id: i, // id will be assigned to 1,2,3
+      });
+      AllQuestions[categoryId].splice(idx, 1);
+    }
+
+    useAppState.getState().question(categoryId, question);
+
+    setQuestions((questions) => {
+      if (questions[categoryId] !== undefined) {
+        return {
+          ...questions,
+          [categoryId]: [...question],
+        };
+      } else {
+        return {
+          ...questions,
+          [categoryId]: [...question],
+        };
+      }
+    });
+    setMounted(true);
   }, [categoryId]);
+
+  const totalQuestions = React.useMemo(() => {
+    if (!mounted) return;
+    return questions[categoryId].length;
+  }, [categoryId, mounted]);
   const question = React.useMemo(() => {
+    if (!mounted) return;
     return questions[categoryId].find((question) => {
       return question.id === questionNumber;
     });
-  }, [categoryId, questionNumber]);
+  }, [categoryId, questionNumber, mounted]);
   const nextQuestion = React.useMemo(() => {
+    if (!mounted) return;
     return (
       questions[categoryId].find((question) => {
         return question.id === questionNumber + 1;
       }) ?? null
     );
-  }, [categoryId, questionNumber]);
+  }, [categoryId, questionNumber, mounted]);
 
   const handleSelect = React.useCallback(
     (answer: string) => {
@@ -68,65 +112,92 @@ export default function Question() {
   const answeredQuestions = useAppState((state) => state.answeredQuestions);
 
   const [progress, total] = React.useMemo(() => {
+    if (!mounted) return [];
     const answered = (answeredQuestions[categoryId] ?? []).length;
-    const total = Object.keys(questions[categoryId]).length;
+    // const total = Object.keys(questions[categoryId]).length;
+    const total = 12;
     return [Math.floor((answered / total) * 100), total];
-  }, [categoryId, answeredQuestions]);
+  }, [categoryId, answeredQuestions, mounted]);
+
+  let categoryIndex = 0;
 
   return (
-    <QuestionWrapper>
-      <QuizFrame>
-        <QuestionDecorContainer>
-          <QuestionDecor src="./assets/question-decor1.png" alt="" index="1"/>
-          <QuestionDecor src="./assets/question-decor2.png" alt="" index="2"/>
-          <QuestionDecor src="./assets/question-decor3.png" alt="" index="3"/>
-        </QuestionDecorContainer>
-        <QuestionContainer>
-          <QuestionProgress>
-            <FadeIn>
-              {questionNumber}/{totalQuestions}
-            </FadeIn>
-          </QuestionProgress>
-          <QuestionTitle>
-            <FadeIn delay={0.75}>{question.question}</FadeIn>
-          </QuestionTitle>
-          <QuestionAnswers>
-            <Answers question={question} onSelect={handleSelect} />
-          </QuestionAnswers>
-          <QuestionCategoryProgress>
-            <span>{progress}%</span>
-            <ul>
-              {Array.from(Array(total)).map((_, index) => {
-                let status: "incomplete" | "correct" | "incorrect" =
-                  "incomplete";
-                const question = questions[categoryId][index];
-                
-                const answeredQuestion =
-                  (answeredQuestions[categoryId] ?? [])[index] ?? null;
-                if (answeredQuestion !== null) {
-                  if (
-                    answeredQuestion.answer ===
-                    question.answers[question.correctAnswerIndex]
-                  ) {
-                    status = "correct";
-                  } else {
-                    status = "incorrect";
+    mounted && (
+      <QuestionWrapper>
+        <QuizFrame>
+          <QuestionDecorContainer>
+            <QuestionDecor
+              src="./assets/question-decor1.png"
+              alt=""
+              index="1"
+            />
+            <QuestionDecor
+              src="./assets/question-decor2.png"
+              alt=""
+              index="2"
+            />
+            <QuestionDecor
+              src="./assets/question-decor3.png"
+              alt=""
+              index="3"
+            />
+          </QuestionDecorContainer>
+          <QuestionContainer>
+            <QuestionProgress>
+              <FadeIn>
+                {questionNumber}/{totalQuestions}
+              </FadeIn>
+            </QuestionProgress>
+            <QuestionTitle>
+              <FadeIn delay={0.75}>{question.question}</FadeIn>
+            </QuestionTitle>
+            <QuestionAnswers>
+              <Answers question={question} onSelect={handleSelect} />
+            </QuestionAnswers>
+            <QuestionCategoryProgress>
+              <span>{progress}%</span>
+              <ul>
+                {Array.from(Array(total)).map((_, index) => {
+                  let status: "incomplete" | "correct" | "incorrect" =
+                    "incomplete";
+                  const questionIndex = index % 3; // return 0,1,2
+                  const categories = Object.keys(AllQuestions);
+                  if (index % 3 === 0 && index !== 0) {
+                    categoryIndex++;
                   }
-                }
-                return (
-                  <li key={index}>
-                    <img
-                      src={`./assets/progress-${status}.png`}
-                      alt={`${index + 1}`}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
-          </QuestionCategoryProgress>
-        </QuestionContainer>
-      </QuizFrame>
-    </QuestionWrapper>
+
+                  const categoryId = categories[categoryIndex];
+
+                  const answeredQuestion =
+                    (answeredQuestions[categoryId] ?? [])[questionIndex] ??
+                    null;
+                  if (answeredQuestion !== null) {
+                    if (
+                      answeredQuestion.answer ===
+                      answeredQuestion.answers[
+                        answeredQuestion.correctAnswerIndex
+                      ]
+                    ) {
+                      status = "correct";
+                    } else {
+                      status = "incorrect";
+                    }
+                  }
+                  return (
+                    <li key={index}>
+                      <img
+                        src={`./assets/progress-${status}.png`}
+                        alt={`${index + 1}`}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            </QuestionCategoryProgress>
+          </QuestionContainer>
+        </QuizFrame>
+      </QuestionWrapper>
+    )
   );
 }
 
@@ -149,7 +220,7 @@ function Answers({ question, onSelect }: AnswersProps) {
     if (selectedAnswer === "") return;
     const timeout = setTimeout(() => {
       onSelectRef.current(selectedAnswer);
-      setSelectedAnswer("")
+      setSelectedAnswer("");
     }, 1000);
     return () => clearTimeout(timeout);
   }, [selectedAnswer]);
@@ -177,7 +248,8 @@ function Answers({ question, onSelect }: AnswersProps) {
         <QuestionAnswerMulti disabled={selectedAnswer !== ""}>
           {question.answers.map((answer, index) => {
             const letter = letters[index];
-            const correct = selectedAnswer === question.answers[question.correctAnswerIndex]
+            const correct =
+              selectedAnswer === question.answers[question.correctAnswerIndex];
             return (
               <FadeIn key={index} delay={1.25 + 0.75 * index}>
                 <li onClick={() => setSelectedAnswer(answer)}>
@@ -191,9 +263,12 @@ function Answers({ question, onSelect }: AnswersProps) {
                       <img src="./assets/multi-answered-incorrect.png" alt="" />
                     )}
 
-                    {!correct && selectedAnswer && question.answers[question.correctAnswerIndex] === answer && (
-                      <img src="./assets/multi-answered.png" alt="" />
-                    )}
+                    {!correct &&
+                      selectedAnswer &&
+                      question.answers[question.correctAnswerIndex] ===
+                        answer && (
+                        <img src="./assets/multi-answered.png" alt="" />
+                      )}
                     {answer}
                   </p>
                 </li>

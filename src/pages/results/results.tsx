@@ -10,7 +10,7 @@ import {
 } from "@/pages/results/results.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
-import questions from "@/config/questions";
+// import questions from "@/config/questions";
 import { useAppState } from "@/state/use-app-state";
 
 type Params = {
@@ -21,6 +21,7 @@ const PASSING_SCORE = 8;
 
 export default function Results() {
   const navigate = useNavigate();
+  const questions = useAppState((state) => state.questions);
 
   const { categoryId } = useParams<Params>();
   const [score, total] = React.useMemo(() => {
@@ -46,10 +47,9 @@ export default function Results() {
   }, []);
 
   const finish = React.useCallback(() => {
-    let total = 0;
+    const total = 4;
     let complete = 0;
     for (const categoryId in questions) {
-      total++;
       if (useAppState.getState().isCategoryComplete(categoryId)) {
         complete++;
       }
@@ -59,7 +59,7 @@ export default function Results() {
     } else {
       navigate("/category-selector");
     }
-  }, [navigate]);
+  }, [navigate, questions]);
 
   return (
     <ResultsWrapper>
