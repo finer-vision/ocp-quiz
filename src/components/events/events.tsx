@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Event, EventClose, EventDate, EventDates, EventDropdown, EventInfo, Events, EventsList, EventsWrapper, Header, Overview } from "@/components/events/events.styles";
-import eventsData  from "./eventsData";
+import eventsData  from "./eventsData"
 
 export default () => {
   const [currentDate, setCurrentDate] = useState(new Date().getTime());
