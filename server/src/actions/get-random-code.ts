@@ -1,14 +1,12 @@
 import * as fs from "fs";
 import * as trpc from "@trpc/server";
-import { type RequestInit } from "node-fetch";
+import fetch from "cross-fetch";
 import { type AppContext } from "../services/app";
 import config from "../config";
 import { generateRandomDigits, getWinningCode } from "../../utils";
 
 const getRandomCode = trpc.router<AppContext>().query("getRandomCode", {
   async resolve() {
-    const { default: fetch } = await import("node-fetch");
-
     if (!fs.existsSync(config.usedCodeIdsFilePath)) {
       fs.writeFileSync(config.usedCodeIdsFilePath, JSON.stringify([]), "utf-8");
     }
@@ -30,7 +28,7 @@ const getRandomCode = trpc.router<AppContext>().query("getRandomCode", {
     }
 
     // Send the winning code to the hardware so the safe can be unlocked
-    const init: RequestInit = {
+    const init: any = {
       method: "POST",
       body: JSON.stringify({
         new_code: winningCode.digits.join(""),
