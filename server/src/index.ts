@@ -3,7 +3,7 @@ import { spawn } from "child_process";
 import app from "./services/app";
 
 const apiBinPath = path.resolve(__dirname, "..", "bin", "api.py");
-const proc = spawn("/usr/local/bin/python3", [apiBinPath]);
+const proc = spawn("/usr/bin/python3", [apiBinPath]);
 
 proc.on("error", (err) => {
   console.error(err);
