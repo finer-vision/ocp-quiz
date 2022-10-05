@@ -1,14 +1,15 @@
 import * as fs from "fs";
 import * as trpc from "@trpc/server";
+import { type RequestInit } from "node-fetch";
+import { FormData } from "formdata-node";
 import { type AppContext } from "../services/app";
 import config from "../config";
 import { generateRandomDigits, getWinningCode } from "../../utils";
 
-require("isomorphic-fetch");
-require("isomorphic-form-data");
-
 const getRandomCode = trpc.router<AppContext>().query("getRandomCode", {
   async resolve() {
+    const { default: fetch } = await import("node-fetch");
+
     if (!fs.existsSync(config.usedCodeIdsFilePath)) {
       fs.writeFileSync(config.usedCodeIdsFilePath, JSON.stringify([]), "utf-8");
     }
@@ -34,6 +35,7 @@ const getRandomCode = trpc.router<AppContext>().query("getRandomCode", {
     formData.set("new_code", winningCode.digits.join(""));
     const init: RequestInit = {
       method: "POST",
+      // @ts-ignore
       body: formData,
     };
     fetch(`${config.apiUrl}/code`, init)
