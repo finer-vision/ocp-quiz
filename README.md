@@ -28,9 +28,10 @@ npm run build
 npm --prefix server install
 npm --prefix server run build
 mkdir /home/$USER/apps
-sudo pm2 start --name ocp-quiz-client /usr/bin/touchscreen-kiosk -- --url=http://localhost:8080 --start="serve -p 8080 -s /home/$USER/apps/ocp-quiz/build" --delay=3000
 sudo pm2 start --name ocp-quiz-server node -- /home/$USER/apps/ocp-quiz/server/build/index.js
 sudo pm2 save
+pm2 start --name ocp-quiz-client /usr/bin/touchscreen-kiosk -- --url=http://localhost:8080 --start="serve -p 8080 -s /home/$USER/apps/ocp-quiz/build" --delay=3000
+pm2 save
 ```
 
 The kiosk is now set to autostart on boot.
