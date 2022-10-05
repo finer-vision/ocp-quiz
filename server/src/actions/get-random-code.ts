@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as trpc from "@trpc/server";
 import fetch from "cross-fetch";
-import FormData from "form-data";
+import * as FormData from "form-data";
 import { type AppContext } from "../services/app";
 import config from "../config";
 import { generateRandomDigits, getWinningCode } from "../../utils";
