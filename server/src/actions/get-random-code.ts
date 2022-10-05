@@ -1,7 +1,6 @@
 import * as fs from "fs";
 import * as trpc from "@trpc/server";
 import { type RequestInit } from "node-fetch";
-import { FormData } from "formdata-node";
 import { type AppContext } from "../services/app";
 import config from "../config";
 import { generateRandomDigits, getWinningCode } from "../../utils";
@@ -31,12 +30,11 @@ const getRandomCode = trpc.router<AppContext>().query("getRandomCode", {
     }
 
     // Send the winning code to the hardware so the safe can be unlocked
-    const formData = new FormData();
-    formData.set("new_code", winningCode.digits.join(""));
     const init: RequestInit = {
       method: "POST",
-      // @ts-ignore
-      body: formData,
+      body: JSON.stringify({
+        new_code: winningCode.digits.join(""),
+      }),
     };
     fetch(`${config.apiUrl}/code`, init)
       .then((res) => res.json())
