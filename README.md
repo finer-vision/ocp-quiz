@@ -20,7 +20,7 @@ npm --prefix server start
 Install kiosk software ([**install docs**](https://github.com/finer-vision/touchscreen-kiosk#kiosk-install)).
 
 ```shell
-python3 -m pip install -U pyserial tornado
+sudo python3 -m pip install -U pyserial tornado
 nvm use # optional (uses the exact Node this project was tested against)
 npm add -g serve
 npm install
