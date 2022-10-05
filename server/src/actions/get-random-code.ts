@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as trpc from "@trpc/server";
 import fetch from "cross-fetch";
+import FormData from "form-data";
 import { type AppContext } from "../services/app";
 import config from "../config";
 import { generateRandomDigits, getWinningCode } from "../../utils";
@@ -27,12 +28,13 @@ const getRandomCode = trpc.router<AppContext>().query("getRandomCode", {
       return generateRandomDigits();
     }
 
+    const formData = new FormData();
+    formData.append("new_code", winningCode.digits.join(""));
+
     // Send the winning code to the hardware so the safe can be unlocked
     const init: any = {
       method: "POST",
-      body: JSON.stringify({
-        new_code: winningCode.digits.join(""),
-      }),
+      body: formData,
     };
     fetch(`${config.apiUrl}/code`, init)
       .then((res) => res.json())
