@@ -32,9 +32,9 @@ export default function Finish() {
     <FinishWrapper>
       <QuizFrame>
         <FinishDecorContainer>
-          <FinishDecor src="./assets/question-decor1.png" alt="" index="1"/>
-          <FinishDecor src="./assets/question-decor2.png" alt="" index="2"/>
-          <FinishDecor src="./assets/question-decor3.png" alt="" index="3"/>
+          <FinishDecor src="./assets/question-decor1.png" alt="" index="1" />
+          <FinishDecor src="./assets/question-decor2.png" alt="" index="2" />
+          <FinishDecor src="./assets/question-decor3.png" alt="" index="3" />
         </FinishDecorContainer>
         {getRandomCode.isSuccess && (
           <>
@@ -45,6 +45,7 @@ export default function Finish() {
               {(getRandomCode.data ?? []).map((digit, index) => {
                 return <FinishCodeDigit key={index}>{digit}</FinishCodeDigit>;
               })}
+              <FinishCodeDigit>#</FinishCodeDigit>
             </FinishCode>
             <p>
               <FadeIn delay={1.75}>
