@@ -40,19 +40,23 @@ export const FinishCode = styled.div`
   --delay: 1.25s;
 
   ${FinishCodeDigit}:nth-child(1) {
-    animation-delay: calc(var(--delay) * (1 / 4));
+    animation-delay: calc(var(--delay) * (1 / 5));
   }
 
   ${FinishCodeDigit}:nth-child(2) {
-    animation-delay: calc(var(--delay) * (2 / 4));
+    animation-delay: calc(var(--delay) * (2 / 5));
   }
 
   ${FinishCodeDigit}:nth-child(3) {
-    animation-delay: calc(var(--delay) * (3 / 4));
+    animation-delay: calc(var(--delay) * (3 / 5));
   }
 
   ${FinishCodeDigit}:nth-child(4) {
-    animation-delay: calc(var(--delay) * (4 / 4));
+    animation-delay: calc(var(--delay) * (4 / 5));
+  }
+
+  ${FinishCodeDigit}:nth-child(5) {
+    animation-delay: calc(var(--delay) * (5 / 5));
   }
 `;
 

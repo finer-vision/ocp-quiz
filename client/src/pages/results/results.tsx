@@ -10,7 +10,6 @@ import {
 } from "@/pages/results/results.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
-// import questions from "@/config/questions";
 import { useAppState } from "@/state/use-app-state";
 
 type Params = {
@@ -23,8 +22,11 @@ export default function Results() {
   const navigate = useNavigate();
   const questions = useAppState((state) => state.questions);
 
-  const { categoryId } = useParams<Params>();
-  
+  const params = useParams<Params>();
+  const categoryId = React.useMemo(() => {
+    return params.categoryId!;
+  }, [params.categoryId]);
+
   const [score, total] = React.useMemo(() => {
     const { answeredQuestions } = useAppState.getState();
     const score = (answeredQuestions[categoryId] ?? []).reduce(

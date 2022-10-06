@@ -7,10 +7,10 @@ import Results from "@/pages/results/results";
 import Question from "@/pages/question/question";
 import Finish from "@/pages/finish/finish";
 
+const root = document.querySelector<HTMLDivElement>("#root")!;
+
 export default function App() {
   React.useEffect(() => {
-    const root = document.querySelector<HTMLDivElement>("#root");
-
     function onResize() {
       const vw = `${root.clientWidth}px`;
       const vh = `${root.clientHeight}px`;

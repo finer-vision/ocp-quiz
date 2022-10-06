@@ -33,12 +33,12 @@ export default function Question() {
   const navigate = useNavigate();
   const params = useParams<Params>();
   const { categoryId, questionNumber } = React.useMemo(() => {
-    let questionNumber = parseInt(params.questionNumber);
+    let questionNumber = parseInt(params.questionNumber!);
     if (isNaN(questionNumber)) {
       questionNumber = 1;
     }
     return {
-      categoryId: params.categoryId,
+      categoryId: params.categoryId!,
       questionNumber,
     };
   }, [params]);
@@ -85,10 +85,9 @@ export default function Question() {
     return questions[categoryId].length;
   }, [categoryId, mounted]);
   const question = React.useMemo(() => {
-    if (!mounted) return;
     return questions[categoryId].find((question) => {
       return question.id === questionNumber;
-    });
+    })!;
   }, [categoryId, questionNumber, mounted]);
   const nextQuestion = React.useMemo(() => {
     if (!mounted) return;
@@ -127,8 +126,8 @@ export default function Question() {
 
     const interval = setInterval(() => {
       if (timeLeft == -1) {
-        console.log('end')
-        clearInterval(interval)
+        console.log("end");
+        clearInterval(interval);
       } else {
         if (timeLeft < 10) {
           setSecs(["0", timeLeft.toString()]);
@@ -142,90 +141,77 @@ export default function Question() {
     return () => clearInterval(interval);
   }, []);
 
+  if (!mounted) return <></>;
+
   return (
-    mounted && (
-      <QuestionWrapper>
-        <QuizFrame>
-          <TimerContainer>
-            <img src="./assets/0.png" />
-            <img src="./assets/0.png" />
-            <img src="./assets/colon.png" className="colon" />
-            <img src={`./assets/${secs[0]}.png`} />
-            <img src={`./assets/${secs[1]}.png`} />
-          </TimerContainer>
-          <QuestionDecorContainer>
-            <QuestionDecor
-              src="./assets/question-decor1.png"
-              alt=""
-              index="1"
-            />
-            <QuestionDecor
-              src="./assets/question-decor2.png"
-              alt=""
-              index="2"
-            />
-            <QuestionDecor
-              src="./assets/question-decor3.png"
-              alt=""
-              index="3"
-            />
-          </QuestionDecorContainer>
-          <QuestionContainer>
-            <QuestionProgress>
-              <FadeIn>
-                {questionNumber}/{totalQuestions}
-              </FadeIn>
-            </QuestionProgress>
-            <QuestionTitle>
-              <FadeIn delay={0.75}>{question.question}</FadeIn>
-            </QuestionTitle>
-            <QuestionAnswers>
-              <Answers question={question} onSelect={handleSelect} />
-            </QuestionAnswers>
-            <QuestionCategoryProgress>
-              <span>{progress}%</span>
-              <ul>
-                {Array.from(Array(total)).map((_, index) => {
-                  let status: "incomplete" | "correct" | "incorrect" =
-                    "incomplete";
-                  const questionIndex = index % 3; // return 0,1,2
-                  const categories = Object.keys(AllQuestions);
-                  if (index % 3 === 0 && index !== 0) {
-                    categoryIndex++;
-                  }
+    <QuestionWrapper>
+      <QuizFrame>
+        <TimerContainer>
+          <img alt="" src="./assets/0.png" />
+          <img alt="" src="./assets/0.png" />
+          <img alt="" src="./assets/colon.png" className="colon" />
+          <img alt="" src={`./assets/${secs[0]}.png`} />
+          <img alt="" src={`./assets/${secs[1]}.png`} />
+        </TimerContainer>
+        <QuestionDecorContainer>
+          <QuestionDecor src="./assets/question-decor1.png" alt="" index="1" />
+          <QuestionDecor src="./assets/question-decor2.png" alt="" index="2" />
+          <QuestionDecor src="./assets/question-decor3.png" alt="" index="3" />
+        </QuestionDecorContainer>
+        <QuestionContainer>
+          <QuestionProgress>
+            <FadeIn>
+              {questionNumber}/{totalQuestions}
+            </FadeIn>
+          </QuestionProgress>
+          <QuestionTitle>
+            <FadeIn delay={0.75}>{question.question}</FadeIn>
+          </QuestionTitle>
+          <QuestionAnswers>
+            <Answers question={question} onSelect={handleSelect} />
+          </QuestionAnswers>
+          <QuestionCategoryProgress>
+            <span>{progress}%</span>
+            <ul>
+              {Array.from(Array(total)).map((_, index) => {
+                let status: "incomplete" | "correct" | "incorrect" =
+                  "incomplete";
+                const questionIndex = index % 3; // return 0,1,2
+                const categories = Object.keys(AllQuestions);
+                if (index % 3 === 0 && index !== 0) {
+                  categoryIndex++;
+                }
 
-                  const categoryId = categories[categoryIndex];
+                const categoryId = categories[categoryIndex];
 
-                  const answeredQuestion =
-                    (answeredQuestions[categoryId] ?? [])[questionIndex] ??
-                    null;
-                  if (answeredQuestion !== null) {
-                    if (
-                      answeredQuestion.answer ===
-                      answeredQuestion.answers[
-                        answeredQuestion.correctAnswerIndex
-                      ]
-                    ) {
-                      status = "correct";
-                    } else {
-                      status = "incorrect";
-                    }
+                const answeredQuestion =
+                  (answeredQuestions[categoryId] ?? [])[questionIndex] ?? null;
+                if (answeredQuestion !== null) {
+                  if (
+                    answeredQuestion.answer ===
+                    answeredQuestion.answers[
+                      answeredQuestion.correctAnswerIndex
+                    ]
+                  ) {
+                    status = "correct";
+                  } else {
+                    status = "incorrect";
                   }
-                  return (
-                    <li key={index}>
-                      <img
-                        src={`./assets/progress-${status}.png`}
-                        alt={`${index + 1}`}
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-            </QuestionCategoryProgress>
-          </QuestionContainer>
-        </QuizFrame>
-      </QuestionWrapper>
-    )
+                }
+                return (
+                  <li key={index}>
+                    <img
+                      src={`./assets/progress-${status}.png`}
+                      alt={`${index + 1}`}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          </QuestionCategoryProgress>
+        </QuestionContainer>
+      </QuizFrame>
+    </QuestionWrapper>
   );
 }
 

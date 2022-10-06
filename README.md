@@ -11,8 +11,6 @@ python3 -m pip install -U pyserial tornado
 nvm use # optional (uses the exact Node this project was tested against)
 npm install
 npm start
-npm --prefix server install
-npm --prefix server start
 ```
 
 ### Production Build
@@ -22,15 +20,12 @@ Install kiosk software ([**install docs**](https://github.com/finer-vision/touch
 ```shell
 sudo python3 -m pip install -U pyserial tornado
 nvm use # optional (uses the exact Node this project was tested against)
-npm add -g serve
 npm install
 npm run build
-npm --prefix server install
-npm --prefix server run build
 mkdir /home/$USER/apps
 sudo pm2 start --name ocp-quiz-server node -- /home/$USER/apps/ocp-quiz/server/build/index.js
 sudo pm2 save
-pm2 start --name ocp-quiz-client /usr/bin/touchscreen-kiosk -- --url=http://localhost:8080 --start="serve -p 8080 -s /home/$USER/apps/ocp-quiz/build" --delay=3000
+pm2 start --name ocp-quiz-client /usr/bin/touchscreen-kiosk -- --url=http://localhost:8080 --start="serve -p 8080 -s /home/$USER/apps/ocp-quiz/client/build" --delay=3000
 pm2 save
 ```
 
