@@ -11,9 +11,6 @@ app.use(json());
 app.use(
   cors({
     origin(origin, next) {
-      if (origin && origin !== "http://localhost:8080") {
-        return next(new Error("Not allowed by CORS"));
-      }
       next(null, true);
     },
     credentials: true,
