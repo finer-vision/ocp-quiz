@@ -5,6 +5,7 @@ Touchscreen quiz and info kiosk touchscreen for OCP event in 2022.
 ### Getting Started
 
 ```shell
+cp client/.env.example client/.env
 nvm use # optional (uses the exact Node this project was tested against)
 npm install
 npm start
