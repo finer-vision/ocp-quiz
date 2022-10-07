@@ -85,14 +85,14 @@ export default function Question() {
     return questions[categoryId].length;
   }, [categoryId, mounted]);
   const question = React.useMemo(() => {
-    return questions[categoryId].find((question) => {
+    return (questions[categoryId] ?? []).find((question) => {
       return question.id === questionNumber;
     })!;
   }, [categoryId, questionNumber, mounted]);
   const nextQuestion = React.useMemo(() => {
     if (!mounted) return;
     return (
-      questions[categoryId].find((question) => {
+      (questions[categoryId] ?? []).find((question) => {
         return question.id === questionNumber + 1;
       }) ?? null
     );
