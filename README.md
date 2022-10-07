@@ -31,6 +31,7 @@ Make sure this is set up on a single machine, connected to a router, and all oth
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 python3 -m pip install -U pyserial tornado
+rm get-pip.py
 nvm use # optional (uses the exact Node this project was tested against)
 npm install
 npm run build
