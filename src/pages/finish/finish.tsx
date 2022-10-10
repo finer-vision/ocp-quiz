@@ -36,15 +36,15 @@ export default function Finish() {
           <FinishDecor src="./assets/question-decor2.png" alt="" index="2"/>
           <FinishDecor src="./assets/question-decor3.png" alt="" index="3"/>
         </FinishDecorContainer>
-        {getRandomCode.isSuccess && (
+        {!getRandomCode.isSuccess ? (
           <>
             <h3>
               <FadeIn>Congratulations</FadeIn>
             </h3>
             <FinishCode>
-              {(getRandomCode.data ?? []).map((digit, index) => {
-                return <FinishCodeDigit key={index}>{digit}</FinishCodeDigit>;
-              })}
+                {(getRandomCode.data ?? ['?', '?', '?', '?']).map((digit, index) => {
+                  return <FinishCodeDigit key={index}>{digit}</FinishCodeDigit>;
+                })}
             </FinishCode>
             <p>
               <FadeIn delay={1.75}>
@@ -59,7 +59,24 @@ export default function Finish() {
               />
             </FadeIn>
           </>
-        )}
+        )
+      : <>
+        <h3>
+          <FadeIn>Better luck next time</FadeIn>
+        </h3>
+        <p>
+          <FadeIn delay={0.75}>
+            Play again for your chance to win
+          </FadeIn>
+        </p>
+        <FadeIn delay={1.35}>
+          <FinishButton
+            src="./assets/start.png"
+            alt="Finish"
+            onClick={finish}
+          />
+        </FadeIn>
+      </>}
       </QuizFrame>
     </FinishWrapper>
   );

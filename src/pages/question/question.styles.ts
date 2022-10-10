@@ -2,24 +2,8 @@ import styled, { css } from "styled-components";
 import { FadeIn } from "@/styles/elements";
 
 export const QuestionCategoryProgress = styled.div`
-  position: absolute;
-  right: calc(var(--vw) * (-1 / 100));
-  bottom: calc(var(--vh) * (-3 / 100));
-  font-family: "Orbitron", sans-serif;
-  font-size: calc(var(--vh) * (3 / 100));
-  display: flex;
-  align-items: center;
-  gap: calc(var(--vw) * (1 / 100));
-
-  ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: calc(var(--vw) * (0.25 / 100));
-
-    img {
-      width: calc(var(--vw) * (2 / 100));
-    }
+  div {
+    position: absolute;
   }
 `;
 
@@ -57,7 +41,10 @@ export const QuestionAnswerBoolean = styled.div<{ disabled: boolean }>`
 
 export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
   list-style: none;
-  margin-top: calc(var(--vh) * (5 / 100));
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 
   ${({ disabled }) => {
     if (disabled) {
@@ -80,31 +67,55 @@ export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
     }
 
     > img {
-      width: calc(var(--vh) * (3 / 100));
-    }
-
-    p {
-      position: relative;
-      z-index: 1;
-      font-size: calc(var(--vh) * (3.240740740740741 / 100));
-
-      img {
-        position: absolute;
-        top: 50%;
-        left: -1.5ch;
-        transform: translate(0%, calc(-50% + 0.25ch));
-        width: calc(100% + 3ch);
-        height: auto;
-        z-index: -1;
-        width: calc(var(--vw) * (60.96875 / 100));
-        height: calc(var(--vh) * (11.695721077654517 / 100));
-      }
+      width: 6%;
     }
   }
 `;
 
+interface QuestionAnswerProps {
+  correct: boolean,
+  incorrect: boolean
+}
+
+export const QuestionAnswer = styled.p<QuestionAnswerProps>`
+  position: relative;
+  z-index: 1;
+  font-size: calc(var(--vh) * (3.240740740740741 / 100));
+  padding: 3%;
+  padding-top: 1.3%;
+  padding-bottom: 1.3%;
+  border-radius: 100vh;
+  width: 100%;
+  border: .2vh solid rgba(213,	248,	205, 0);
+  &:after {
+    border-radius: 100vh;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  ${props => props.correct && `
+    background: rgb(13 82 13 / 53%);
+    border: .2vh solid rgb(213	248	205	);
+    box-shadow: inset 0 0 .4vh rgb(64	188	57);
+    &:after {
+      box-shadow: 0 0 1vh rgb(64 255	57);
+    }
+  `}
+  ${props => props.incorrect && `
+      background: rgba(118,	58,	104, 53%);
+      border: .2vh solid rgb(243 227	230);
+      box-shadow: inset 0 0 .4vh rgb(163	83	111);
+      &:after {
+        box-shadow: 0 0 1vh rgb(255	83	111);
+      }
+  `}
+`
+
 export const QuestionAnswers = styled.div`
-  //
+//
 `;
 
 export const QuestionProgress = styled.div`
@@ -115,7 +126,6 @@ export const QuestionProgress = styled.div`
 `;
 
 export const QuestionTitle = styled.h3`
-  font-size: calc(var(--vh) * (5 / 100));
   line-height: 1.5em;
   letter-spacing: calc(var(--vh) * (0.6 / 100));
 `;
@@ -123,8 +133,7 @@ export const QuestionTitle = styled.h3`
 export const QuestionContainer = styled.div`
   width: calc(var(--vw) * (59 / 100));
   height: 100%;
-  margin-left: auto;
-  margin-right: calc(var(--vw) * (4 / 100));
+  margin-left: 15%;
 `;
 
 export const QuestionDecorContainer = styled.div`

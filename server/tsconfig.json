@@ -1,9 +1,9 @@
 {
-  "compilerOptions": {
+  "ptions": {
     "strict": true,
     "sourceMap": true,
     "module": "commonjs",
-    "target": "es2017",
+    "target": "es2022",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,

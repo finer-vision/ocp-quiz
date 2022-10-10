@@ -1,0 +1,551 @@
+{
+    "myths-or-facts":[
+     {
+      "id": 101,
+      "question": "The Meta logo signifies the infinity loop that symbolizes endless possibilities and endless universes. ",
+      "answers": "Myth, Fact",
+      "answer": "Fact"
+     },
+     {
+      "id": 102,
+      "question": "The first OCP Summit was in June 2014.",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "The first OCP Summit was in June, 2011 with roughly 200 attendees who gathered on Meta campus"
+     },
+     {
+      "id": 103,
+      "question": "The four core OCP tenets are Effciency, Scalability, Openness and Impact.",
+      "answers": "Myth, Fact",
+      "answer": "Fact"
+     },
+     {
+      "id": 104,
+      "question": "OCP requires that all contibutions meet at least one out of four of the core OCP tenets; Effciency, Scalability, Openness and Impact.",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "To insure a level of consistency in our contributions, OCP requires that all contributions meet three out of the four core OCP tenets"
+     },
+     {
+      "id": 105,
+      "question": "The Bay Area has the highest number of data centers in the US",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "(source: Usitc) Dallas has the highest number of data centers in the US"
+     },
+     {
+      "id": 106,
+      "question": "About 2% of the total energy in the US is used by data centers",
+      "answers": "Myth, Fact",
+      "answer": "Fact"
+     },
+     {
+      "id": 107,
+      "question": "The largest data center in the world is the Range International Information Group, located in Langfang, China. ",
+      "answers": "Myth, Fact",
+      "answer": "Fact",
+      "comment": "(source: datacenters.com ) It occupies a space of 6.3 million square feet!"
+     },
+     {
+      "id": 108,
+      "question": "The countries that have the most data centers in 2022 are the US, Germany, UK, China, and Canada.",
+      "answers": "Myth, Fact",
+      "answer": "Fact",
+      "comment": "(source: Statistica) "
+     },
+     {
+      "id": 109,
+      "question": "Meta's first data center was opened in Altoona, Pennsylvania in 2011",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "The first Meta data center was opened in 2011 in Prineville, Oregon."
+     },
+     {
+      "id": 110,
+      "question": "Over 100 billion Whatsapp messages are sent everyday day",
+      "answers": "Myth, Fact",
+      "answer": "Fact",
+      "comment": "In typical whatsapp fashion, why send 1 message, when you can send 5?"
+     },
+     {
+      "id": 111,
+      "question": "The Apple Inc logo is a tribute to the late, Alan Turing.",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "Unfortunately, the truth is far less grand. The company is called Apple purely because Steve Jobs thought it sounded like a nice word, and because Jobs was in the middle of an all-fruit diet when he thought of it."
+     },
+     {
+      "id": 112,
+      "question": "San Jose was once the capital of California",
+      "answers": "Myth, Fact",
+      "answer": "Fact",
+      "comment": "San Jose was California's first city. It was also the state capital from 1849 to 1852."
+     },
+     {
+      "id": 113,
+      "question": "Spending on data center systems worldwide reached $137 billion in 2021.",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "Spending on data center systems worldwide actually reached $237 billion in 2021., (Source: Statista)"
+     },
+     {
+      "id": 114,
+      "question": "The first computer was invented by Charles Babbage",
+      "answers": "Myth, Fact",
+      "answer": "Fact",
+      "comment": "but was not built until 1991"
+     },
+     {
+      "id": 115,
+      "question": "The internet was invented by Tim Berners-Lee",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "Computer scientists Vinton Cerf and Bob Kahn are credited with inventing the Internet communication protocols we use today. The online world then took on a more recognizable form in 1990, when computer scientist Tim Berners-Lee invented the World Wide Web"
+     },
+     {
+      "id": 116,
+      "question": "Python programming language was created by Guido van Rossum",
+      "answers": "Myth, Fact",
+      "answer": "Fact"
+     },
+     {
+      "id": 117,
+      "question": "In the 1960s, General Electric developed the very first direct liquid cooling system",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "Liquid cooling began with IBM announcing their first water cooled product in 1964. "
+     },
+     {
+      "id": 118,
+      "question": "Facebook Inc was founded in 2001",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "It was founded in February, 2004"
+     },
+     {
+      "id": 119,
+      "question": "The 2Africa subsea communications cable is the world's longest, stretching ~28,000 miles",
+      "answers": "Myth, Fact",
+      "answer": "Myth",
+      "comment": "Not quite. It will be the longest when complete, but until then, SEA-ME-WE3, is currently the longest at 24,000 miles."
+     },
+     {
+      "id": 120,
+      "question": "Ada Lovelace published the first computer algorithm. ",
+      "answers": "Myth, Fact",
+      "answer": "Fact",
+      "comment": "Lovelace worked on Charles Babbage's computer \"The Analytical Engine\" and is regarded as the first computer programmer."
+     }
+    ],
+    "sustainability":[
+     {
+      "id": 201,
+      "question": "Out of all available electricity today, how much electricity do data centers consume globally?",
+      "answers": "1-2%, 2-3%, 3-4%, 4-5%",
+      "answer": "2-3%",
+      "comment": "it is estimated that the world's data centers use 2-3% of all available electricity today  "
+     },
+     {
+      "id": 202,
+      "question": "Power Usage Effectiveness (PUE) is a way to measure use in Data Centers using what equation?",
+      "answers": " IT Equipment Power \/ Total Facility Power, Total  CO2 Emissioned Caused \/ IT Equipment Power, Total Facility Power \/ IT Equipment Power, CO2 Emitted \/ Unit of Energy (kWh)",
+      "answer": "Total Facility Power \/ IT Equipment Power",
+      "comment": "Sometimes referred to as 'Power Utilization Effectiveness', this ratio describes how much extra energy a data center needs to maintain IT equipment for every watt delivered to the equipment. The best PUE a data center can have is 1: an ideal situation, with no extra energy use."
+     },
+     {
+      "id": 203,
+      "question": "Worldwide, data centers account for what percentage of global greenhouse emissions?",
+      "answers": "~1%, ~2%, ~3%, ~4%",
+      "answer": "~2%"
+     },
+     {
+      "id": 204,
+      "question": "Data center buildings Meta completed in 2021 exhibit a Power Usage Effectiveness (PUE) of 1.09 and Water Usage Effectiveness (WUE) of 0.26",
+      "answers": "True, False",
+      "answer": "True"
+     },
+     {
+      "id": 205,
+      "question": "Meta has committed to reaching net zero emissions across our value chain in 2040",
+      "answers": "True, False",
+      "answer": "False",
+      "comment": "Meta has committed to reaching net zero emissions across our value chain in 2030"
+     },
+     {
+      "id": 206,
+      "question": "Meta has committed to becoming water positive by 2030",
+      "answers": "True, False",
+      "answer": "True"
+     },
+     {
+      "id": 207,
+      "question": "What percentage of US data centers are LEED certified (Leadership in Energy & Environmental Design)?",
+      "answers": "~5%, ~7%, ~9%, ~11%",
+      "answer": "~5%",
+      "comment": "Only around 5% of all US data Centers are LEED certified"
+     },
+     {
+      "id": 208,
+      "question": "Which of the following is not a metric used to measure data center sustainability?",
+      "answers": "Power Usage Effectiveness (PUE), Carbon Usage Effectiveness (CUE), Water Usage Effectiveness (WUE), Electronics Usage Efficiency (EUE)",
+      "answer": "Electronics Usage Efficiency (EUE)",
+      "comment": "Electronics Usage Efficiency is not a metric used to measure  data center sustainability but Electronics Disposal Efficiency (EDE) is."
+     },
+     {
+      "id": 209,
+      "question": "According to The International Energy Agency, by 2025 data centers will consume what percentage of the world's power supply? ",
+      "answers": "10%, 20%, 30%, 40%",
+      "answer": "20% ",
+      "comment": "The International Energy Agency estimates that by 2025, data centers will consume 1\/5 of the world's power supply."
+     },
+     {
+      "id": 210,
+      "question": " Nitrous oxide remains in the atmosphere for up to 120 years and methane for up to 10 years, but how long does CO2 remain in the atmosphere?",
+      "answers": "up to 200 years, up to 500 years, up to 700 years, up to 1,000 years",
+      "answer": "up to 1,000 years",
+      "comment": "Worryingly, CO2 remains in the, atmosphere for up to 1,000, years"
+     },
+     {
+      "id": 211,
+      "question": "40% of the global population lacks access to clean and safe drinking water.",
+      "answers": "True, False",
+      "answer": "True"
+     },
+     {
+      "id": 212,
+      "question": "Which of the following materials cannot be infinitely recycled?",
+      "answers": "Glass, Aluminum, Paper, Steel",
+      "answer": "Paper",
+      "comment": "Paper can be recycled, but only between 5-7 times and each time with a lower grade product.  "
+     },
+     {
+      "id": 213,
+      "question": "Landscaping accounts for about half the water Californians use at home",
+      "answers": "True, False",
+      "answer": "True",
+      "comment": "Showers account for another 18 percent, while toilets use about 20 percent."
+     },
+     {
+      "id": 214,
+      "question": "What percentage of the Earth's water is fit and available for consumption?",
+      "answers": "10%, 5%, 2%, 0.5%",
+      "answer": "0.5%",
+      "comment": "While 3% of the Earth's water is fresh, only 0.5% of the Earth's water is fit and available for consumption. The remaining portion is either inaccessible, in ice caps, glaciers, or underground, or too polluted for people to salvage."
+     },
+     {
+      "id": 215,
+      "question": "Which of the following is the 'greenest' form of energy?",
+      "answers": "Hydro, Solar, Wind, Geothermal",
+      "answer": "Hydro",
+      "comment": "Considering the emissions associated with their manufacture and installation, Hydro power has the lowest carbon footprint"
+     },
+     {
+      "id": 216,
+      "question": "Which country relies the most on nuclear energy?",
+      "answers": "United States, France, Belgium, China",
+      "answer": "France",
+      "comment": "While the United States has the most operating nuclear reactors, France relies the most on nuclear energy with over 70% of its power produced from nuclear sources."
+     },
+     {
+      "id": 217,
+      "question": "Which US State produces the most wind power?",
+      "answers": "Alaska, California, Texas, Oklahoma",
+      "answer": "Texas",
+      "comment": "Texas. Generating over 92 Terawatt-hours of electricity during a year, more than the next three top states (Iowa, Oklahoma, and Kansas) combined."
+     },
+     {
+      "id": 218,
+      "question": "Which US State produces the most solar power?",
+      "answers": "North Carolina, Texas, Florida, California",
+      "answer": "California",
+      "comment": "California remains the king of solar energy, with a capacity of 32,394 MW—the equivalent of 8,430,324 homes powered by solar., "
+     },
+     {
+      "id": 219,
+      "question": "Which US State produces the most hydropower?",
+      "answers": "Washington, Oregon, California, New York",
+      "answer": "Washington"
+     },
+     {
+      "id": 220,
+      "question": "In 2022, which country in the world was the most energy efficient?",
+      "answers": "United Kingdom, France, The Netherlands, Germany",
+      "answer": "France",
+      "comment": "According to the American Council for an Energy-Efficient Economy (ACEEE), France rose to the top due to policies such as the bonus-malus system"
+     }
+    ],
+    "meta-pop-culture":[
+     {
+      "id": 301,
+      "question": "Which Meta product has the highest monthly active users?",
+      "answers": "Whatsapp, Facebook, Instagram, Workplace",
+      "answer": "Facebook",
+      "comment": "Facebook has nearly 3 billion monthy active users in 2022"
+     },
+     {
+      "id": 302,
+      "question": "Apart from @instagram, which Instagram account has the most followers?",
+      "answers": "Justin Bieber, Kylie Jenner, Cristiano Ronaldo, Virat Kohli",
+      "answer": "Cristiano Ronaldo",
+      "comment": "Cristiano Ronaldo has 478 million followers on Instagram."
+     },
+     {
+      "id": 303,
+      "question": " Mark Zuckerberg graduated from Harvard in 2006",
+      "answers": "True, False",
+      "answer": "False",
+      "comment": "Mark never finished his undergrad but he later recieved an Honorary Doctor of Laws Degree from Harvard in 2017 "
+     },
+     {
+      "id": 304,
+      "question": "Before landing the name 'Facebook', what was the website called?",
+      "answers": "Faceswap, The PhotoBook, Facemash, TheFacebook",
+      "answer": "TheFacebook",
+      "comment": "Facebook dropped the 'The' in 2005"
+     },
+     {
+      "id": 305,
+      "question": "What is the most-watched live video on Facebook?",
+      "answers": "Chewbacca Mom, Fenton Dog, Charlie bit my finger, Road Marking Is an Artform",
+      "answer": "Chewbacca Mom",
+      "comment": "In just 5 days, the video showing Candace Payne trying on a Chewbacca mask racked up over 140million views and 3 million shares."
+     },
+     {
+      "id": 306,
+      "question": "What is the most-liked image on Instagram?",
+      "answers": "@cristiano @georginagio: Their twins pregnancy announcement, @world_record_egg: Photo of an egg, @xxxtentacion: Final post before his death, @arianagrande: Photos from her wedding with Dalton Gomez",
+      "answer": "@world_record_egg: Photo of an egg",
+      "comment": "With over 56.1 million likes, this photo of an egg clearly wins the top spot."
+     },
+     {
+      "id": 307,
+      "question": "Which country has the most Whatsapp users?",
+      "answers": "Indonesia, Brazil, India, 4)United States",
+      "answer": "India",
+      "comment": "India has over 390.1 millon whatsapp users"
+     },
+     {
+      "id": 308,
+      "question": "Apart from Facebook App, which of the following Facebook pages is the most followed?",
+      "answers": "Mr Bean, Cristiano Ronaldo, 5-minute Crafts, Samsung",
+      "answer": "Samsung",
+      "comment": "The Samsung facebook page has over 161 million followers."
+     },
+     {
+      "id": 309,
+      "question": "Zuck's dog is a well-loved, honorary teammate of Meta, but what is his name?",
+      "answers": "Beast, Boz, Bob, Brian",
+      "answer": "Beast",
+      "comment": "Beast is a Puli and the master of disguise"
+     },
+     {
+      "id": 310,
+      "question": "Out of the following, who is not a founder of Facebook?",
+      "answers": "Eduardo Saverin, Peter Thiel, Dustin Moskovitz, Chris Hughes",
+      "answer": "Peter Thiel",
+      "comment": "Peter Thiel was not a founder but Facebook's first investor."
+     },
+     {
+      "id": 311,
+      "question": "Which of the following is not a reaction available on Facebook?",
+      "answers": "\"Love\", \"Haha\", \"Wow\", \"Dislike\"",
+      "answer": "\"Dislike\"",
+      "comment": "Instead of \"Dislike\" we have \"Angry\" and \"Sad\" reactions"
+     },
+     {
+      "id": 312,
+      "question": "The 'Poke' feature has been available on Facebook since 2004",
+      "answers": "True, False",
+      "answer": "True",
+      "comment": "And no, we still aren't sure what it means, either."
+     },
+     {
+      "id": 313,
+      "question": "Thefacebook's original logo was Al Pacino's face",
+      "answers": "True, False",
+      "answer": "True",
+      "comment": "Al Pacino's face was superimposed with binary numbers as Facebook's original logo and was designed by co-founder Andrew McCollum"
+     },
+     {
+      "id": 314,
+      "question": "What was the name of the first consumer Oculus device?",
+      "answers": "Tide, Rift, Flow, Wave",
+      "answer": "Rift",
+      "comment": "The Oculus Rift was released in 2016 and still required tethering to a computer."
+     },
+     {
+      "id": 315,
+      "question": "Facebook messenger is the most popular messenging app globally",
+      "answers": "True, False",
+      "answer": "False",
+      "comment": "With over 2 Billion users, Whatsapp is the most popular messenging app in the world."
+     },
+     {
+      "id": 316,
+      "question": "What is Meta Connect? ",
+      "answers": "The connection between Instagram and Messenger app, An internal Meta term for a meeting, Annual event Meta uses to showcase progress and plans related to the metaverse, The name of our Network backbone",
+      "answer": "Annual event Meta uses to showcase progress and plans related to the metaverse",
+      "comment": "We had it last week! re-watch on metaconnect.com"
+     },
+     {
+      "id": 317,
+      "question": "What are the Ray-Ban X Meta Smartglasses called?",
+      "answers": "Stories, Reels, Dolly, Lens",
+      "answer": "Stories",
+      "comment": "Ray-Ban Stories allow you to take photos and videos, listen to music and calls, and share content directly to your social media channels"
+     },
+     {
+      "id": 318,
+      "question": "Which of the following is not a piece of hardware that Meta has collaborated on or launched in its company's history?",
+      "answers": "Mobile Phone, Smart Glasses, Drone, Video Doorbell",
+      "answer": "Video Doorbell",
+      "comment": "but never say never!"
+     },
+     {
+      "id": 319,
+      "question": "In what year did Facebook reach 1 Billion monthly active users?  ",
+      "answers": "2008, 2010, 2012, 2014",
+      "answer": "2012",
+      "comment": "Just 3 years later, Facebook had 1 billion active users in a single day."
+     },
+     {
+      "id": 320,
+      "question": "What was the name of Meta's solar-powered drone? ",
+      "answers": "Vespa, Aquila, Swift, Starstream",
+      "answer": "Aquila"
+     }
+    ],
+    "our-infrastructure":[
+     {
+      "id": 401,
+      "question": "Meta's Hardware Engineering team names most of its hardware after what?",
+      "answers": "People, Food, Places, Planets",
+      "answer": "Places",
+      "comment": "National Parks are a popular choice"
+     },
+     {
+      "id": 402,
+      "question": "What was the name of Meta's first in-house designed server?",
+      "answers": "Knox, Backpack, Freedom, Wedge",
+      "answer": "Freedom",
+      "comment": "Symbolizing our new endeavor in the DC hardware space."
+     },
+     {
+      "id": 403,
+      "question": "How many Data Center locations does Meta have around the world?",
+      "answers": "4, 8, 15, 21",
+      "answer": "21",
+      "comment": "We currently have 21 locations with 13 data centers online."
+     },
+     {
+      "id": 404,
+      "question": "Our AI compute platform is named after which National Park?",
+      "answers": "Grand Teton, Yellowstone, Sequoia , Everglades",
+      "answer": "Grand Teton"
+     },
+     {
+      "id": 405,
+      "question": "Our data center buildings are big, they are about the size of what?",
+      "answers": "Empire State Building (~1,250ft), 3 Boeing 747s (~750ft), 7 Blue Whales (~700ft), Nimitz Class Aircraft carrier (~1,50ft)",
+      "answer": "Aircraft Carrier (~1,050ft)",
+      "comment": "Just a little shorter than the Empire State Building!"
+     },
+     {
+      "id": 406,
+      "question": "When completed, the 2Africa Subsea Cable will be the longest in the world. How long will it be when completed?",
+      "answers": "22,000 miles, 24,000 miles, 28,000 miles, 30,000 miles",
+      "answer": "28,000 miles",
+      "comment": "It will be 28,000 miles when complete. SEA-ME-WE3 is currently the longest at 24,000 miles."
+     },
+     {
+      "id": 407,
+      "question": "What makes our Singapore Data center unique compared to our other data centers?",
+      "answers": "It is multi-story, It is the largest, It requires no onsite staff, It is located on water",
+      "answer": "It is multi-storey",
+      "comment": "It will be 11 floors tall when complete. "
+     },
+     {
+      "id": 408,
+      "question": "What was our first data center?",
+      "answers": "Altoona Iowa, Prineville Oregon, Fortworth Texas, Clonee Ireland",
+      "answer": "Prineville Oregon"
+     },
+     {
+      "id": 409,
+      "question": "All of Meta's Data Centers are supported by 100% renewable energy.",
+      "answers": "True, False",
+      "answer": "True"
+     },
+     {
+      "id": 410,
+      "question": "Which of Meta's Data centers is the largest?",
+      "answers": "Altoona, Iowa, Prineville, Oregon, Singapore, Singapore, Clonee, Ireland",
+      "answer": "Altoona Iowa"
+     },
+     {
+      "id": 411,
+      "question": "What does lime green color on hardware designs indicate? ",
+      "answers": "It is a Field Replaceable Unit (FRU), It is fully recyclable, It is a purchased component, It is safe to touch",
+      "answer": "Safe to touch"
+     },
+     {
+      "id": 412,
+      "question": "Our current data center footprint sits around 30 million square feet.",
+      "answers": "True, False",
+      "answer": "False",
+      "comment": "It is actually around 50 million square feet"
+     },
+     {
+      "id": 413,
+      "question": "Our AI systems can translate how many languages?",
+      "answers": "20, 50, 200, 500",
+      "answer": "200",
+      "comment": "And the list is growing!"
+     },
+     {
+      "id": 414,
+      "question": "We recently open-sourced our machine-learning framework; what is it called?",
+      "answers": "C#crash, PyTorch, C++More, PyTon",
+      "answer": "PyTorch"
+     },
+     {
+      "id": 415,
+      "question": "How many data centers do we have in Asia?",
+      "answers": "1, 3, 5, 10",
+      "answer": "1 ) 1 ",
+      "comment": "Singapore is our first and currently only DC location in Asia"
+     },
+     {
+      "id": 416,
+      "question": "What is Minipack2?",
+      "answers": "Top of Rack Switch, Server Chassis, Optic Cable, Fabric Switch",
+      "answer": "Fabric Switch"
+     },
+     {
+      "id": 417,
+      "question": "In our hardware, what does RPU stand for?",
+      "answers": "Revenue Per User, Routing Process Unit, Resevoir Pumping Unit, Related Product Unit",
+      "answer": "Resevoir Pumping Unit",
+      "comment": "Part of our Air Assisted Liquid Cooling solution "
+     },
+     {
+      "id": 418,
+      "question": "In our hardware, what does SCM stand for?",
+      "answers": "Supply Chain Management, Switch Control Module, Software Configuration Manager, Source Code Module",
+      "answer": "Switch Control Module"
+     },
+     {
+      "id": 419,
+      "question": "How many minutes can the increased battery backup system supply power during outage events?",
+      "answers": "Up to 2 minutes, Up to 4 minutes, Up to 6 minutes, Up to 8 minute",
+      "answer": "Up to 4 minutes",
+      "comment": "We increased the performance of the Battery Backup (BBU) module to a 4 minute capacity compared to 90 seconds in its predecessor"
+     },
+     {
+      "id": 420,
+      "question": "How many liters of coolant is the Liquid Cooling Cart capable of handling at any given time?",
+      "answers": "10 liters, 20 liters, 40 liters, 50 liters",
+      "answer": "50 Liters"
+     }
+    ]
+    }
