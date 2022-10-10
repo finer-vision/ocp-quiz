@@ -3,15 +3,8 @@
     "strict": true,
     "sourceMap": true,
     "module": "commonjs",
-<<<<<<< HEAD:client/tsconfig.json
-    "target": "es2017",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-=======
     "target": "es2022",
-    "jsx": "react-jsx",
     "noEmit": true,
->>>>>>> amends:tsconfig.json
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
