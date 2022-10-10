@@ -32,45 +32,64 @@ export default () => {
 
     let categoryIndex = 0;
 
+    const stars: React.ReactNode[] = [];
+
+    Array.from(Array(total)).map((_, index) => {
+      let status: "incomplete" | "correct" | "incorrect" =
+        "incomplete";
+      const questionIndex = index % 3; // return 0,1,2
+      const categories = Object.keys(AllQuestions);
+      if (index % 3 === 0 && index !== 0) {
+        categoryIndex++;
+      }
+
+      const categoryId = categories[categoryIndex];
+
+      const answeredQuestion =
+        (answeredQuestions[categoryId] ?? [])[questionIndex] ??
+        null;
+      if (answeredQuestion !== null) {
+        if (
+          answeredQuestion.answer ===
+          answeredQuestion.answers[
+            answeredQuestion.correctAnswerIndex as number
+          ]
+        ) {
+          stars.unshift((
+            <li key={index}>
+              <img
+                src={`./assets/progress-correct.png`}
+                alt={`${index + 1}`}
+              />
+            </li>
+          ));
+        } else {
+          stars.unshift((
+            <li key={index}>
+              <img
+                src={`./assets/progress-incorrect.png`}
+                alt={`${index + 1}`}
+              />
+            </li>
+          ));
+        }
+      } else {
+        stars.push((
+          <li key={index}>
+            <img
+              src={`./assets/progress-incomplete.png`}
+              alt={`${index + 1}`}
+            />
+          </li>
+        ));
+      }
+    })
+
     return (
         <QuestionCategoryProgress>
         <span>{progress}%</span>
         <ul>
-          {Array.from(Array(total)).map((_, index) => {
-            let status: "incomplete" | "correct" | "incorrect" =
-              "incomplete";
-            const questionIndex = index % 3; // return 0,1,2
-            const categories = Object.keys(AllQuestions);
-            if (index % 3 === 0 && index !== 0) {
-              categoryIndex++;
-            }
-
-            const categoryId = categories[categoryIndex];
-
-            const answeredQuestion =
-              (answeredQuestions[categoryId] ?? [])[questionIndex] ??
-              null;
-            if (answeredQuestion !== null) {
-              if (
-                answeredQuestion.answer ===
-                answeredQuestion.answers[
-                  answeredQuestion.correctAnswerIndex as number
-                ]
-              ) {
-                status = "correct";
-              } else {
-                status = "incorrect";
-              }
-            }
-            return (
-              <li key={index}>
-                <img
-                  src={`./assets/progress-${status}.png`}
-                  alt={`${index + 1}`}
-                />
-              </li>
-            );
-          })}
+          {stars}
         </ul>
       </QuestionCategoryProgress>
     )

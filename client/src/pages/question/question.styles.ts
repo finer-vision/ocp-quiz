@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { FadeIn } from "@/styles/elements";
+import { motion } from "framer-motion"
 
 export const QuestionCategoryProgress = styled.div`
   div {
@@ -77,7 +78,48 @@ interface QuestionAnswerProps {
   incorrect: boolean
 }
 
-export const QuestionAnswer = styled.p<QuestionAnswerProps>`
+export const AnswerBorder = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-color: var(--border-colour);
+  border-radius: 100vw;
+}
+`
+
+export const AnswerBorderTop = styled(AnswerBorder).attrs(() => ({
+  initial: {
+    width: '0',
+    borderTopRightRadius: '0'
+  },
+  animate: {
+    width: [0, ],
+  },
+  transition: {
+    duration: 3
+  },
+  transitionEnd: {
+    borderTopRightRadius: '100vw'
+  }
+}))`
+  border-top: .2vh solid;
+`;
+
+export const AnswerBorderBottom = styled(AnswerBorder)`
+
+`;
+
+export const AnswerBorderLeft = styled(AnswerBorder)`
+
+`;
+
+export const AnswerBorderRight = styled(AnswerBorder)`
+
+`;
+
+export const QuestionAnswer = styled(motion.p)<QuestionAnswerProps>`
   position: relative;
   z-index: 1;
   font-size: calc(var(--vh) * (3.240740740740741 / 100));
@@ -98,21 +140,28 @@ export const QuestionAnswer = styled.p<QuestionAnswerProps>`
   }
   ${props => props.correct && `
     background: rgb(13 82 13 / 53%);
-    border: .2vh solid rgb(213	248	205	);
     box-shadow: inset 0 0 .4vh rgb(64	188	57);
     &:after {
       box-shadow: 0 0 1vh rgb(64 255	57);
     }
+    ${AnswerBorder} {
+      --border-colour: .2vh solid rgb(213	248	205	);
+    }
   `}
   ${props => props.incorrect && `
       background: rgba(118,	58,	104, 53%);
-      border: .2vh solid rgb(243 227	230);
       box-shadow: inset 0 0 .4vh rgb(163	83	111);
       &:after {
         box-shadow: 0 0 1vh rgb(255	83	111);
       }
+      ${AnswerBorder} { 
+        border: none;
+        --border-colour: .2vh solid rgb(243 227	230);
+      }
   `}
+  
 `
+
 
 export const QuestionAnswers = styled.div`
 //

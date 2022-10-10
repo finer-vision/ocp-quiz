@@ -19,7 +19,7 @@ export const HomeButton = styled.img`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, calc(-50% + calc(var(--vh) * (19 / 100))));
+  transform: translate(-123%, calc(-50% + calc(var(--vh) * (19 / 100))));
   z-index: 1;
 `;
 
@@ -41,6 +41,7 @@ export const HomeWrapper = styled.div<Props>`
   width: 100%;
   height: 100%;
   background-color: #e5e5e5;
+  position: relative;
 
   ${EventsWrapper} {
     position: absolute;
@@ -61,6 +62,7 @@ export const HomeWrapper = styled.div<Props>`
 
   ${TitleSignWrapper} {
     transition: transform var(--speed) linear;
+    transform: translateX(-30%);
   }
 
   ${({ state }) => {
@@ -88,9 +90,11 @@ export const HomeWrapper = styled.div<Props>`
 `;
 
 export const HomeVideo = styled.video`
-  width: 300px;
-  height: 300px;
+  pointer-events: none;
   position: absolute;
-  right: 0;
-  bottom: 0;
+  z-index: 50;
+  pointer-events: none;
+  height: 120%;
+  margin-left: 40%;
+  margin-top: 30%;
 `

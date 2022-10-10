@@ -12,8 +12,8 @@ export const CategoryImage = styled.img`
   top: 50%;
   right: 0;
   width: auto;
-  height: 65%;
-  transform: translate(28%, -56%);
+  height: 55%;
+  transform: translate(39%, -60%);
 `;
 
 export const CategoryContent = styled.div`

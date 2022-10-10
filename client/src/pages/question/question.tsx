@@ -13,7 +13,7 @@ import {
   QuestionTitle,
   QuestionWrapper,
   TimerContainer,
-  QuestionAnswer,
+  QuestionAnswer
 } from "@/pages/question/question.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
@@ -168,9 +168,9 @@ export default function Question() {
                 {questionNumber}/{totalQuestions}
               </FadeIn>
             </QuestionProgress>
-            <QuestionTitle {... (question.question.length > 90 ? {
+            <QuestionTitle {... ((question.question.length > 90 && question.answers.length > 2) ? {
               style: {
-                fontSize: '100%'
+                fontSize: '130%'
               }
             }
             : {
@@ -213,9 +213,12 @@ function Answers({ question, onSelect }: AnswersProps) {
     const timeout = setTimeout(() => {
       onSelectRef.current(selectedAnswer);
       setSelectedAnswer("");
-    }, 3000);
+    }, 1000);
     return () => clearTimeout(timeout);
   }, [selectedAnswer]);
+
+  
+
   return (
     <QuestionAnswerMulti disabled={selectedAnswer !== ""}>
       {(question.answers as string[]).map((answer, index) => {

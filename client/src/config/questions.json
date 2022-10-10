@@ -320,7 +320,7 @@
      {
       "id": 307,
       "question": "Which country has the most Whatsapp users?",
-      "answers": "Indonesia, Brazil, India, 4)United States",
+      "answers": "Indonesia, Brazil, India, United States",
       "answer": "India",
       "comment": "India has over 390.1 millon whatsapp users"
      },
@@ -479,7 +479,7 @@
      {
       "id": 410,
       "question": "Which of Meta's Data centers is the largest?",
-      "answers": "Altoona, Iowa, Prineville, Oregon, Singapore, Singapore, Clonee, Ireland",
+      "answers": "Altoona Iowa, Prineville Oregon, Singapore Clonee, Ireland",
       "answer": "Altoona Iowa"
      },
      {

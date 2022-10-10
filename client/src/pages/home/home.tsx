@@ -41,6 +41,7 @@ export default function Home() {
             onClick={() => setState(HomeState.intro)}
           />
         )}
+      <HomeVideo src="./assets/videos/1_Screensaver.mov.webm" autoPlay muted loop/>
       </HomeContent>
       <BuildingsParallax />
     </HomeWrapper>
