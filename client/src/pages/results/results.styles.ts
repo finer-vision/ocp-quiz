@@ -27,13 +27,49 @@ export const ResultsWellDone = styled.img`
   }
 `;
 
-export const ResultsInfo = styled.div`
+interface ResultsInfoProps {
+  image?: string;
+}
+
+export const ResultsInfo = styled.div<ResultsInfoProps>`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: calc(var(--vw) * (40 / 100));
-  height: 100%;
+  width: 45%;
+  height: 90%;
+  margin-left: 2.5%;
+  margin-top: 2.5%;
+  overflow: visible;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 25%, 98.68% 25%, 98.68% 62.5%, 100% 62.5%, 100% 100%, 0% 100%);
+    border: .2vh solid rgb(211	253	254);
+    border-radius: 2vh;
+  }
+  &::after {
+    content: '${props => props.image.replaceAll("-", " ").replace(/\b[a-zA-Z]/g, (match) => match.toUpperCase())}';
+    position: absolute;
+    height: 30%;
+    width: 50%;
+    right: -34%;
+    top: 30%;
+    background: url(./assets/${props => props.image}.png) no-repeat;
+    background-size: 40%;
+    background-position: 53% 40%;
+    z-index: 50;
+    padding: 10%;
+    padding-top: 0;
+    text-align: center;
+    font-size: 1.9vw;
+    font-weight: 500;
+  }
 `;
 
 export const ResultsButton = styled.img`

@@ -11,6 +11,7 @@ import {
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
 import { useAppState } from "@/state/use-app-state";
+import Progress from "@/components/progress/progress";
 
 type Params = {
   categoryId: string;
@@ -31,7 +32,7 @@ export default function Results() {
     const { answeredQuestions } = useAppState.getState();
     const score = (answeredQuestions[categoryId] ?? []).reduce(
       (score, question) => {
-        const answerIndex = question.answers.findIndex((answer) => {
+        const answerIndex = (question.answers as string[]).findIndex((answer) => {
           return answer === question.answer;
         });
         if (answerIndex === question.correctAnswerIndex) {
@@ -46,7 +47,7 @@ export default function Results() {
 
   const getTitle = React.useCallback((score: number): string => {
     if (score >= PASSING_SCORE) return "You Scored";
-    return "On no – you only scored";
+    return "You scored";
   }, []);
 
   const finish = React.useCallback(() => {
@@ -67,7 +68,7 @@ export default function Results() {
   return (
     <ResultsWrapper>
       <QuizFrame>
-        <ResultsInfo>
+        <ResultsInfo image={categoryId}>
           <ResultsTitle>
             <FadeIn>{getTitle(score)}</FadeIn>
           </ResultsTitle>
@@ -77,6 +78,9 @@ export default function Results() {
             </FadeIn>
           </ResultsScore>
           <FadeIn delay={1.25}>
+            <Progress/>
+          </FadeIn>
+          <FadeIn delay={1.75}>
             <ResultsButton
               src="./assets/next-category.png"
               alt="Start"

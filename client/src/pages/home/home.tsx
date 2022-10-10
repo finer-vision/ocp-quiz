@@ -5,6 +5,7 @@ import {
   HomeButton,
   HomeContent,
   HomeIntroVideo,
+  HomeVideo,
   HomeWrapper,
 } from "@/pages/home/home.styles";
 import { HomeState } from "@/types";

@@ -38,13 +38,13 @@ export default function CategorySelector() {
               onSelect={handleSelect}
             />
             <Category
-              title="Our <br/>Hardware"
-              id="our-hardware"
+              title="Sustainability"
+              id="sustainability"
               onSelect={handleSelect}
             />
             <Category
-              title="Data <br/>Centers"
-              id="data-centers"
+              title="Our <br/>Infrastructure"
+              id="our-infrastructure"
               onSelect={handleSelect}
             />
           </CategorySelectorCategories>

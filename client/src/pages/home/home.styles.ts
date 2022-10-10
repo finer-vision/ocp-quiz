@@ -19,7 +19,7 @@ export const HomeButton = styled.img`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-115%, calc(-50% + calc(var(--vh) * (19 / 100))));
+  transform: translate(-50%, calc(-50% + calc(var(--vh) * (19 / 100))));
   z-index: 1;
 `;
 
@@ -80,9 +80,17 @@ export const HomeWrapper = styled.div<Props>`
         }
 
         ${TitleSignWrapper} {
-          transform: scale(1.75) translateY(19%) translateX(28%);
+          transform: scale(1.75) translateY(19%) translateX(0%);
         }
       `;
     }
   }};
 `;
+
+export const HomeVideo = styled.video`
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+`

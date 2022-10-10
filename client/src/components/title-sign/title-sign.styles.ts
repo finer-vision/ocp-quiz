@@ -6,7 +6,7 @@ export const TitleSignBillboard = styled.div`
   background-image: url("./assets/sign-billboard.png");
   background-repeat: no-repeat;
   background-size: contain;
-  transform: translateY(17%) translateX(-25%);
+  transform: translateY(17%) translateX(0%);
 `;
 
 export const TitleSignScaffolding = styled.div`
@@ -18,7 +18,7 @@ export const TitleSignScaffolding = styled.div`
   position: absolute;
   left: 50%;
   bottom: 0;
-  transform: translateX(-100%);
+  transform: translateX(-50%);
 `;
 
 export const TitleSignWrapper = styled.div`

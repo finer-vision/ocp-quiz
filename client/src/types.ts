@@ -6,7 +6,7 @@ export enum HomeState {
 export type QuestionData = {
   id: number;
   question: string;
-  type: "multi" | "boolean";
-  answers: string[];
-  correctAnswerIndex: number;
+  answers: string[] | string;
+  correctAnswerIndex?: number;
+  answer?: string
 };
