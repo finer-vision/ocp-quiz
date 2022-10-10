@@ -32,9 +32,9 @@ export default function Finish() {
     <FinishWrapper>
       <QuizFrame>
         <FinishDecorContainer>
-          <FinishDecor src="./assets/question-decor1.png" alt="" index="1" />
-          <FinishDecor src="./assets/question-decor2.png" alt="" index="2" />
-          <FinishDecor src="./assets/question-decor3.png" alt="" index="3" />
+          <FinishDecor src="./assets/question-decor1.png" alt="" index="1"/>
+          <FinishDecor src="./assets/question-decor2.png" alt="" index="2"/>
+          <FinishDecor src="./assets/question-decor3.png" alt="" index="3"/>
         </FinishDecorContainer>
         {!getRandomCode.isSuccess ? (
           <>
@@ -42,16 +42,9 @@ export default function Finish() {
               <FadeIn>Congratulations</FadeIn>
             </h3>
             <FinishCode>
-<<<<<<< HEAD:client/src/pages/finish/finish.tsx
-              {(getRandomCode.data ?? []).map((digit, index) => {
-                return <FinishCodeDigit key={index}>{digit}</FinishCodeDigit>;
-              })}
-              <FinishCodeDigit>#</FinishCodeDigit>
-=======
                 {(getRandomCode.data ?? ['?', '?', '?', '?']).map((digit, index) => {
                   return <FinishCodeDigit key={index}>{digit}</FinishCodeDigit>;
                 })}
->>>>>>> amends:src/pages/finish/finish.tsx
             </FinishCode>
             <p>
               <FadeIn delay={1.75}>

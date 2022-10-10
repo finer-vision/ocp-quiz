@@ -54,7 +54,7 @@ export const ResultsInfo = styled.div<ResultsInfoProps>`
     border-radius: 2vh;
   }
   &::after {
-    content: '${props => props.image.replaceAll("-", " ").replace(/\b[a-zA-Z]/g, (match) => match.toUpperCase())}';
+    content: '${props => props.image!.replaceAll("-", " ").replace(/\b[a-zA-Z]/g, (match) => match.toUpperCase())}';
     position: absolute;
     height: 30%;
     width: 50%;

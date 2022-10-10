@@ -213,7 +213,7 @@ function Answers({ question, onSelect }: AnswersProps) {
     const timeout = setTimeout(() => {
       onSelectRef.current(selectedAnswer);
       setSelectedAnswer("");
-    }, 30000);
+    }, 3000);
     return () => clearTimeout(timeout);
   }, [selectedAnswer]);
   return (
@@ -221,15 +221,15 @@ function Answers({ question, onSelect }: AnswersProps) {
       {(question.answers as string[]).map((answer, index) => {
         const letter = letters[index];
         const correct =
-          selectedAnswer === question.answers[question.correctAnswerIndex];
+          selectedAnswer === question.answers[question.correctAnswerIndex as number];
         return (
           <FadeIn key={index} delay={1.25 + 0.75 * index}>
             <li onClick={() => setSelectedAnswer(answer)}>
               <img src={`./assets/${letter}.png`} alt={letter} />
               <QuestionAnswer 
               incorrect={selectedAnswer === answer && !correct} 
-              correct={(selectedAnswer === answer) || (selectedAnswer && !correct && (question.answers[question.correctAnswerIndex] ===
-                answer))}>
+              correct={((selectedAnswer === answer) || (selectedAnswer && !correct && (question.answers[question.correctAnswerIndex as number] ===
+                answer))) as boolean}>
                 {answer}
               </QuestionAnswer>
             </li>
