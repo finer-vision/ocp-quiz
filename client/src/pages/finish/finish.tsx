@@ -30,6 +30,8 @@ export default function Finish() {
     navigate("/");
   }, [navigate]);
 
+  const isLoser = useAppState((state) => state.questionProgress.some(answer => answer === false));
+
   return (
     <FinishWrapper>
       <QuizFrame>
@@ -38,7 +40,7 @@ export default function Finish() {
           <FinishDecor src="./assets/question-decor2.png" alt="" index="2"/>
           <FinishDecor src="./assets/question-decor3.png" alt="" index="3"/>
         </FinishDecorContainer>
-        {getRandomCode.isSuccess ? (
+        {!isLoser && getRandomCode.isSuccess ? (
           <>
             <h3>
               <FadeIn>Congratulations</FadeIn>

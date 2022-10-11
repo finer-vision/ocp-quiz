@@ -15,7 +15,8 @@ import {
   TimerContainer,
   QuestionAnswer,
   QuestionAnswerBackground,
-  QuestionAnswerBorder
+  QuestionAnswerBorder,
+  QuestionIcon
 } from "@/pages/question/question.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
@@ -209,13 +210,15 @@ function Answers({ question, onSelect }: AnswersProps) {
   }, [onSelect]);
 
   const [selectedAnswer, setSelectedAnswer] = React.useState<string>("");
+  const [showCross, setShowCross] = useState(false);
+  const [showTick, setShowTick] = useState(false);
 
   React.useEffect(() => {
     if (selectedAnswer === "") return;
     const timeout = setTimeout(() => {
       onSelectRef.current(selectedAnswer);
       setSelectedAnswer("");
-    }, 6000);
+    }, 7000);
     return () => clearTimeout(timeout);
   }, [selectedAnswer]);
 
@@ -223,15 +226,20 @@ function Answers({ question, onSelect }: AnswersProps) {
   
   useEffect(() => {
     if(selectedAnswer && selectedAnswer === question.answer) {
-      console.log("NICE")
-      setShowCorrectAnswer(true)
+      setShowCorrectAnswer(true);
+      setTimeout(() => {
+        useAppState.getState().pushQuestionProgress(true);
+      }, 3000);
     }
     else if(selectedAnswer && !(selectedAnswer === question.answer)) {
       setTimeout(() => {
         setShowCorrectAnswer(true);
+        useAppState.getState().pushQuestionProgress(false);
       }, 3000);
     } else {
-      setShowCorrectAnswer(false)
+      setShowCorrectAnswer(false);
+      setShowCross(false);
+      setShowTick(false);
     }
   }, [selectedAnswer])
 
@@ -248,14 +256,20 @@ function Answers({ question, onSelect }: AnswersProps) {
                 <span>{answer[0].toUpperCase() + answer.slice(1)}</span>
                 {showCorrectAnswer && (answer === question.answer) &&
                   <>
-                    <QuestionAnswerBackground correct={true}/>
+                    <QuestionAnswerBackground 
+                    onAnimationComplete={() => setShowTick(true)}
+                    correct={true}/>
                     <QuestionAnswerBorder correct={true}/>
+                    {showTick && <QuestionIcon src="./assets/tick.png"/>}
                   </>
                  }
                 {(selectedAnswer === answer) && !(answer === question.answer) && 
                 <>
-                  <QuestionAnswerBackground correct={false}/>
+                  <QuestionAnswerBackground
+                  onAnimationComplete={() => setShowCross(true)}
+                  correct={false}/>
                   <QuestionAnswerBorder correct={false}/>
+                  {showCross && <QuestionIcon src="./assets/cross.png"/>}
                 </>}
               </QuestionAnswer>
             </li>

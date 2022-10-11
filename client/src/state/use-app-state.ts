@@ -25,6 +25,8 @@ type AppState = {
   question: (categoryId: string, question: QuestionData[]) => void;
   isCategoryComplete: (categoryId: string) => boolean;
   reset: () => void;
+  questionProgress: (boolean | null)[];
+  pushQuestionProgress: (state: boolean | null) => void;
 };
 
 export const useAppState = create<AppState>((set, get) => {
@@ -66,6 +68,10 @@ export const useAppState = create<AppState>((set, get) => {
       return numOfQuestions === 0
         ? false
         : categoryAnswers.length === (questions[categoryId] ?? []).length;
+    },
+    questionProgress: [],
+    pushQuestionProgress(state: boolean | null) {
+      set({ questionProgress: [...this.questionProgress, state]})
     },
     reset() {
       set({ answeredQuestions: {} });

@@ -65,8 +65,6 @@ export default function Results() {
     }
   }, [navigate, questions]);
 
-  console.log(score)
-
   return (
     <ResultsWrapper>
       <QuizFrame>

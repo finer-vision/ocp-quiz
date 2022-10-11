@@ -104,19 +104,6 @@ export const AnswerBorderTop = styled(AnswerBorder).attrs(() => ({
   border-top: .2vh solid;
 `;
 
-export const AnswerBorderBottom = styled(AnswerBorder)`
-
-`;
-
-export const AnswerBorderLeft = styled(AnswerBorder)`
-
-`;
-
-export const AnswerBorderRight = styled(AnswerBorder)`
-
-`;
-
-
 interface QuestionAnswerProps {
   correct: boolean | null;
 }
@@ -295,3 +282,19 @@ export const QuestionWrapper = styled.div`
   height: 100%;
   display: flex;
 `;
+
+
+export const QuestionIcon = styled(motion.img).attrs(() => ({
+  initial: {
+    opacity: 0
+  },
+  animate: {
+    opacity: 100
+  }
+}))`
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+`
