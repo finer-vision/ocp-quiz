@@ -544,8 +544,8 @@
      {
       "id": 420,
       "question": "How many liters of coolant is the Liquid Cooling Cart capable of handling at any given time?",
-      "answers": "10 liters, 20 liters, 40 liters, 50 Liters",
-      "answer": "50 Liters"
+      "answers": "10 liters, 20 liters, 40 liters, 50 liters",
+      "answer": "50 liters"
      }
     ]
     }
