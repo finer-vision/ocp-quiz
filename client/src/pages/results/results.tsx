@@ -87,7 +87,7 @@ export default function Results() {
           <FadeIn delay={1.75}>
             <ResultsButton
               finish={categoriesCompleted() === 4}
-              src={categoriesCompleted() === 4 ? "/assets/finish.png" :"./assets/next-category.png"}
+              src={categoriesCompleted() === 4 ? "./assets/finish.png" :"./assets/next-category.png"}
               onClick={finish}
             />
           </FadeIn>

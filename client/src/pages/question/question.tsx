@@ -173,7 +173,7 @@ export default function Question() {
             </QuestionProgress>
             <QuestionTitle {... ((question.question.length > 100 && question.answers.length > 2) ? {
               style: {
-                fontSize: '2vw'
+                fontSize: '1.8vw'
               }
             }
             : {

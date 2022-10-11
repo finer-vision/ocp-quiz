@@ -30,7 +30,7 @@ export default function Finish() {
     navigate("/");
   }, [navigate]);
 
-  const isLoser = useAppState((state) => state.questionProgress.some(answer => answer === false));
+  const isLoser = useAppState((state) => (state.questionProgress.map(answer => answer === false).length / 12) < 0.5);
 
   return (
     <FinishWrapper>

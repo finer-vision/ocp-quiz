@@ -98,3 +98,10 @@ export const HomeVideo = styled.video`
   margin-left: 40%;
   margin-top: 40%;
 `
+
+export const Sticker = styled.img`
+  position: absolute;
+  top: -10%;
+  right: 0;
+  width: 30%;
+`

@@ -7,6 +7,7 @@ import {
   HomeIntroVideo,
   HomeVideo,
   HomeWrapper,
+  Sticker,
 } from "@/pages/home/home.styles";
 import { HomeState } from "@/types";
 import Header from "@/components/header/header";
@@ -33,6 +34,7 @@ export default function Home() {
       <Events />
       <HomeContent onClick={() => setState(HomeState.intro)}>
         <Header />
+        <Sticker src="./assets/sticker.png"/>
         <TitleSign />
         {state === HomeState.initial && (
           <HomeButton
