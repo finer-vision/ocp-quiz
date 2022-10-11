@@ -195,7 +195,7 @@
       "id": 209,
       "question": "According to The International Energy Agency, by 2025 data centers will consume what percentage of the world's power supply? ",
       "answers": "10%, 20%, 30%, 40%",
-      "answer": "20% ",
+      "answer": "20%",
       "comment": "The International Energy Agency estimates that by 2025, data centers will consume 1\/5 of the world's power supply."
      },
      {
@@ -320,7 +320,7 @@
      {
       "id": 307,
       "question": "Which country has the most Whatsapp users?",
-      "answers": "Indonesia, Brazil, India, United States",
+      "answers": "Indonesia, Brazil, India, 4)United States",
       "answer": "India",
       "comment": "India has over 390.1 millon whatsapp users"
      },
@@ -461,7 +461,7 @@
       "id": 407,
       "question": "What makes our Singapore Data center unique compared to our other data centers?",
       "answers": "It is multi-story, It is the largest, It requires no onsite staff, It is located on water",
-      "answer": "It is multi-storey",
+      "answer": "It is multi-story",
       "comment": "It will be 11 floors tall when complete. "
      },
      {
@@ -544,7 +544,7 @@
      {
       "id": 420,
       "question": "How many liters of coolant is the Liquid Cooling Cart capable of handling at any given time?",
-      "answers": "10 liters, 20 liters, 40 liters, 50 liters",
+      "answers": "10 liters, 20 liters, 40 liters, 50 Liters",
       "answer": "50 Liters"
      }
     ]

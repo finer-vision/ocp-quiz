@@ -67,16 +67,13 @@ export const QuestionAnswerMulti = styled.ul<{ disabled: boolean }>`
       margin-bottom: 0;
     }
 
-    > img {
-      width: 6%;
+    img {
+      width: 3vw;
+      aspect-ratio: 1;
+      object-fit: contain;
     }
   }
 `;
-
-interface QuestionAnswerProps {
-  correct: boolean,
-  incorrect: boolean
-}
 
 export const AnswerBorder = styled(motion.div)`
   position: absolute;
@@ -119,7 +116,58 @@ export const AnswerBorderRight = styled(AnswerBorder)`
 
 `;
 
-export const QuestionAnswer = styled(motion.p)<QuestionAnswerProps>`
+
+interface QuestionAnswerProps {
+  correct: boolean | null;
+}
+
+export const QuestionAnswerBackground = styled(motion.div).attrs((props: QuestionAnswerProps) => ({
+  initial: {
+    width: '5%',
+    backgroundColor: 'rgba(255,255,255)'
+  },
+  animate: {
+    width: '100%',
+    backgroundColor: props.correct ? 'rgb(6, 116, 0)' : 'rgba(245, 113, 103)'
+  },
+  transition: {
+    duration: 3
+  }
+}))<QuestionAnswerProps>`
+  border-radius: 100vh;
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 40%;
+  box-shadow: ${props => props.correct ? '0 0 2vh rgb(0,255,0)' : '0 0 1vh #F57167'};
+`
+
+export const QuestionAnswerBorder = styled(motion.div).attrs((props: QuestionAnswerProps) => ({
+  initial: {
+    borderColor: '#FFFFFF'
+  },
+  animate: props.correct
+    ? {
+      borderColor: '#D1FFCE'
+    }
+    : {
+      borderColor: '#FFF6F8'
+    },
+  transition: {
+    duration: 3
+  }
+}))<QuestionAnswerProps>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 100vh;
+  border: .1vh solid;
+`
+
+export const QuestionAnswer = styled.div`
   position: relative;
   z-index: 1;
   font-size: calc(var(--vh) * (3.240740740740741 / 100));
@@ -128,38 +176,11 @@ export const QuestionAnswer = styled(motion.p)<QuestionAnswerProps>`
   padding-bottom: 1.3%;
   border-radius: 100vh;
   width: 100%;
-  border: .2vh solid rgba(213,	248,	205, 0);
-  &:after {
-    border-radius: 100vh;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
+  border: .2vh solid rgba(213,248,	205, 0);
+  span {
+    position: relative;
+    z-index: 50;
   }
-  ${props => props.correct && `
-    background: rgb(13 82 13 / 53%);
-    box-shadow: inset 0 0 .4vh rgb(64	188	57);
-    &:after {
-      box-shadow: 0 0 1vh rgb(64 255	57);
-    }
-    ${AnswerBorder} {
-      --border-colour: .2vh solid rgb(213	248	205	);
-    }
-  `}
-  ${props => props.incorrect && `
-      background: rgba(118,	58,	104, 53%);
-      box-shadow: inset 0 0 .4vh rgb(163	83	111);
-      &:after {
-        box-shadow: 0 0 1vh rgb(255	83	111);
-      }
-      ${AnswerBorder} { 
-        border: none;
-        --border-colour: .2vh solid rgb(243 227	230);
-      }
-  `}
-  
 `
 
 

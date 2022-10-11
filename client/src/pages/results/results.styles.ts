@@ -1,30 +1,14 @@
 import styled from "styled-components";
 
-export const ResultsWellDone = styled.img`
+export const ResultsWellDone = styled.video`
+  pointer-events: none;
   position: absolute;
-  bottom: calc(var(--vh) * (-20 / 100));
-  right: calc(var(--vw) * (-3 / 100));
-  width: calc(var(--vw) * (53 / 100));
-  transform: translateY(100%);
-  animation: bounceIn 0.75s ease-out forwards;
+  z-index: 50;
+  pointer-events: none;
+  height: 200%;
+  margin-left: 4%;
+  margin-top: -55%;
 
-  @keyframes bounceIn {
-    0% {
-      transform: translateY(100%);
-    }
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-30px);
-    }
-    60% {
-      transform: translateY(-15px);
-    }
-  }
 `;
 
 interface ResultsInfoProps {

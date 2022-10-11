@@ -7,6 +7,8 @@ import {
   FinishDecorContainer,
   FinishDecor,
   FinishWrapper,
+  FinishVideoHappy,
+  FinishVideoSad,
 } from "@/pages/finish/finish.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
@@ -36,7 +38,7 @@ export default function Finish() {
           <FinishDecor src="./assets/question-decor2.png" alt="" index="2"/>
           <FinishDecor src="./assets/question-decor3.png" alt="" index="3"/>
         </FinishDecorContainer>
-        {!getRandomCode.isSuccess ? (
+        {getRandomCode.isSuccess ? (
           <>
             <h3>
               <FadeIn>Congratulations</FadeIn>
@@ -53,15 +55,16 @@ export default function Finish() {
             </p>
             <FadeIn delay={2.5}>
               <FinishButton
-                src="./assets/start.png"
+                src="./assets/finish.png"
                 alt="Start"
                 onClick={finish}
               />
             </FadeIn>
+            <FinishVideoHappy src="./assets/videos/5.1.mov.webm" autoPlay={true} muted loop/>
           </>
         )
       : <>
-        <h3>
+        <h3 style={{marginTop: '13%'}}>
           <FadeIn>Better luck next time</FadeIn>
         </h3>
         <p>
@@ -71,11 +74,12 @@ export default function Finish() {
         </p>
         <FadeIn delay={1.35}>
           <FinishButton
-            src="./assets/start.png"
+            src="./assets/finish.png"
             alt="Finish"
             onClick={finish}
           />
         </FadeIn>
+        <FinishVideoSad src="./assets/videos/6.1.mov.webm" autoPlay={true} muted loop/>
       </>}
       </QuizFrame>
     </FinishWrapper>

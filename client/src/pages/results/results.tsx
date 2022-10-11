@@ -65,6 +65,8 @@ export default function Results() {
     }
   }, [navigate, questions]);
 
+  console.log(score)
+
   return (
     <ResultsWrapper>
       <QuizFrame>
@@ -88,7 +90,12 @@ export default function Results() {
             />
           </FadeIn>
         </ResultsInfo>
-        <ResultsWellDone src="./assets/well-done.png" alt="Well Done" />
+        {score >= 3 && 
+          <ResultsWellDone src={`./assets/videos/3.${Math.floor(Math.random() * 3) + 1}.mov.webm`} autoPlay loop />
+        }
+        {score < 3 && 
+          <ResultsWellDone src={`./assets/videos/4.${Math.floor(Math.random() * 3) + 1}.mov.webm`} autoPlay loop />
+        }
       </QuizFrame>
     </ResultsWrapper>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   QuestionAnswerBoolean,
@@ -13,7 +13,9 @@ import {
   QuestionTitle,
   QuestionWrapper,
   TimerContainer,
-  QuestionAnswer
+  QuestionAnswer,
+  QuestionAnswerBackground,
+  QuestionAnswerBorder
 } from "@/pages/question/question.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
@@ -168,14 +170,14 @@ export default function Question() {
                 {questionNumber}/{totalQuestions}
               </FadeIn>
             </QuestionProgress>
-            <QuestionTitle {... ((question.question.length > 90 && question.answers.length > 2) ? {
+            <QuestionTitle {... ((question.question.length > 100 && question.answers.length > 2) ? {
               style: {
-                fontSize: '130%'
+                fontSize: '2vw'
               }
             }
             : {
               style: {
-                fontSize: 'calc(var(--vh) * (5 / 100))'
+                fontSize: '2vw'
               }
             })}>
               <FadeIn delay={0.75}>{question.question}</FadeIn>
@@ -213,27 +215,48 @@ function Answers({ question, onSelect }: AnswersProps) {
     const timeout = setTimeout(() => {
       onSelectRef.current(selectedAnswer);
       setSelectedAnswer("");
-    }, 1000);
+    }, 6000);
     return () => clearTimeout(timeout);
   }, [selectedAnswer]);
 
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   
+  useEffect(() => {
+    if(selectedAnswer && selectedAnswer === question.answer) {
+      console.log("NICE")
+      setShowCorrectAnswer(true)
+    }
+    else if(selectedAnswer && !(selectedAnswer === question.answer)) {
+      setTimeout(() => {
+        setShowCorrectAnswer(true);
+      }, 3000);
+    } else {
+      setShowCorrectAnswer(false)
+    }
+  }, [selectedAnswer])
 
   return (
     <QuestionAnswerMulti disabled={selectedAnswer !== ""}>
       {(question.answers as string[]).map((answer, index) => {
         const letter = letters[index];
-        const correct =
-          selectedAnswer === question.answers[question.correctAnswerIndex as number];
+        
         return (
           <FadeIn key={index} delay={1.25 + 0.75 * index}>
             <li onClick={() => setSelectedAnswer(answer)}>
               <img src={`./assets/${letter}.png`} alt={letter} />
-              <QuestionAnswer 
-              incorrect={selectedAnswer === answer && !correct} 
-              correct={((selectedAnswer === answer) || (selectedAnswer && !correct && (question.answers[question.correctAnswerIndex as number] ===
-                answer))) as boolean}>
-                {answer}
+              <QuestionAnswer>
+                <span>{answer[0].toUpperCase() + answer.slice(1)}</span>
+                {showCorrectAnswer && (answer === question.answer) &&
+                  <>
+                    <QuestionAnswerBackground correct={true}/>
+                    <QuestionAnswerBorder correct={true}/>
+                  </>
+                 }
+                {(selectedAnswer === answer) && !(answer === question.answer) && 
+                <>
+                  <QuestionAnswerBackground correct={false}/>
+                  <QuestionAnswerBorder correct={false}/>
+                </>}
               </QuestionAnswer>
             </li>
           </FadeIn>

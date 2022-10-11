@@ -4,6 +4,7 @@ import {
   CategorySelectorCategories,
   CategorySelectorContent,
   CategorySelectorWrapper,
+  QuizVideo
 } from "@/pages/category-selector/category-selector.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
@@ -21,6 +22,7 @@ export default function CategorySelector() {
 
   return (
     <CategorySelectorWrapper>
+      <QuizVideo src="./assets/videos/2.mov.webm" autoPlay muted loop/>
       <QuizFrame>
         <CategorySelectorContent>
           <h3>

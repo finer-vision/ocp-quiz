@@ -3,7 +3,7 @@ import {
   QuizFrameBorder,
   QuizFrameContainer,
   QuizFrameContent,
-  QuizFrameWrapper,
+  QuizFrameWrapper
 } from "@/components/quiz-frame/quiz-frame.styles";
 import Header from "@/components/header/header";
 

@@ -59,3 +59,13 @@ export const CategorySelectorWrapper = styled.div`
   width: 100%;
   height: 100%;
 `;
+
+export const QuizVideo = styled.video`
+  pointer-events: none;
+  position: absolute;
+  z-index: 50;
+  pointer-events: none;
+  height: 170%;
+  margin-left: -64%;
+  margin-top: -15%;
+`

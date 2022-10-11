@@ -29,7 +29,7 @@ export default function Home() {
   }, [state, navigate]);
 
   return (
-    <HomeWrapper state={state}>
+    <HomeWrapper onClick={() => setState(HomeState.intro)} state={state}>
       <Events />
       <HomeContent>
         <Header />
@@ -38,10 +38,9 @@ export default function Home() {
           <HomeButton
             src="./assets/start.png"
             alt="START"
-            onClick={() => setState(HomeState.intro)}
           />
         )}
-      <HomeVideo src="./assets/videos/1_Screensaver.mov.webm" autoPlay muted loop/>
+      <HomeVideo src="./assets/videos/1.webm" autoPlay muted loop/>
       </HomeContent>
       <BuildingsParallax />
     </HomeWrapper>

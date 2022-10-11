@@ -147,3 +147,25 @@ export const FinishWrapper = styled.div`
     margin-top: 1em;
   }
 `;
+
+export const FinishVideoHappy = styled.video`
+  pointer-events: none;
+  position: absolute;
+  z-index: 50;
+  pointer-events: none;
+  height: 170%;
+  margin-left: -57.4%;
+  margin-top: -55%;
+  transform: scaleX(-1);
+`
+
+export const FinishVideoSad = styled.video`
+  pointer-events: none;
+  position: absolute;
+  z-index: 50;
+  pointer-events: none;
+  height: 170%;
+  margin-left: -57.4%;
+  margin-top: -50%;
+  transform: scaleX(-1);
+`

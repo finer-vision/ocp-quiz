@@ -24,15 +24,12 @@ export default () => {
         };
       }, [params]);
     
-    const [progress, total] = React.useMemo(() => {
-        const answered = (answeredQuestions[categoryId as string] ?? []).length;
-        const total = 12;
-        return [Math.floor((answered / total) * 100), total];
-      }, [categoryId, answeredQuestions]);
+    const total = 12;
 
     let categoryIndex = 0;
 
     const stars: React.ReactNode[] = [];
+    const incompleteStars: React.ReactNode[] = [];
 
     Array.from(Array(total)).map((_, index) => {
       let status: "incomplete" | "correct" | "incorrect" =
@@ -55,7 +52,7 @@ export default () => {
             answeredQuestion.correctAnswerIndex as number
           ]
         ) {
-          stars.unshift((
+          stars.push((
             <li key={index}>
               <img
                 src={`./assets/progress-correct.png`}
@@ -64,7 +61,7 @@ export default () => {
             </li>
           ));
         } else {
-          stars.unshift((
+          stars.push((
             <li key={index}>
               <img
                 src={`./assets/progress-incorrect.png`}
@@ -74,7 +71,7 @@ export default () => {
           ));
         }
       } else {
-        stars.push((
+        incompleteStars.push((
           <li key={index}>
             <img
               src={`./assets/progress-incomplete.png`}
@@ -87,9 +84,10 @@ export default () => {
 
     return (
         <QuestionCategoryProgress>
-        <span>{progress}%</span>
+        <span>{Math.floor(stars.length/(stars.length+incompleteStars.length)*100)}%</span>
         <ul>
           {stars}
+          {incompleteStars}
         </ul>
       </QuestionCategoryProgress>
     )
