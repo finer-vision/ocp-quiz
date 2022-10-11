@@ -52,7 +52,7 @@ export default function Finish() {
             </FinishCode>
             <p>
               <FadeIn delay={1.75}>
-                Enter the code for your chance to instantly win
+                Try out this code to see if you win an Oculus Quest
               </FadeIn>
             </p>
             <FadeIn delay={2.5}>

@@ -56,10 +56,18 @@ export const ResultsInfo = styled.div<ResultsInfoProps>`
   }
 `;
 
-export const ResultsButton = styled.img`
+interface ResultsButtonProps {
+  finish?: boolean;
+}
+
+export const ResultsButton = styled.img<ResultsButtonProps>`
   width: calc(var(--vw) * (30.2865 / 100));
   height: auto;
   z-index: 1;
+  ${props => props.finish && `
+    width: 40%;
+    margin-left: 33%;
+  `}
 `;
 
 export const ResultsScore = styled.h4`

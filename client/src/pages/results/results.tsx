@@ -50,15 +50,19 @@ export default function Results() {
     return "You scored";
   }, []);
 
-  const finish = React.useCallback(() => {
-    const total = 4;
+  const categoriesCompleted = () => {
     let complete = 0;
     for (const categoryId in questions) {
       if (useAppState.getState().isCategoryComplete(categoryId)) {
         complete++;
       }
     }
-    if (complete === total) {
+    return complete;
+  }
+
+  const finish = React.useCallback(() => {
+    const total = 4;
+    if (categoriesCompleted() === total) {
       navigate("/finish");
     } else {
       navigate("/category-selector");
@@ -82,8 +86,8 @@ export default function Results() {
           </FadeIn>
           <FadeIn delay={1.75}>
             <ResultsButton
-              src="./assets/next-category.png"
-              alt="Start"
+              finish={categoriesCompleted() === 4}
+              src={categoriesCompleted() === 4 ? "/assets/finish.png" :"./assets/next-category.png"}
               onClick={finish}
             />
           </FadeIn>
