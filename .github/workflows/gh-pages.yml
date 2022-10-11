@@ -13,9 +13,11 @@ jobs:
         uses: actions/checkout@v2.4.0
         with:
           persist-credentials: false
+          submodules: recursive
 
       - name: Install and Build 🔧
         env:
+          ANALYTICS_ENDPOINT: ${{ secrets.ANALYTICS_ENDPOINT }}
           PUBLIC_PATH: ./
         run: |
           npm install
@@ -26,7 +28,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: client/build
+          folder: build
           clean: true
 
       - name: Slack Notification
