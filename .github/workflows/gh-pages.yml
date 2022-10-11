@@ -1,8 +1,37 @@
+name: Deploy
+
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.4.0
+        with:
+          persist-credentials: false
+          submodules: recursive
+
+      - name: Install and Build 🔧
+        env:
+          ANALYTICS_ENDPOINT: ${{ secrets.ANALYTICS_ENDPOINT }}
+          PUBLIC_PATH: ./
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: build
+          clean: true
+
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_DEPLOYMENTS }}
