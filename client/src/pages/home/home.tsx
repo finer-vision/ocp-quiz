@@ -29,9 +29,9 @@ export default function Home() {
   }, [state, navigate]);
 
   return (
-    <HomeWrapper onClick={() => setState(HomeState.intro)} state={state}>
+    <HomeWrapper state={state}>
       <Events />
-      <HomeContent>
+      <HomeContent onClick={() => setState(HomeState.intro)}>
         <Header />
         <TitleSign />
         {state === HomeState.initial && (
