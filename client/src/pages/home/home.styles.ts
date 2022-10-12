@@ -100,8 +100,8 @@ export const HomeVideo = styled.video`
 `
 
 export const Sticker = styled.img`
-  position: absolute;
-  top: -10%;
+  position: fixed;
+  top: -6%;
   right: 0;
-  width: 30%;
+  width: 15%;
 `

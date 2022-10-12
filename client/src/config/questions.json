@@ -201,8 +201,8 @@
      {
       "id": 210,
       "question": " Nitrous oxide remains in the atmosphere for up to 120 years and methane for up to 10 years, but how long does CO2 remain in the atmosphere?",
-      "answers": "up to 200 years, up to 500 years, up to 700 years, up to 1,000 years",
-      "answer": "up to 1,000 years",
+      "answers": "up to 200 years, up to 500 years, up to 700 years, up to 1000 years",
+      "answer": "up to 1000 years",
       "comment": "Worryingly, CO2 remains in the, atmosphere for up to 1,000, years"
      },
      {
@@ -348,8 +348,8 @@
      {
       "id": 311,
       "question": "Which of the following is not a reaction available on Facebook?",
-      "answers": "\"Love\", \"Haha\", \"Wow\", \"Dislike\"",
-      "answer": "\"Dislike\"",
+      "answers": "Love, Haha, Wow, Dislike",
+      "answer": "Dislike",
       "comment": "Instead of \"Dislike\" we have \"Angry\" and \"Sad\" reactions"
      },
      {
@@ -453,8 +453,8 @@
      {
       "id": 406,
       "question": "When completed, the 2Africa Subsea Cable will be the longest in the world. How long will it be when completed?",
-      "answers": "22,000 miles, 24,000 miles, 28,000 miles, 30,000 miles",
-      "answer": "28,000 miles",
+      "answers": "22000 miles, 24000 miles, 28000 miles, 30000 miles",
+      "answer": "28000 miles",
       "comment": "It will be 28,000 miles when complete. SEA-ME-WE3 is currently the longest at 24,000 miles."
      },
      {

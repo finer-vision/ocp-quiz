@@ -42,7 +42,7 @@ export default function Home() {
             alt="START"
           />
         )}
-      <HomeVideo src="./assets/videos/1.webm" autoPlay muted loop/>
+      <HomeVideo src="./assets/videos/1.1.webm" autoPlay muted loop/>
       </HomeContent>
       <BuildingsParallax />
     </HomeWrapper>
