@@ -14,7 +14,6 @@ export default () => {
     const questionProgress = useAppState((state) => state.questionProgress);
     return (
         <QuestionCategoryProgress>
-        <span>{Math.floor(questionProgress.length/12*100)}%</span>
         <ul>
           {questionProgress.map((state: boolean | null) => {
             const icon = state === true ? "correct" : state === false ? "incorrect" : "incomplete";
