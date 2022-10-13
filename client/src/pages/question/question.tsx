@@ -24,6 +24,7 @@ import AllQuestions from "@/config/questions";
 import { QuestionData } from "@/types";
 import { useAppState } from "@/state/use-app-state";
 import Progress from "@/components/progress/progress";
+import { motion, useAnimationControls } from "framer-motion";
 
 type Params = {
   categoryId: string;
@@ -243,37 +244,52 @@ function Answers({ question, onSelect }: AnswersProps) {
     }
   }, [selectedAnswer])
 
+  const controls = useAnimationControls();
+  useEffect(() => {
+    controls.start(i => ({
+      opacity: 1,
+      transition: { 
+        delay: i * 0.4,
+        duration: 1
+      },
+    }))
+  }, [])
+
   return (
     <QuestionAnswerMulti disabled={selectedAnswer !== ""}>
       {(question.answers as string[]).map((answer, index) => {
         const letter = letters[index];
         
         return (
-          <FadeIn key={index} delay={1.25 + 0.75 * index}>
-            <li onClick={() => setSelectedAnswer(answer)}>
-              <img src={`./assets/${letter}.png`} alt={letter} />
-              <QuestionAnswer>
-                <span>{answer[0].toUpperCase() + answer.slice(1)}</span>
-                {showCorrectAnswer && (answer === question.answer) &&
-                  <>
-                    <QuestionAnswerBackground 
-                    onAnimationComplete={() => setShowTick(true)}
-                    correct={true}/>
-                    <QuestionAnswerBorder correct={true}/>
-                    {showTick && <QuestionIcon src="./assets/tick.png"/>}
-                  </>
-                 }
-                {(selectedAnswer === answer) && !(answer === question.answer) && 
+          <motion.li 
+          custom={index+3}
+          animate={controls}
+          initial={{
+            opacity: 0
+          }}
+          onClick={() => setSelectedAnswer(answer)}>
+            <img src={`./assets/${letter}.png`} alt={letter} />
+            <QuestionAnswer>
+              <span>{answer[0].toUpperCase() + answer.slice(1)}</span>
+              {showCorrectAnswer && (answer === question.answer) &&
                 <>
-                  <QuestionAnswerBackground
-                  onAnimationComplete={() => setShowCross(true)}
-                  correct={false}/>
-                  <QuestionAnswerBorder correct={false}/>
-                  {showCross && <QuestionIcon src="./assets/cross.png"/>}
-                </>}
-              </QuestionAnswer>
-            </li>
-          </FadeIn>
+                  <QuestionAnswerBackground 
+                  onAnimationComplete={() => setShowTick(true)}
+                  correct={true}/>
+                  <QuestionAnswerBorder correct={true}/>
+                  {showTick && <QuestionIcon src="./assets/tick.png"/>}
+                </>
+                }
+              {(selectedAnswer === answer) && !(answer === question.answer) && 
+              <>
+                <QuestionAnswerBackground
+                onAnimationComplete={() => setShowCross(true)}
+                correct={false}/>
+                <QuestionAnswerBorder correct={false}/>
+                {showCross && <QuestionIcon src="./assets/cross.png"/>}
+              </>}
+            </QuestionAnswer>
+          </motion.li>
         );
       })}
     </QuestionAnswerMulti>

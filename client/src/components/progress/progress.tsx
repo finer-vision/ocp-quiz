@@ -12,7 +12,6 @@ type Params = {
 
 export default () => {
     const questionProgress = useAppState((state) => state.questionProgress);
-
     return (
         <QuestionCategoryProgress>
         <span>{Math.floor(questionProgress.length/12*100)}%</span>

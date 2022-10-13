@@ -75,6 +75,7 @@ export const useAppState = create<AppState>((set, get) => {
     },
     reset() {
       set({ answeredQuestions: {} });
+      set({ questionProgress: []});
     },
   };
 });
