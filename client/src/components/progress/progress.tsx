@@ -13,8 +13,10 @@ type Params = {
 export default () => {
     const questionProgress = useAppState((state) => state.questionProgress);
 
+    const isWinner = useAppState((state) => (state.questionProgress.filter(answer => answer === true).length / 12));
     return (
         <QuestionCategoryProgress>
+          {isWinner}
         <ul>
           {questionProgress.map((state: boolean | null) => {
             const icon = state === true ? "correct" : state === false ? "incorrect" : "incomplete";
