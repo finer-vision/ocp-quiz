@@ -218,7 +218,7 @@ function Answers({ question, onSelect }: AnswersProps) {
     const timeout = setTimeout(() => {
       onSelectRef.current(selectedAnswer);
       setSelectedAnswer("");
-    }, 7000);
+    }, 70);
     return () => clearTimeout(timeout);
   }, [selectedAnswer]);
 
@@ -229,13 +229,13 @@ function Answers({ question, onSelect }: AnswersProps) {
       setShowCorrectAnswer(true);
       setTimeout(() => {
         useAppState.getState().pushQuestionProgress(true);
-      }, 3000);
+      }, 30);
     }
     else if(selectedAnswer && !(selectedAnswer === question.answer)) {
       setTimeout(() => {
         setShowCorrectAnswer(true);
         useAppState.getState().pushQuestionProgress(false);
-      }, 3000);
+      }, 30);
     } else {
       setShowCorrectAnswer(false);
       setShowCross(false);

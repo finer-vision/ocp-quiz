@@ -65,8 +65,8 @@ export const ResultsButton = styled.img<ResultsButtonProps>`
   height: auto;
   z-index: 1;
   ${props => props.finish && `
-    width: 40%;
-    margin-left: 33%;
+    width:  calc(var(--vw) * (15.2865 / 100));
+    margin-left: 5%;
   `}
 `;
 
