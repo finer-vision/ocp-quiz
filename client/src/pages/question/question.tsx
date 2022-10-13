@@ -225,21 +225,26 @@ function Answers({ question, onSelect }: AnswersProps) {
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   
   useEffect(() => {
+    const timeouts: NodeJS.Timeout[] = [];
     if(selectedAnswer && selectedAnswer.toLowerCase() === question.answer) {
       setShowCorrectAnswer(true);
-      setTimeout(() => {
+      timeouts.push(setTimeout(() => {
         useAppState.getState().pushQuestionProgress(true);
-      }, 3000);
+      }, 3000));
     }
     else if(selectedAnswer && !(selectedAnswer.toLowerCase() === question.answer)) {
-      setTimeout(() => {
+      timeouts.push(setTimeout(() => {
         setShowCorrectAnswer(true);
         useAppState.getState().pushQuestionProgress(false);
-      }, 3000);
+      }, 3000));
     } else {
       setShowCorrectAnswer(false);
       setShowCross(false);
       setShowTick(false);
+    }
+
+    return () => {
+      timeouts.map(timeout => clearTimeout(timeout))
     }
   }, [selectedAnswer])
 
