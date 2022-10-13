@@ -12,6 +12,7 @@ type Params = {
 
 export default () => {
     const questionProgress = useAppState((state) => state.questionProgress);
+
     return (
         <QuestionCategoryProgress>
         <ul>

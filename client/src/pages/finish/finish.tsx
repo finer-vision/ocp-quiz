@@ -30,7 +30,7 @@ export default function Finish() {
     navigate("/");
   }, [navigate]);
 
-  const isWinner = useAppState((state) => (state.questionProgress.filter(answer => answer === true).length / 12) >= 0.5);
+  const isWinner = useAppState((state) => state.questionProgress.filter(answer => answer === true).length) >= 6;
   return (
     <FinishWrapper>
       <QuizFrame>
