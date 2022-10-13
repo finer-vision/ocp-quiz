@@ -35,7 +35,7 @@ export default function Home() {
       <HomeContent onClick={() => setState(HomeState.intro)}>
         <Header />
         <Sticker src="./assets/sticker.png"/>
-        VERSION 1
+        VERSION 2
         <TitleSign />
         {state === HomeState.initial && (
           <HomeButton
