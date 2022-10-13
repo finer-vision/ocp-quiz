@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 
-export const FadeIn = styled.span<{ delay?: number }>`
+interface FadeInProps {
+  delay?: number
+}
+
+export const FadeIn = styled.span<FadeInProps>`
   opacity: 0;
   animation: fadeIn 1s linear forwards;
   animation-delay: ${({ delay }) => delay ?? 0}s;
