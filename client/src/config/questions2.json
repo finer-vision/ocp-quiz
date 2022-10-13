@@ -21,7 +21,7 @@
      },
      {
       "id": 104,
-      "question": "OCP requires that all contributions meet at least one out of four of the core OCP tenets; Effciency, Scalability, Openness and Impact.",
+      "question": "OCP requires that all contibutions meet at least one out of four of the core OCP tenets; Effciency, Scalability, Openness and Impact.",
       "answers": "Myth, Fact",
       "answer": "Myth",
       "comment": "To insure a level of consistency in our contributions, OCP requires that all contributions meet three out of the four core OCP tenets"
@@ -200,7 +200,7 @@
      },
      {
       "id": 210,
-      "question": "Nitrous oxide remains in the atmosphere for up to 120 years and methane for up to 10 years, but how long does CO2 remain in the atmosphere?",
+      "question": " Nitrous oxide remains in the atmosphere for up to 120 years and methane for up to 10 years, but how long does CO2 remain in the atmosphere?",
       "answers": "up to 200 years, up to 500 years, up to 700 years, up to 1000 years",
       "answer": "up to 1000 years",
       "comment": "Worryingly, CO2 remains in the, atmosphere for up to 1,000, years"
@@ -291,7 +291,7 @@
      },
      {
       "id": 303,
-      "question": "Mark Zuckerberg graduated from Harvard in 2006",
+      "question": " Mark Zuckerberg graduated from Harvard in 2006",
       "answers": "True, False",
       "answer": "False",
       "comment": "Mark never finished his undergrad but he later recieved an Honorary Doctor of Laws Degree from Harvard in 2017 "
@@ -382,7 +382,7 @@
      },
      {
       "id": 316,
-      "question": "What is Meta Connect?",
+      "question": "What is Meta Connect? ",
       "answers": "The connection between Instagram and Messenger app, An internal Meta term for a meeting, Annual event Meta uses to showcase progress and plans related to the metaverse, The name of our Network backbone",
       "answer": "Annual event Meta uses to showcase progress and plans related to the metaverse",
       "comment": "We had it last week! re-watch on metaconnect.com"
@@ -403,7 +403,7 @@
      },
      {
       "id": 319,
-      "question": "In what year did Facebook reach 1 Billion monthly active users?",
+      "question": "In what year did Facebook reach 1 Billion monthly active users?  ",
       "answers": "2008, 2010, 2012, 2014",
       "answer": "2012",
       "comment": "Just 3 years later, Facebook had 1 billion active users in a single day."
@@ -440,21 +440,21 @@
      {
       "id": 404,
       "question": "Our AI compute platform is named after which National Park?",
-      "answers": "Grand Teton, Yellowstone, Sequoia, Everglades",
+      "answers": "Grand Teton, Yellowstone, Sequoia , Everglades",
       "answer": "Grand Teton"
      },
      {
       "id": 405,
       "question": "Our data center buildings are big, they are about the size of what?",
-      "answers": "Empire State Building (~1,250ft), 3 Boeing 747s (~750ft), 7 Blue Whales (~700ft), Nimitz Class Aircraft carrier (~1,050ft)",
-      "answer": "Nimitz Class Aircraft carrier (~1,050ft)",
+      "answers": "Empire State Building (~1,250ft), 3 Boeing 747s (~750ft), 7 Blue Whales (~700ft), Nimitz Class Aircraft carrier (~1,50ft)",
+      "answer": "Nimitz Class Aircraft carrier (~1,50ft)",
       "comment": "Just a little shorter than the Empire State Building!"
      },
      {
       "id": 406,
       "question": "When completed, the 2Africa Subsea Cable will be the longest in the world. How long will it be when completed?",
-      "answers": "22,000 miles, 24,000 miles, 28,000 miles, 30,000 miles",
-      "answer": "28,000 miles",
+      "answers": "22000 miles, 24000 miles, 28000 miles, 30000 miles",
+      "answer": "28000 miles",
       "comment": "It will be 28,000 miles when complete. SEA-ME-WE3 is currently the longest at 24,000 miles."
      },
      {

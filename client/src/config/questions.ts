@@ -1,5 +1,5 @@
 import { QuestionData } from "@/types";
-import questionsJSON from "./questions.json";
+import questionsJSON from "./questions2.json";
 
 export interface Questions {
   [category: string]: QuestionData[]
