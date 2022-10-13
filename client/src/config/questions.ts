@@ -9,10 +9,10 @@ let questions: Questions = questionsJSON;
 
 Object.keys(questionsJSON).map((category: string) => {
   questions[category] = questions[category].map((question: QuestionData) => {
-    question.answers = (question.answers as string).toLowerCase().split(", ");
+    question.answers = (question.answers as string).split(", ");
     question.answer = question.answer?.toLowerCase();
     question.correctAnswerIndex = (question.answers as string[])
-      .findIndex((answer: string) => answer === question.answer)
+      .findIndex((answer: string) => answer.toLowerCase() === question.answer)
     return question;
   })
 })

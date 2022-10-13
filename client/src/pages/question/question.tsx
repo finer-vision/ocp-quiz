@@ -225,13 +225,13 @@ function Answers({ question, onSelect }: AnswersProps) {
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   
   useEffect(() => {
-    if(selectedAnswer && selectedAnswer === question.answer) {
+    if(selectedAnswer && selectedAnswer.toLowerCase() === question.answer) {
       setShowCorrectAnswer(true);
       setTimeout(() => {
         useAppState.getState().pushQuestionProgress(true);
       }, 30);
     }
-    else if(selectedAnswer && !(selectedAnswer === question.answer)) {
+    else if(selectedAnswer && !(selectedAnswer.toLowerCase() === question.answer)) {
       setTimeout(() => {
         setShowCorrectAnswer(true);
         useAppState.getState().pushQuestionProgress(false);
@@ -254,7 +254,7 @@ function Answers({ question, onSelect }: AnswersProps) {
               <img src={`./assets/${letter}.png`} alt={letter} />
               <QuestionAnswer>
                 <span>{answer[0].toUpperCase() + answer.slice(1)}</span>
-                {showCorrectAnswer && (answer === question.answer) &&
+                {showCorrectAnswer && (answer.toLowerCase() === question.answer) &&
                   <>
                     <QuestionAnswerBackground 
                     onAnimationComplete={() => setShowTick(true)}
@@ -263,7 +263,7 @@ function Answers({ question, onSelect }: AnswersProps) {
                     {showTick && <QuestionIcon src="./assets/tick.png"/>}
                   </>
                  }
-                {(selectedAnswer === answer) && !(answer === question.answer) && 
+                {(selectedAnswer.toLowerCase() === answer.toLowerCase()) && !(answer.toLowerCase() === question.answer) && 
                 <>
                   <QuestionAnswerBackground
                   onAnimationComplete={() => setShowCross(true)}

@@ -33,7 +33,7 @@ export default function Results() {
     const score = (answeredQuestions[categoryId] ?? []).reduce(
       (score, question) => {
         const answerIndex = (question.answers as string[]).findIndex((answer) => {
-          return answer === question.answer;
+          return answer.toLowerCase() === question.answer;
         });
         if (answerIndex === question.correctAnswerIndex) {
           return score + 1;
