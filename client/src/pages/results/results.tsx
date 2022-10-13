@@ -29,19 +29,8 @@ export default function Results() {
   }, [params.categoryId]);
 
   const [score, total] = React.useMemo(() => {
-    const { answeredQuestions } = useAppState.getState();
-    const score = (answeredQuestions[categoryId] ?? []).reduce(
-      (score, question) => {
-        const answerIndex = (question.answers as string[]).findIndex((answer) => {
-          return answer.toLowerCase() === question.answer;
-        });
-        if (answerIndex === question.correctAnswerIndex) {
-          return score + 1;
-        }
-        return score;
-      },
-      0
-    );
+    const { questionProgress } = useAppState.getState();
+    const score = questionProgress.slice(-3).filter(answer => answer === true).length;
     return [score, (questions[categoryId] ?? []).length];
   }, [categoryId]);
 

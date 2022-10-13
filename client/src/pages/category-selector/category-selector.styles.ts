@@ -39,6 +39,10 @@ export const CategorySelectorCategories = styled.div`
       });
     }};
 
+    img { 
+      z-index: 50;
+    }
+
     @keyframes slideIn {
       0% {
         opacity: 0;

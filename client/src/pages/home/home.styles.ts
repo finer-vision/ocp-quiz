@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { HomeState } from "@/types";
 import { EventsWrapper } from "@/components/events/events.styles";
 import { TitleSignWrapper } from "@/components/title-sign/title-sign.styles";
+import { motion } from "framer-motion";
 
 export const HomeIntroVideo = styled.video`
   position: absolute;
@@ -94,12 +95,24 @@ export const HomeVideo = styled.video`
   position: absolute;
   z-index: 50;
   pointer-events: none;
-  height: 150%;
+  height: 70%;
   margin-left: 40%;
   margin-top: 40%;
 `
 
-export const Sticker = styled.img`
+export const Sticker = styled(motion.img).attrs(() => ({
+  initial: {
+    top: '-20%',
+    scale: 3
+  },
+  animate: {
+    top: '-6%',
+    scale: 1
+  },
+  transition: {
+    duration: 0.3
+  }
+}))`
   position: fixed;
   top: -6%;
   right: 0;
