@@ -24,7 +24,7 @@ export default () => {
       <Events>
         <Overview>
           <EventInfo>
-            <h1 id="event-name">OCP GLOBAL SUMMIT</h1>
+            <h1 id="event-name">META SPEAKER ENGAGEMENTS</h1>
             <hr/>
             <div id="event-info">
               <strong>San Jose, California</strong>
