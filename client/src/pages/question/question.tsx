@@ -34,7 +34,7 @@ type Questions = {
   [prop: string]: QuestionData[];
 };
 
-export default function Question() {
+export default function Question(props: {resetTimer: () => void}) {
   const navigate = useNavigate();
   const params = useParams<Params>();
   const { categoryId, questionNumber } = React.useMemo(() => {
@@ -139,7 +139,7 @@ export default function Question() {
 
   return (
     mounted && (
-      <QuestionWrapper>
+      <QuestionWrapper onClick={props.resetTimer}>
         <QuizFrame>
           <TimerContainer>
             <img src="./assets/0.png" />

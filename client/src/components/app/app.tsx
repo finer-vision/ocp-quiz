@@ -9,6 +9,8 @@ import Finish from "@/pages/finish/finish";
 
 const root = document.querySelector<HTMLDivElement>("#root")!;
 
+let timer = 0;
+
 export default function App() {
   React.useEffect(() => {
     function onResize() {
@@ -27,18 +29,34 @@ export default function App() {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      timer += 1000;
+      if(timer >= 60000) {
+        navigate("/")
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [])
+
+  const resetTimer = () => {
+    console.log(timer)
+    timer = 0;
+  }
+
   return (
     <React.Suspense fallback="Loading...">
       <AppReset />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/category-selector" element={<CategorySelector />} />
-        <Route path="/question/:categoryId/results" element={<Results />} />
+        <Route path="/" element={<Home resetTimer={resetTimer} />} />
+        <Route path="/category-selector" element={<CategorySelector resetTimer={resetTimer} />} />
+        <Route path="/question/:categoryId/results" element={<Results resetTimer={resetTimer} />} />
         <Route
           path="/question/:categoryId/:questionNumber"
-          element={<Question />}
+          element={<Question resetTimer={resetTimer} />}
         />
-        <Route path="/finish" element={<Finish />} />
+        <Route path="/finish" element={<Finish resetTimer={resetTimer} />} />
       </Routes>
     </React.Suspense>
   );

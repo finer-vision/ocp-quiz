@@ -10,7 +10,7 @@ import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
 import Category from "@/components/category/category";
 
-export default function CategorySelector() {
+export default function CategorySelector(props: {resetTimer: () => void}) {
   const navigate = useNavigate();
 
   const handleSelect = React.useCallback(
@@ -21,7 +21,7 @@ export default function CategorySelector() {
   );
 
   return (
-    <CategorySelectorWrapper>
+    <CategorySelectorWrapper onClick={props.resetTimer}>
       <QuizVideo src="./assets/videos/2.mov.webm" autoPlay muted loop/>
       <QuizFrame>
         <CategorySelectorContent>

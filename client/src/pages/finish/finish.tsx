@@ -15,7 +15,7 @@ import QuizFrame from "@/components/quiz-frame/quiz-frame";
 import { useAppState } from "@/state/use-app-state";
 import trpc from "@/services/trpc";
 
-export default function Finish() {
+export default function Finish(props: {resetTimer: () => void}) {
   const navigate = useNavigate();
 
   const getRandomCode = trpc.useQuery(["getRandomCode"], {
@@ -32,7 +32,7 @@ export default function Finish() {
 
   const isWinner = useAppState((state) => (state.questionProgress.filter(answer => answer === true).length / 12) >= 0.5);
   return (
-    <FinishWrapper>
+    <FinishWrapper onClick={props.resetTimer}>
       <QuizFrame>
         <FinishDecorContainer>
           <FinishDecor src="./assets/question-decor1.png" alt="" index="1"/>

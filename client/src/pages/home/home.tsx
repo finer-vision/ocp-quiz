@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import config from "@/config/config";
 import {
@@ -15,7 +15,7 @@ import Events from "@/components/events/events";
 import BuildingsParallax from "@/components/buildings-parallax/buildings-parallax";
 import TitleSign from "@/components/title-sign/title-sign";
 
-export default function Home() {
+export default function Home(props: {resetTimer: () => void}) {
   const [state, setState] = React.useState<HomeState>(HomeState.initial);
 
   const navigate = useNavigate();
@@ -28,9 +28,10 @@ export default function Home() {
     }, 2000);
     return () => clearTimeout(timeout);
   }, [state, navigate]);
+  
 
   return (
-    <HomeWrapper state={state}>
+    <HomeWrapper state={state} onClick={props.resetTimer}>
       <Events />
       <HomeContent onClick={() => setState(HomeState.intro)}>
         <Header />

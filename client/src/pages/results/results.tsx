@@ -19,7 +19,7 @@ type Params = {
 
 const PASSING_SCORE = 8;
 
-export default function Results() {
+export default function Results(props: {resetTimer: () => void}) {
   const navigate = useNavigate();
   const questions = useAppState((state) => state.questions);
 
@@ -59,7 +59,7 @@ export default function Results() {
   }, [navigate, questions]);
 
   return (
-    <ResultsWrapper>
+    <ResultsWrapper onClick={props.resetTimer}>
       <QuizFrame>
         <ResultsInfo image={categoryId}>
           <ResultsTitle>
