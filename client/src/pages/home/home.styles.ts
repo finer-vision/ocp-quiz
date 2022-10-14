@@ -94,9 +94,8 @@ export const HomeVideo = styled.video`
   pointer-events: none;
   position: absolute;
   z-index: 50;
-  pointer-events: none;
   height: 70%;
-  margin-left: 40%;
+  margin-left: 35%;
   margin-top: 40%;
 `
 

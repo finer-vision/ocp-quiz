@@ -35,6 +35,7 @@ export default function App() {
       timer += 1000;
       if(timer >= 60000) {
         navigate("/")
+        useAppState.getState().reset();
       }
     }, 1000);
 
@@ -43,7 +44,6 @@ export default function App() {
 
   const resetTimer = () => {
     timer = 0;
-    useAppState.getState().reset();
   }
 
   return (

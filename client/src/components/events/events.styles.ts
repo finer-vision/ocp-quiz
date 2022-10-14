@@ -12,7 +12,7 @@ const getSize = (elementSize: number, dimesnion: "x" | "y") => {
 export const EventsWrapper = styled.div`
   --header-height: ${getSize(230, "y")};
   position: relative;
-  z-index: 50;
+  z-index: 60;
   overflow: auto;
   background-image: url(./assets/background-ocp.png);
   background-size: contain;
