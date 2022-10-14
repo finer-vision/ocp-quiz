@@ -6,6 +6,7 @@ import CategorySelector from "@/pages/category-selector/category-selector";
 import Results from "@/pages/results/results";
 import Question from "@/pages/question/question";
 import Finish from "@/pages/finish/finish";
+import { useAppState } from "@/state/use-app-state";
 
 const root = document.querySelector<HTMLDivElement>("#root")!;
 
@@ -41,8 +42,8 @@ export default function App() {
   }, [])
 
   const resetTimer = () => {
-    console.log(timer)
     timer = 0;
+    useAppState.getState().reset();
   }
 
   return (
