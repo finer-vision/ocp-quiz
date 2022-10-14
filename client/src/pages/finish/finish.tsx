@@ -30,7 +30,7 @@ export default function Finish() {
     navigate("/");
   }, [navigate]);
 
-  const isWinner = useAppState((state) => state.questionProgress.filter(answer => answer === true).length) >= 6;
+  const isWinner = useAppState((state) => (state.questionProgress.filter(answer => answer === true).length / 12) >= 0.5);
   return (
     <FinishWrapper>
       <QuizFrame>
@@ -39,7 +39,7 @@ export default function Finish() {
           <FinishDecor src="./assets/question-decor2.png" alt="" index="2"/>
           <FinishDecor src="./assets/question-decor3.png" alt="" index="3"/>
         </FinishDecorContainer>
-        {isWinner && getRandomCode.isSuccess ? (
+        {isWinner ? (
           <>
             <h3>
               <FadeIn>Congratulations</FadeIn>

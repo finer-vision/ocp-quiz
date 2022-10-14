@@ -69,7 +69,7 @@ export const QuizVideo = styled.video`
   position: absolute;
   z-index: 50;
   pointer-events: none;
-  height: 170%;
-  margin-left: -64%;
-  margin-top: -15%;
+  height: 120%;
+  margin-left: -39%;
+  margin-top: -5%;
 `

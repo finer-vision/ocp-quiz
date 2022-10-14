@@ -52,7 +52,7 @@ export default function Question() {
     React.useState<Questions>(selectedQuestions);
 
   const [mounted, setMounted] = React.useState(false);
-  const [secs, setSecs] = React.useState(["3", "0"]);
+  const [secs, setSecs] = React.useState(["4", "5"]);
 
   React.useEffect(() => {
     let question: QuestionData[] = [];
@@ -116,7 +116,7 @@ export default function Question() {
   );
   
   React.useEffect(() => {
-    var timeLeft = 30;
+    var timeLeft = 45;
 
     const interval = setInterval(() => {
       if (timeLeft == -1) {

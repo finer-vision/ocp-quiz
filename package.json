@@ -11,7 +11,8 @@
     "not IE 11"
   ],
   "dependencies": {
-    "concurrently": "^7.4.0"
+    "concurrently": "^7.4.0",
+    "react-idle-timer": "^4.6.4"
   },
   "devDependencies": {
     "prettier": "^2.7.1"
