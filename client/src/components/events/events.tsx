@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { startTransition, useEffect, useState } from "react";
 import { Event, EventClose, EventDate, EventDates, EventDropdown, EventInfo, Events, EventsList, EventsWrapper, Header, Overview } from "@/components/events/events.styles";
 import eventsData  from "./eventsData"
 
@@ -37,23 +37,35 @@ export default () => {
             <EventDate onClick={() => setSelectedDate(20)} current={selectedDate === 20}>20 OCT</EventDate>
           </EventDates>
         </Overview>
-        <EventsList>
-          {eventsData.map(({eventTimes: {start, end}, eventTitle, eventKey}: any, key) => {
-            const [startDateInSeconds, endDateInSeconds] = eventKey.split('-');
-            if(selectedDate !== new Date(Number(startDateInSeconds)).getDate()) {
-              return null
-            }
-            return (
-              <Event
-              current={currentDate >= Number(startDateInSeconds) && currentDate <= Number(endDateInSeconds)}
-              key={key} id="event">
-                <div id="event-header">
-                  <span id="event-time">{start} - {end}</span>
-                  <span id="event-title">{eventTitle}</span>
-                </div>
-              </Event>
-            )
-          })}
+        <EventsList eventsLength={eventsData.filter(({eventTimes, eventTitle, eventKey}: any) => {
+          const [startDateInSeconds, endDateInSeconds] = eventKey.split('-');
+          if(selectedDate === new Date(Number(startDateInSeconds)).getDate()) {
+            return true
+          }
+          return false
+        }).length}>
+          <div id="event-list">
+            {eventsData.map(({eventTimes: {start, end}, eventTitle, eventKey}: any, key) => {
+              const [startDateInSeconds, endDateInSeconds] = eventKey.split('-');
+              if(selectedDate !== new Date(Number(startDateInSeconds)).getDate()) {
+                return null
+              }
+              const [title, location] = eventTitle.split("/")
+              return (
+                <Event
+                current={currentDate >= Number(startDateInSeconds) && currentDate <= Number(endDateInSeconds)}
+                key={key} id="event">
+                  <div id="event-header">
+                    <span id="event-time">{start} - {end}</span>
+                    <div id="event-info">
+                      <span id="event-title">{title}</span>
+                      <span>{location}</span>
+                    </div>
+                  </div>
+                </Event>
+              )
+            })}
+          </div>
         </EventsList>
       </Events>
     </EventsWrapper>

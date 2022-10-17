@@ -90,7 +90,7 @@ export const HomeWrapper = styled.div<Props>`
   }};
 `;
 
-export const HomeVideo = styled.video`
+export const HomeVideo = styled(motion.video)`
   pointer-events: none;
   position: absolute;
   z-index: 50;
@@ -99,21 +99,9 @@ export const HomeVideo = styled.video`
   margin-top: 40%;
 `
 
-export const Sticker = styled(motion.img).attrs(() => ({
-  initial: {
-    top: '-20%',
-    scale: 3
-  },
-  animate: {
-    top: '-6%',
-    scale: 1
-  },
-  transition: {
-    duration: 0.3
-  }
-}))`
+export const Sticker = styled(motion.img)`
   position: fixed;
-  top: -6%;
-  right: 0;
-  width: 15%;
+  width: calc(var(--vw) * (15 / 100));
+  margin-top: -23%;
+  margin-left: 16%;
 `

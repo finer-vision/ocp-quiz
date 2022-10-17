@@ -1,148 +1,492 @@
 [
     {
         "date": "2022-10-18",
-        "start": "07:30",
-        "end": "09:00",
-        "eventTitle": "Registeration and Breakfast"
+        "start": "09:30",
+        "end": "09:45",
+        "eventTitle": "Infrastructure for Large Scale AI: \"Empowering Open\" presented by Meta  / Location: Concourse Level - Grand Ballroom 220" 
     },
+
 
     {
         "date": "2022-10-18",
-        "start": "09:00",
-        "end": "11:30",
-        "eventTitle": "Keynotes"
-    },
-
-    {
-        "date": "2022-10-18",
-        "start": "11:30",
-        "end": "19:00",
-        "eventTitle": "Expo Hall Open"
+        "start": "09:45",
+        "end": "09:55",
+        "eventTitle": "OCP Special Announcement / Location: Concourse Level - Grand Ballroom 220"
     },
 
     {
         "date": "2022-10-18",
         "start": "12:00",
-        "end": "14:00",
-        "eventTitle": "Lunch"
-    },
-
-    {
-        "date": "2022-10-18",
-        "start": "12:00",
-        "end": "16:00",
-        "eventTitle": "Expo Hall Talks"
+        "end": "12:15",
+        "eventTitle": "OPEN Rack V3 - Ready to Build / Location: Concourse Level - Hall 1 & 2"
     },
 
     {
         "date": "2022-10-18",
         "start": "14:00",
-        "end": "17:00",
-        "eventTitle": "Executive Talks"
+        "end": "14:25",
+        "eventTitle": "Data Center Memory Systems at Meta / Location: Concourse Level - 210AE"
+    },
+
+    {
+        "date": "2022-10-18",
+        "start": "15:00",
+        "end": "15:20",
+        "eventTitle": "Future Technologies in OCP: Shaping the FUTURE / Location: Concourse Level - 210DH"
     },
 
     {
         "date": "2022-10-19",
-        "start": "07:30",
+        "start": "08:00",
+        "end": "08:05",
+        "eventTitle": "2022 OCP Future Technologies Symposium Kick off / Location: Lower Level - LL20BC"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "08:00",
+        "end": "08:10",
+        "eventTitle": "Storage Project Leadership Intro / Location: Concourse Level - 210BF"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "08:00",
+        "end": "08:15",
+        "eventTitle": "Project Leads Overview / Location: Concourse Level - 220B"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "08:00",
+        "end": "08:15",
+        "eventTitle": "Intro to OCP Networking Project / Location: Concourse Level - 210CG"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "08:00",
+        "end": "08:20",
+        "eventTitle": "Intro to Strategic Initiatives Track / Location: Concourse Level - 210AE"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "08:10",
+        "end": "08:30",
+        "eventTitle": "Key SSD Features for Data Center Deployments / Location: Concourse Level - 210BF"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "08:15",
+        "end": "08:25",
+        "eventTitle": "FTI Project Update: Software Defined Memory (SDM) / Location: Lower Level - LL20BC"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "08:15",
+        "end": "08:30",
+        "eventTitle": "Managing Fluid in a Data Center using a Liquid Cooling Cart / Location: Concourse Level - 220B"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "08:30",
+        "end": "08:45",
+        "eventTitle": "HyperScale Boot Drive / Location: Concourse Level - 210BF"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "08:45",
         "end": "09:00",
-        "eventTitle": "Registeration And Breakfast"
+        "eventTitle": "ORv3 Blind Mate Liquid Cooling Interfaces - Overview & Update / Location: Concourse Level - 220B"
     },
 
     {
         "date": "2022-10-19",
-        "start": "08:00",
-        "end": "17:00",
-        "eventTitle": "Future Technologies Symposium"
+        "start": "09:00",
+        "end": "09:15",
+        "eventTitle": "ORv3 Blind Mate Valves and Liquid Cooling Chassis Concept Updates / Location: Concourse Level - 220B"
     },
 
     {
         "date": "2022-10-19",
-        "start": "08:00",
+        "start": "09:15",
+        "end": "09:30",
+        "eventTitle": "Large Dripless Quick Connectors / Location: Concourse Level - 220B"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "09:55",
+        "end": "10:10",
+        "eventTitle": "Fluid Serviceability and Maintenance Workstream for Cold Plate-Based Liquid Cooling / Location: Concourse Level - 220B"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "10:10",
+        "end": "10:25",
+        "eventTitle": "Flash Innovation: Flexible Data Placement / Location: Concourse Level - 210BF"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "10:25",
+        "end": "10:40",
+        "eventTitle": "FTS & FTI Announcements / Location: Lower Level - LL20BC"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "10:40",
         "end": "11:30",
-        "eventTitle": "Engineering Workshops"
+        "eventTitle": "PANEL: Sustainability in Action & Future Direction for the Community / Location: Concourse Level - 210AE"
+    },
+
+
+    {
+        "date": "2022-10-19",
+        "start": "10:45",
+        "end": "11:30",
+        "eventTitle": "PANEL: Flexible Data Placement using NVM(r) - Implementation Perspective / Location: Concourse Level - 210BF"
     },
 
     {
         "date": "2022-10-19",
-        "start": "09:00",
-        "end": "15:30",
-        "eventTitle": "Expo Hall Talks"
-    },
-
-    {
-        "date": "2022-10-19",
-        "start": "09:00",
-        "end": "17:00",
-        "eventTitle": "Expo Hall Open"
-    },
-
-    {
-        "date": "2022-10-19",
-        "start": "11:00",
-        "end": "13:00",
-        "eventTitle": "Lunch"
+        "start": "11:10",
+        "end": "11:25",
+        "eventTitle": "Tracking De-Multiplexer for Uncooled 1.6T-FR8 with Backward Compatibility / Location: Lower Level - LL20BC"
     },
 
     {
         "date": "2022-10-19",
         "start": "12:30",
-        "end": "14:30",
-        "eventTitle": "Engineering Workshops"
+        "end": "13:00",
+        "eventTitle": "Open Accelerator Infrastructure Project Overview and Workstreams Update / Location: Concourse Level - 220C"
     },
 
+       {
+        "date": "2022-10-19",
+        "start": "12:45",
+        "end": "13:00",
+        "eventTitle": "Hardware Utilization Effectiveness Studies / Location: Concourse Level - 210CG"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "12:45",
+        "end": "13:00",
+        "eventTitle": "Data Center SAS/SATA Device Specification Update / Location: Concourse Level - 210BF"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "13:00",
+        "end": "13:10",
+        "eventTitle": "Grand Canyon - Meta's Next-Gen HDD Storage Server and JBOD / Location: Concourse Level - 210BF"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "13:15",
+        "end": "13:30",
+        "eventTitle": "OAI Cooling Progress Update / Location: Concourse Level - 220C"
+    },
+
+    {
+        "date": "2022-10-19",
+        "start": "13:30",
+        "end": "13:50",
+        "eventTitle": "OCP NIC 3.0: Present and The Future / Location: Concourse Level - 220C"
+    },
+       {
+        "date": "2022-10-19",
+        "start": "13:45",
+        "end": "14:25",
+        "eventTitle": "Customer Perspective of Future Needs / Location: Concourse Level - 210BF"
+    },
+       
+    {
+        "date": "2022-10-19",
+        "start": "14:25",
+        "end": "14:30",
+        "eventTitle": "Closure of the OCP Storage Session / Location: Concourse Level - 210BF"
+    },
+    
     {
         "date": "2022-10-19",
         "start": "14:30",
-        "end": "15:30",
-        "eventTitle": "Afternoon Break - Snack in Expo Hall"
+        "end": "14:35",
+        "eventTitle": "Symposium Wrap Up / Location: Lower Level - LL20BC"
     },
-
+    
+    {
+        "date": "2022-10-19",
+        "start": "14:30",
+        "end": "14:35",
+        "eventTitle": "SSDM Welcome & Kick Off / Location: Lower Level - LL20BC"
+    },
+    
+    {
+        "date": "2022-10-19",
+        "start": "14:35",
+        "end": "15:20",
+        "eventTitle": "PANEL: SDM Use Cases / Location: Lower Level - LL20BC"
+    },
+    
     {
         "date": "2022-10-19",
         "start": "15:30",
+        "end": "15:45",
+        "eventTitle": "Immersion and OAI: Potential, Challenge, and Path Forward / Location: Concourse Level - 220B"
+    },
+    
+    {
+        "date": "2022-10-19",
+        "start": "15:40",
+        "end": "16:10",
+        "eventTitle": "CSM Telemetry Data Sharing Model / Location: Lower Level - LL20D"
+    },
+    
+    {
+        "date": "2022-10-19",
+        "start": "16:15",
+        "end": "16:40",
+        "eventTitle": "Group Scope Proposal / Location: Lower Level - LL20BC"
+    },
+    
+    {
+        "date": "2022-10-19",
+        "start": "16:30",
         "end": "17:00",
-        "eventTitle": "Engineering Workshops"
+        "eventTitle": "PANEL: Industry Synergies on Cloud Scale Infrastructure Management Challenges and Opportunities / Location: Lower Level - LL20D"
     },
-
+    
     {
-        "date": "2022-10-20",
-        "start": "07:30",
-        "end": "09:00",
-        "eventTitle": "Registeration And Breakfast"
+        "date": "2022-10-19",
+        "start": "16:40",
+        "end": "16:55",
+        "eventTitle": "OCP SDM Project Plan/Discussion/Wrap Up / Location: Lower Level - LL20BC"
     },
-
+    
+    {
+        "date": "2022-10-19",
+        "start": "16:55",
+        "end": "17:00",
+        "eventTitle": "Closing Remarks / Location: Concourse Level - 220B"
+    },
+    
     {
         "date": "2022-10-20",
         "start": "08:00",
-        "end": "14:00",
-        "eventTitle": "Expo Hall Open"
-    },
-
+        "end": "08:10",
+        "eventTitle": "Intro to OCP Rack & Power Project / Location: Concourse Level - 220B"
+    },   
+    
     {
         "date": "2022-10-20",
         "start": "08:00",
+        "end": "08:20",
+        "eventTitle": "Glacier Point V3 (Carrier Card for Accelerator Modules) / Location: Concourse Level - 220C"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "08:00",
+        "end": "08:20",
+        "eventTitle": "OSF Kickoff - Status/Plans / Location: Concourse Level - 210AE"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "08:10",
+        "end": "08:40",
+        "eventTitle": "Overview of Open Rack V3 Base Specification / Location: Concourse Level - 220B"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "08:35",
+        "end": "08:50",
+        "eventTitle": "MPLS use case with SAI in Meta's Data Center Network / Location: Concourse Level - 210CG"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "08:40",
+        "end": "09:10",
+        "eventTitle": "ORv3 Project Update / Location: Concourse Level - 220B"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "08:50",
+        "end": "09:15",
+        "eventTitle": "MACsec SAI Deployment Experience in Meta Data Centers / Location: Concourse Level - 210CG"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "09:05",
+        "end": "09:30",
+        "eventTitle": "PANEL: Silent Data Corruption - Need for Broader Academic and Industry Engagement / Location: Concourse Level - 220C"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "09:10",
+        "end": "09:30",
+        "eventTitle": "ORv3 AC Whip Power Cable Development / Location: Concourse Level - 220B"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "09:50",
+        "end": "10:10",
+        "eventTitle": "OSF Production Readiness for Intel Xeon OCP Servers / Location: Concourse Level - 210AE"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "10:10",
+        "end": "10:20",
+        "eventTitle": "Scalable Optics & Extrnal Phy Testing for CI/CD / Location: Concourse Level - 210CG"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "10:40",
+        "end": "11:05",
+        "eventTitle": "Microsecond Flow Aware Congestion Measurement of Real-World Traffic at Scale / Location: Concourse Level - 210CG"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "10:45",
+        "end": "11:10",
+        "eventTitle": "Understanding Memory Usage in Data Centers and Enabling SW for CXL-Memory / Location: Lower Level - LL20BC"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "11:10",
         "end": "11:30",
-        "eventTitle": "Engineering Workshops"
+        "eventTitle": "Practical Usage of DC-MHS M-DNO Concepts / Location: Concourse Level - 220C"
     },
-
+    
     {
         "date": "2022-10-20",
-        "start": "09:00",
-        "end": "12:00",
-        "eventTitle": "Expo Hall Talks"
+        "start": "11:10",
+        "end": "11:30",
+        "eventTitle": "Closing Remarks & Future R&P Topics / Location: Concourse Level - 220B"
     },
-
-    {
-        "date": "2022-10-20",
-        "start": "11:30",
-        "end": "13:00",
-        "eventTitle": "Lunch"
-    },
-
+    
     {
         "date": "2022-10-20",
         "start": "12:30",
+        "end": "12:55",
+        "eventTitle": "Open Accelerator Infrastructure (OAI) and How it May Intersect Modular Hardware System (DC-MHS) / Location: Concourse Level - 220C"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "12:30",
+        "end": "12:55",
+        "eventTitle": "Symposium Awards Presentation / Location: Concourse Level - Hall 1 & 2"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "12:55",
+        "end": "13:15",
+        "eventTitle": "SmartNIC & OCP NIC-3 in Modular Hardware Systems (DC-MHS) / Location: Concourse Level - 220C"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "13:10",
+        "end": "14:00",
+        "eventTitle": "The Case for Standardization of RoCE Congestion Control / Location: Concourse Level - 210CG"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "13:30",
+        "end": "14:30",
+        "eventTitle": "PANEL: Hardware Fault Management Implementation Challenges / Location: Concourse Level - 210BF"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "13:55",
+        "end": "14:15",
+        "eventTitle": "Data Center Facility Security Framework for Monitoring and Logging / Location: Concourse Level - 220B"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "14:30",
+        "end": "15:00",
+        "eventTitle": "Fault Coverage and Isolation in Hyperscale Data Centers using OCP Diagnostics / Location: Concourse Level - 210DH"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "14:50",
+        "end": "15:10",
+        "eventTitle": "At-Scale Device Management Solutions for CXL Memory Device / Location: Lower Level - LL20BC"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "15:00",
+        "end": "15:30",
+        "eventTitle": "OCP Diag Specification and its Importance to the Community / Location: Concourse Level - 210DH"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "15:15",
+        "end": "15:30",
+        "eventTitle": "Developing and Standardizing New Metrics to Complement and Modernize PUE / Location: Concourse Level - 220B"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "15:20",
+        "end": "15:30",
+        "eventTitle": "Run BMC v1.5 Specification Updates / Location: Concourse Level - 210BF"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "15:20",
         "end": "16:00",
-        "eventTitle": "Engineering Workshops"
+        "eventTitle": "PANEL: Panel on Data Center Modular Hardware System (DC-MHS) / Location: Concourse Level - 220C"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "15:40",
+        "end": "16:00",
+        "eventTitle": "High Port Density Timing Card for Next-Gen Networks / Location: Concourse Level - 210AE"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "15:45",
+        "end": "16:00",
+        "eventTitle": "Autonomous Solutions for Data Center (DC) Operation / Location: Concourse Level - 220B"
+    },
+    
+    {
+        "date": "2022-10-20",
+        "start": "15:45",
+        "end": "16:00",
+        "eventTitle": "Autonomous Solutions for Data Center (DC) Operation / Location: Concourse Level - 220B"
     }
 ]

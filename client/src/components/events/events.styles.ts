@@ -40,6 +40,9 @@ export const Events = styled.div`
   gap: calc(var(--vw) * (1.4 / 100));
   display: flex;
   flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const Overview = styled.div`
@@ -90,7 +93,7 @@ interface EventDateProps {
 export const EventDate = styled.div<EventDateProps>`
   aspect-ratio: 1;
   background: white;
-  border-radius: 5px;
+  border-radius: 15%;
   color: black;
   display: flex;
   align-items: center;
@@ -105,17 +108,32 @@ export const EventDate = styled.div<EventDateProps>`
   `}
 `
 
-export const EventsList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--vw) * (1 / 100));
-  overflow-y: hidden;
-  padding: 0;
-  margin-right: calc(var(--vw) * (0.9 / 100));
-  margin-left: calc(var(--vw) * (1.1 / 100));
-  & > * {
-    margin-left: calc(var(--vw) * (1.4 / 100));
-    margin-right: calc(var(--vw) * (1.4 / 100));
+interface EventListProps {
+  eventsLength: number
+}
+
+export const EventsList = styled.div<EventListProps>`
+  overflow-y: auto;
+  height: calc(var(--vw) * (40 / 100));
+  width: 91%;
+  #event-list {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--vw) * (1 / 100));
+    overflow-y: auto;
+    ${props => props.eventsLength > 6 && `
+      margin-right: 2%;
+    `}
+  }
+  &::-webkit-scrollbar {
+    width: 1.4vw;
+    border: 4vw solid white;
+    border-radius: 4vw;
+  }
+  &::-webkit-scrollbar-thumb {
+    border: .4vw solid white;
+    background: #0281F9;
+    border-radius: 4vw;
   }
 `
 
@@ -129,8 +147,9 @@ export const Event = styled.div<EventProps>`
   flex-direction: column;
   justify-content: space-between;
   border-radius: calc(var(--vw) * (0.7 / 100));
+  gap: .3vh;
   & > * {
-    padding: calc(var(--vw) * (0.8 / 100));
+    padding: calc(var(--vw) * (1.4 / 100));
   }
   #event-header {
     display: flex;
@@ -138,17 +157,24 @@ export const Event = styled.div<EventProps>`
   }
   #event-time {
     color: #0281F9;
-    font-size: calc(var(--vw) * (1 / 100));
+    font-size: calc(var(--vw) * (1.4 / 100));
+    margin-bottom: .1%;
+  }
+  #event-info {
+    color: black;
+    font-size: calc(var(--vw) * (0.9 / 100));
+    display: flex;
+    flex-direction: column;
+    gap: .2vh;
   }
   #event-title {
-    color: black;
-    font-size: calc(var(--vw) * (0.6 / 100));
+    font-weight: bold;
   }
   ${props => props.current
   ? `
     background: #8DC141;
-    #event-time {
-      color: black
+    #event-time, #event-header, #event-info {
+      color: white
     }
   `
   : `

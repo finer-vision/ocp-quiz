@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import config from "@/config/config";
 import {
@@ -14,18 +14,25 @@ import Header from "@/components/header/header";
 import Events from "@/components/events/events";
 import BuildingsParallax from "@/components/buildings-parallax/buildings-parallax";
 import TitleSign from "@/components/title-sign/title-sign";
+import { useAnimationControls } from "framer-motion";
 
 export default function Home(props: {resetTimer: () => void}) {
   const [state, setState] = React.useState<HomeState>(HomeState.initial);
 
   const navigate = useNavigate();
+  const controls = useAnimationControls();
 
   React.useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (state === HomeState.intro) {
-        navigate("/category-selector");
-      }
-    }, 2000);
+    if(state === HomeState.intro) {
+      controls.start({
+        x: '100vw',
+        transition: {}
+      })
+      var timeout = setTimeout(() => {
+          navigate("/category-selector");
+      }, 2000);
+    }
+
     return () => clearTimeout(timeout);
   }, [state, navigate]);
   
@@ -35,7 +42,7 @@ export default function Home(props: {resetTimer: () => void}) {
       <Events />
       <HomeContent onClick={() => setState(HomeState.intro)}>
         <Header />
-        <Sticker src="./assets/sticker.png"/>
+        <Sticker animate={controls} src="./assets/sticker.png"/>
         <TitleSign />
         {state === HomeState.initial && (
           <HomeButton
@@ -43,7 +50,7 @@ export default function Home(props: {resetTimer: () => void}) {
             alt="START"
           />
         )}
-      <HomeVideo src="./assets/videos/1.1.webm" autoPlay muted loop/>
+      <HomeVideo animate={controls} src="./assets/videos/1.1.webm" autoPlay muted loop/>
       </HomeContent>
       <BuildingsParallax />
     </HomeWrapper>
