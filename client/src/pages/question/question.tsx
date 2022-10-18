@@ -52,7 +52,7 @@ export default function Question(props: {resetTimer: () => void}) {
     React.useState<Questions>(selectedQuestions);
 
   const [mounted, setMounted] = React.useState(false);
-  const [secs, setSecs] = React.useState(["4", "5"]);
+  const [secs, setSecs] = React.useState(["6", "0"]);
 
   React.useEffect(() => {
     let question: QuestionData[] = [];
@@ -114,9 +114,9 @@ export default function Question(props: {resetTimer: () => void}) {
     },
     [categoryId, question, navigate, nextQuestion]
   );
-  
+
   React.useEffect(() => {
-    var timeLeft = 45;
+    var timeLeft = 60;
 
     const interval = setInterval(() => {
       if (timeLeft == -1) {
@@ -230,7 +230,7 @@ function Answers({ question, onSelect }: AnswersProps) {
   }, [selectedAnswer]);
 
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
-  
+
   useEffect(() => {
     const timeouts: NodeJS.Timeout[] = [];
     if(selectedAnswer && selectedAnswer.toLowerCase() === question.answer) {
@@ -259,7 +259,7 @@ function Answers({ question, onSelect }: AnswersProps) {
     <QuestionAnswerMulti disabled={selectedAnswer !== ""}>
       {(question.answers as string[]).map((answer, index) => {
         const letter = letters[index];
-        
+
         return (
           <FadeIn key={index} delay={1.25 + 0.75 * index}>
             <li onClick={() => setSelectedAnswer(answer)}>
@@ -268,14 +268,14 @@ function Answers({ question, onSelect }: AnswersProps) {
                 <span>{answer[0].toUpperCase() + answer.slice(1)}</span>
                 {showCorrectAnswer && (answer.toLowerCase() === question.answer) &&
                   <>
-                    <QuestionAnswerBackground 
+                    <QuestionAnswerBackground
                     onAnimationComplete={() => setShowTick(true)}
                     correct={true}/>
                     <QuestionAnswerBorder correct={true}/>
                     {showTick && <QuestionIcon src="./assets/tick.png"/>}
                   </>
                  }
-                {(selectedAnswer.toLowerCase() === answer.toLowerCase()) && !(answer.toLowerCase() === question.answer) && 
+                {(selectedAnswer.toLowerCase() === answer.toLowerCase()) && !(answer.toLowerCase() === question.answer) &&
                 <>
                   <QuestionAnswerBackground
                   onAnimationComplete={() => setShowCross(true)}
