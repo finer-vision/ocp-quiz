@@ -48,6 +48,7 @@ export default function Finish(props: {resetTimer: () => void}) {
                 {(getRandomCode.data ?? ['?', '?', '?', '?']).map((digit, index) => {
                   return <FinishCodeDigit key={index}>{digit}</FinishCodeDigit>;
                 })}
+                <FinishCodeDigit>#</FinishCodeDigit>
             </FinishCode>
             <p>
               <FadeIn delay={1.75}>

@@ -7,6 +7,7 @@ import Results from "@/pages/results/results";
 import Question from "@/pages/question/question";
 import Finish from "@/pages/finish/finish";
 import { useAppState } from "@/state/use-app-state";
+import styled from "styled-components";
 
 const root = document.querySelector<HTMLDivElement>("#root")!;
 
@@ -33,7 +34,7 @@ export default function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       timer += 1000;
-      if(timer >= 60000) {
+      if(timer >= 100000) {
         navigate("/")
         useAppState.getState().reset();
       }
@@ -49,6 +50,16 @@ export default function App() {
   return (
     <React.Suspense fallback="Loading...">
       <AppReset />
+      <EscapeButton 
+      onDoubleClick={() => {
+        // @ts-ignore
+        if(document.fullscreenElement || document.webkitFullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          document.querySelector("body")?.requestFullscreen()
+        }
+      }}
+      >Test</EscapeButton>
       <Routes>
         <Route path="/" element={<Home resetTimer={resetTimer} />} />
         <Route path="/category-selector" element={<CategorySelector resetTimer={resetTimer} />} />
@@ -62,3 +73,14 @@ export default function App() {
     </React.Suspense>
   );
 }
+
+
+export const EscapeButton = styled.button`
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: calc(var(--vh) * (7.61157407407408 / 100));
+  width: calc(var(--vw) * (4.61157407407408 / 100));
+  opacity: 0;
+  cursor: pointer;
+`

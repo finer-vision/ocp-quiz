@@ -153,9 +153,9 @@ export const FinishVideoHappy = styled.video`
   position: absolute;
   z-index: 50;
   pointer-events: none;
-  height: 170%;
-  margin-left: -57.4%;
-  margin-top: -55%;
+  height: 130%;
+  margin-left: -50%;
+  margin-top: -40%;
   transform: scaleX(-1);
 `
 
@@ -164,8 +164,8 @@ export const FinishVideoSad = styled.video`
   position: absolute;
   z-index: 50;
   pointer-events: none;
-  height: 170%;
-  margin-left: -57.4%;
-  margin-top: -50%;
+  height: 130%;
+  margin-left: -50%;
+  margin-top: -32%;
   transform: scaleX(-1);
 `

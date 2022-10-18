@@ -138,7 +138,7 @@ export default function Question(props: {resetTimer: () => void}) {
   useEffect(() => {
    // const [secs, setSecs] = React.useState(["4", "5"]);
    if(secs[0] === "0" && secs[1] === "0") {
-    
+    navigate("/finish")
    }
   }, [secs])
 
