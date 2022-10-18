@@ -16,7 +16,7 @@ import {
   QuestionAnswer,
   QuestionAnswerBackground,
   QuestionAnswerBorder,
-  QuestionIcon
+  QuestionIcon,
 } from "@/pages/question/question.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
@@ -34,7 +34,7 @@ type Questions = {
   [prop: string]: QuestionData[];
 };
 
-export default function Question(props: {resetTimer: () => void}) {
+export default function Question(props: { resetTimer: () => void }) {
   const navigate = useNavigate();
   const params = useParams<Params>();
   const { categoryId, questionNumber } = React.useMemo(() => {
@@ -59,7 +59,9 @@ export default function Question(props: {resetTimer: () => void}) {
 
     // pick randome question on the list
     for (var i = 1; i < 4; i++) {
-      var idx = Math.floor(Math.random() * AllQuestions[categoryId].length);
+      var idx = Math.floor(
+        Math.random() * (AllQuestions[categoryId] ?? []).length
+      );
       question.push({
         ...AllQuestions[categoryId][idx],
         id: i, // id will be assigned to 1,2,3
@@ -87,7 +89,7 @@ export default function Question(props: {resetTimer: () => void}) {
 
   const totalQuestions = React.useMemo(() => {
     if (!mounted) return;
-    return questions[categoryId].length;
+    return (questions[categoryId] ?? []).length;
   }, [categoryId, mounted]);
   const question = React.useMemo(() => {
     return (questions[categoryId] ?? []).find((question) => {
@@ -136,11 +138,11 @@ export default function Question(props: {resetTimer: () => void}) {
   }, []);
 
   useEffect(() => {
-   // const [secs, setSecs] = React.useState(["4", "5"]);
-   if(secs[0] === "0" && secs[1] === "0") {
-    navigate("/finish")
-   }
-  }, [secs])
+    // const [secs, setSecs] = React.useState(["4", "5"]);
+    if (secs[0] === "0" && secs[1] === "0") {
+      navigate("/finish");
+    }
+  }, [secs]);
 
   if (!mounted) return <></>;
 
@@ -178,23 +180,27 @@ export default function Question(props: {resetTimer: () => void}) {
                 {questionNumber}/{totalQuestions}
               </FadeIn>
             </QuestionProgress>
-            <QuestionTitle {... ((question.question.length > 100 && question.answers.length > 2) ? {
-              style: {
-                fontSize: '1.8vw'
-              }
-            }
-            : {
-              style: {
-                fontSize: '2vw'
-              }
-            })}>
+            <QuestionTitle
+              {...((question.question ?? "").length > 100 &&
+              (question.answers ?? "").length > 2
+                ? {
+                    style: {
+                      fontSize: "1.8vw",
+                    },
+                  }
+                : {
+                    style: {
+                      fontSize: "2vw",
+                    },
+                  })}
+            >
               <FadeIn delay={0.75}>{question.question}</FadeIn>
             </QuestionTitle>
             <QuestionAnswers>
               <Answers question={question} onSelect={handleSelect} />
             </QuestionAnswers>
             <QuestionCategoryProgress>
-              <Progress/>
+              <Progress />
             </QuestionCategoryProgress>
           </QuestionContainer>
         </QuizFrame>
@@ -233,17 +239,23 @@ function Answers({ question, onSelect }: AnswersProps) {
 
   useEffect(() => {
     const timeouts: NodeJS.Timeout[] = [];
-    if(selectedAnswer && selectedAnswer.toLowerCase() === question.answer) {
+    if (selectedAnswer && selectedAnswer.toLowerCase() === question.answer) {
       setShowCorrectAnswer(true);
-      timeouts.push(setTimeout(() => {
-        useAppState.getState().pushQuestionProgress(true);
-      }, 3000));
-    }
-    else if(selectedAnswer && !(selectedAnswer.toLowerCase() === question.answer)) {
-      timeouts.push(setTimeout(() => {
-        setShowCorrectAnswer(true);
-        useAppState.getState().pushQuestionProgress(false);
-      }, 3000));
+      timeouts.push(
+        setTimeout(() => {
+          useAppState.getState().pushQuestionProgress(true);
+        }, 3000)
+      );
+    } else if (
+      selectedAnswer &&
+      !(selectedAnswer.toLowerCase() === question.answer)
+    ) {
+      timeouts.push(
+        setTimeout(() => {
+          setShowCorrectAnswer(true);
+          useAppState.getState().pushQuestionProgress(false);
+        }, 3000)
+      );
     } else {
       setShowCorrectAnswer(false);
       setShowCross(false);
@@ -251,9 +263,9 @@ function Answers({ question, onSelect }: AnswersProps) {
     }
 
     return () => {
-      timeouts.map(timeout => clearTimeout(timeout))
-    }
-  }, [selectedAnswer])
+      timeouts.map((timeout) => clearTimeout(timeout));
+    };
+  }, [selectedAnswer]);
 
   return (
     <QuestionAnswerMulti disabled={selectedAnswer !== ""}>
@@ -266,23 +278,27 @@ function Answers({ question, onSelect }: AnswersProps) {
               <img src={`./assets/${letter}.png`} alt={letter} />
               <QuestionAnswer>
                 <span>{answer[0].toUpperCase() + answer.slice(1)}</span>
-                {showCorrectAnswer && (answer.toLowerCase() === question.answer) &&
+                {showCorrectAnswer && answer.toLowerCase() === question.answer && (
                   <>
                     <QuestionAnswerBackground
-                    onAnimationComplete={() => setShowTick(true)}
-                    correct={true}/>
-                    <QuestionAnswerBorder correct={true}/>
-                    {showTick && <QuestionIcon src="./assets/tick.png"/>}
+                      onAnimationComplete={() => setShowTick(true)}
+                      correct={true}
+                    />
+                    <QuestionAnswerBorder correct={true} />
+                    {showTick && <QuestionIcon src="./assets/tick.png" />}
                   </>
-                 }
-                {(selectedAnswer.toLowerCase() === answer.toLowerCase()) && !(answer.toLowerCase() === question.answer) &&
-                <>
-                  <QuestionAnswerBackground
-                  onAnimationComplete={() => setShowCross(true)}
-                  correct={false}/>
-                  <QuestionAnswerBorder correct={false}/>
-                  {showCross && <QuestionIcon src="./assets/cross.png"/>}
-                </>}
+                )}
+                {selectedAnswer.toLowerCase() === answer.toLowerCase() &&
+                  !(answer.toLowerCase() === question.answer) && (
+                    <>
+                      <QuestionAnswerBackground
+                        onAnimationComplete={() => setShowCross(true)}
+                        correct={false}
+                      />
+                      <QuestionAnswerBorder correct={false} />
+                      {showCross && <QuestionIcon src="./assets/cross.png" />}
+                    </>
+                  )}
               </QuestionAnswer>
             </li>
           </FadeIn>
