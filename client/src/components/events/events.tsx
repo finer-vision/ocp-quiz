@@ -50,7 +50,7 @@ export default () => {
               if(selectedDate !== new Date(Number(startDateInSeconds)).getDate()) {
                 return null
               }
-              const [title, location] = eventTitle.split("/")
+              const [title, location] = eventTitle.split("//")
               return (
                 <Event
                 current={currentDate >= Number(startDateInSeconds) && currentDate <= Number(endDateInSeconds)}
