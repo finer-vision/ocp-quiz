@@ -121,9 +121,7 @@ export const EventsList = styled.div<EventListProps>`
     flex-direction: column;
     gap: calc(var(--vw) * (1 / 100));
     overflow-y: auto;
-    ${props => props.eventsLength > 6 && `
-      margin-right: 2%;
-    `}
+    margin-right: 2%;
   }
   &::-webkit-scrollbar {
     width: 1.4vw;
