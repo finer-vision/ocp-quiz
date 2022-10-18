@@ -9,9 +9,6 @@ type Config = {
 
 const localTimeZoneOffset = -7;
 
-const TEST_WIN_COUNT = 10;
-const TEST_WIN_START_HOUR = 9;
-
 const config: Config = {
   usedCodeIdsFilePath: path.resolve(
     __dirname,
@@ -21,17 +18,6 @@ const config: Config = {
   ),
   apiUrl: "http://localhost:8888",
   winningCodes: [
-    // Day 0 – test day
-    ...Array.from(Array(TEST_WIN_COUNT)).map((_, index) => {
-      const hour = TEST_WIN_START_HOUR + index;
-      return {
-        id: -TEST_WIN_COUNT + index,
-        digits: [9, 6, 8, 1],
-        validAfter: new Date(
-          Date.UTC(2022, 9, 17, hour + localTimeZoneOffset, 0, 0)
-        ),
-      };
-    }),
     // Day 1 – morning win
     {
       id: 1,
