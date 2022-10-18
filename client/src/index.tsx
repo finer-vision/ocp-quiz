@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import trpc from "@/services/trpc";
 import config from "@/config/config";
 import App from "@/components/app/app";
+import ErrorBoundary from "@/components/error-boundary/error-boundary";
 
 const root = ReactDOM.createRoot(document.querySelector("#root")!);
 
@@ -18,11 +19,13 @@ const trpcClient = trpc.createClient({
 });
 
 root.render(
-  <trpc.Provider client={trpcClient} queryClient={queryClient}>
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <App />
-      </Router>
-    </QueryClientProvider>
-  </trpc.Provider>
+  <ErrorBoundary>
+    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <App />
+        </Router>
+      </QueryClientProvider>
+    </trpc.Provider>
+  </ErrorBoundary>
 );

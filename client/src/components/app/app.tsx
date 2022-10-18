@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { AppReset } from "@/components/app/app.styles";
 import Home from "@/pages/home/home";
 import CategorySelector from "@/pages/category-selector/category-selector";
@@ -34,36 +34,44 @@ export default function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       timer += 1000;
-      if(timer >= 100000) {
-        navigate("/")
+      if (timer >= 100000) {
+        navigate("/");
         useAppState.getState().reset();
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [])
+  }, []);
 
   const resetTimer = () => {
     timer = 0;
-  }
+  };
 
   return (
     <React.Suspense fallback="Loading...">
       <AppReset />
-      <EscapeButton 
-      onDoubleClick={() => {
-        // @ts-ignore
-        if(document.fullscreenElement || document.webkitFullscreenElement) {
-          document.exitFullscreen();
-        } else {
-          document.querySelector("body")?.requestFullscreen()
-        }
-      }}
-      >Test</EscapeButton>
+      <EscapeButton
+        onDoubleClick={() => {
+          // @ts-ignore
+          if (document.fullscreenElement || document.webkitFullscreenElement) {
+            document.exitFullscreen();
+          } else {
+            document.querySelector("body")?.requestFullscreen();
+          }
+        }}
+      >
+        Test
+      </EscapeButton>
       <Routes>
         <Route path="/" element={<Home resetTimer={resetTimer} />} />
-        <Route path="/category-selector" element={<CategorySelector resetTimer={resetTimer} />} />
-        <Route path="/question/:categoryId/results" element={<Results resetTimer={resetTimer} />} />
+        <Route
+          path="/category-selector"
+          element={<CategorySelector resetTimer={resetTimer} />}
+        />
+        <Route
+          path="/question/:categoryId/results"
+          element={<Results resetTimer={resetTimer} />}
+        />
         <Route
           path="/question/:categoryId/:questionNumber"
           element={<Question resetTimer={resetTimer} />}
@@ -74,7 +82,6 @@ export default function App() {
   );
 }
 
-
 export const EscapeButton = styled.button`
   position: fixed;
   top: 0;
@@ -84,4 +91,4 @@ export const EscapeButton = styled.button`
   opacity: 0;
   cursor: pointer;
   z-index: 100;
-`
+`;
