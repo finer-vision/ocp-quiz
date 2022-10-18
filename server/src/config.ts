@@ -7,7 +7,7 @@ type Config = {
   winningCodes: WinningCode[];
 };
 
-const localTimeZoneOffset = -7;
+const localTimeZoneOffset = 0;
 
 const config: Config = {
   usedCodeIdsFilePath: path.resolve(
