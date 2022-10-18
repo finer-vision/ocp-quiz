@@ -50,7 +50,7 @@ export default () => {
               if(selectedDate !== new Date(Number(startDateInSeconds)).getDate()) {
                 return null
               }
-              const [title, location] = eventTitle.split("//")
+              const [title, location, presented] = eventTitle.split("//")
               return (
                 <Event
                 current={currentDate >= Number(startDateInSeconds) && currentDate <= Number(endDateInSeconds)}
@@ -59,6 +59,7 @@ export default () => {
                     <span id="event-time">{start} - {end}</span>
                     <div id="event-info">
                       <span id="event-title">{title}</span>
+                      <span>{presented}</span>
                       <span>{location}</span>
                     </div>
                   </div>
