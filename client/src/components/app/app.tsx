@@ -83,4 +83,5 @@ export const EscapeButton = styled.button`
   width: calc(var(--vw) * (4.61157407407408 / 100));
   opacity: 0;
   cursor: pointer;
+  z-index: 100;
 `
