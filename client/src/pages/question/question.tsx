@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
-  QuestionAnswerBoolean,
-  QuestionAnswerBooleanAnswer,
+  QuestionAnswer,
+  QuestionAnswerBackground,
+  QuestionAnswerBorder,
   QuestionAnswerMulti,
   QuestionAnswers,
   QuestionCategoryProgress,
   QuestionContainer,
-  QuestionDecorContainer,
   QuestionDecor,
+  QuestionDecorContainer,
+  QuestionIcon,
   QuestionProgress,
   QuestionTitle,
   QuestionWrapper,
   TimerContainer,
-  QuestionAnswer,
-  QuestionAnswerBackground,
-  QuestionAnswerBorder,
-  QuestionIcon,
 } from "@/pages/question/question.styles";
 import { FadeIn } from "@/styles/elements";
 import QuizFrame from "@/components/quiz-frame/quiz-frame";
@@ -269,7 +267,7 @@ function Answers({ question, onSelect }: AnswersProps) {
 
   return (
     <QuestionAnswerMulti disabled={selectedAnswer !== ""}>
-      {(question.answers as string[]).map((answer, index) => {
+      {((question.answers ?? []) as string[]).map((answer, index) => {
         const letter = letters[index];
 
         return (
