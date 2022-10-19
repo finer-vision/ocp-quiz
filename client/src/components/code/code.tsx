@@ -8,6 +8,7 @@ export default function Code() {
     retryOnMount: false,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
+    cacheTime: 0,
   });
 
   const [forceShow, setForceShow] = React.useState(false);
