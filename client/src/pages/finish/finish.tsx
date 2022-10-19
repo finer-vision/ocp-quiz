@@ -50,7 +50,7 @@ export default function Finish(props: { resetTimer: () => void }) {
             </FinishCode>
             <p>
               <FadeIn delay={1.75}>
-                Try out this code to see if you win an Oculus Quest
+                Try out this code to see if you win an Meta Quest 2
               </FadeIn>
             </p>
             <FadeIn delay={2.5}>
