@@ -6,8 +6,6 @@ import config from "./config";
 const apiBinPath = path.resolve(__dirname, "..", "bin", "api.py");
 const proc = spawn("/usr/bin/python3", [apiBinPath]);
 
-console.log(config.winningCodes);
-
 proc.on("error", (err) => {
   console.error(err);
 });

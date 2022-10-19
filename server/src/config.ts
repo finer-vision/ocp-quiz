@@ -38,7 +38,7 @@ const config: Config = {
     {
       id: 4,
       digits: [8, 4, 8, 8],
-      validAfter: new Date(2022, 9, 19, 15, 0, 0),
+      validAfter: new Date(2022, 9, 19, 16, 0, 0),
     },
     // Day 3 – morning win
     {
