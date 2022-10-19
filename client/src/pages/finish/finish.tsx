@@ -21,7 +21,7 @@ export default function Finish(props: { resetTimer: () => void }) {
 
   const finish = React.useCallback(() => {
     useAppState.getState().reset();
-    navigate("/");
+    window.location.href = "/";
   }, [navigate]);
 
   const isWinner = useAppState((state) => {
