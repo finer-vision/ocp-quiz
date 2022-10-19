@@ -50,7 +50,7 @@ const config: Config = {
     {
       id: 6,
       digits: [4, 8, 5, 0],
-      validAfter: new Date(2022, 9, 20, 12, 0, 0),
+      validAfter: new Date(2022, 9, 20, 13, 0, 0),
     },
   ],
 };
